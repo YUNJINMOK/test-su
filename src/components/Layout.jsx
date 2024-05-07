@@ -1,7 +1,7 @@
 import Header from "./Header";
 import MenuBar from "./MenuBar";
 
-export default function Layout(children) {
+export default function Layout({ children }) {
   return (
     <div>
       <Header />
