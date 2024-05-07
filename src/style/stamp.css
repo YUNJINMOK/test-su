@@ -1,0 +1,19 @@
+.stamp-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.stamp-dropmenu {
+  margin:50px 0;
+  background-color: lightgray;
+  padding: 10px 50px;
+  font-size: 20px;
+}
+.stamp-box {
+  display: grid;
+  grid-template-columns: repeat(2,2fr);
+  gap: 30px;
+}
+.stamp-box img {
+  width: 100px;
+}

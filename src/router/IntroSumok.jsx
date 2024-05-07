@@ -5,7 +5,7 @@ import { GiCampingTent } from "react-icons/gi";
 export default function IntroSumok() {
   return (
     <Layout>
-      <div className="intro-part">
+      <div className="intro-section">
         {/* 타이틀 */}
         <div className="intro-title">
           <h1>수목원 소개</h1>

@@ -7,6 +7,7 @@ import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Notfound from "./router/Notfound";
 import IntroSumok from "./router/IntroSumok";
+import StampPage from "./router/StampPage";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,10 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {path: "/introsumok",
-    element: <IntroSumok/>}
+    element: <IntroSumok/>},
+    {path: "/stamp",
+    element: <StampPage/>},
+
     ],
   },
 ]);
