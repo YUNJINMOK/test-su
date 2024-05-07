@@ -1,7 +1,18 @@
 import "../style/menubar";
+import { AiFillHome } from "react-icons/ai";
 
 export default function MenuBar() {
-  return <div>
-asdf
-  </div>;
+  return (
+    <div>
+      <div className="menu">
+        
+          <AiFillHome />
+        
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  );
 }
