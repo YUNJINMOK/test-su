@@ -5,9 +5,8 @@ export default function MenuBar() {
   return (
     <div>
       <div className="menu">
-        
-          <AiFillHome />
-        
+        <AiFillHome />
+
         <div></div>
         <div></div>
         <div></div>
