@@ -48,7 +48,7 @@ export default function IntroSumok() {
         {/* 주의사항 */}
         <div className="caution">
           <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주의사항</h3>
-          <div className="caution-container">
+          <div className="caution-box">
             <div>
               <GiCampingTent />
               <p>주류, 버너, 텐트, 그늘막 취사 등</p>

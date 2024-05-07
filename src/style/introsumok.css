@@ -69,10 +69,15 @@ h3::before {
 
 /* 주의사항--------------------- */
 
-.caution-container {
+.caution-box {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   justify-items: center;
+}
+.caution-box div {
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  align-items: center;
 }
