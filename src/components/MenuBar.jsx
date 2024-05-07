@@ -6,7 +6,6 @@ export default function MenuBar() {
     <div>
       <div className="menu">
         <AiFillHome />
-
         <div></div>
         <div></div>
         <div></div>

@@ -6,6 +6,7 @@ import Home from "./router/Home";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Notfound from "./router/Notfound";
+import IntroSumok from "./router/IntroSumok";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,8 @@ const router = createBrowserRouter([
         path: "/home",
         element: <Home />,
       },
+      {path: "/introsumok",
+    element: <IntroSumok/>}
     ],
   },
 ]);

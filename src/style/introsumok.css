@@ -1,0 +1,78 @@
+
+.intro-part {
+  padding: 1rem;
+  word-break: keep-all;
+}
+.intro-time, .caution {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+/* 이용시간---------------------------- */
+.intro-title{
+  margin-bottom: 50px;
+}
+
+h3 {
+  position: relative;
+  margin-bottom: 15px;
+  
+}
+h3::before {
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  left: 5px;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #119724;
+  display: inline-block;
+  border-radius: 50%;
+}
+.intro-timetable {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.timetable-title {
+  display: flex;
+  justify-content: space-around;
+  border-top: 2px solid #119724;
+  border-bottom: 2px solid #119724;
+  padding: 5px 0;
+}
+.timetable-title p:first-child{
+  position: relative;
+}
+.timetable-title p:first-child::after {
+  content: "";
+  position: absolute;
+  right: -65px;
+  width: 2px;
+  height: 20px;
+  background-color: #119724;
+  display: inline-block;
+}
+.timetable-column {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid lightgray;
+  padding: 5px 0;
+}
+.timetable-column:last-of-type {
+  border-bottom: none;
+}
+.timetable-caution {
+  font-size: 12px;
+}
+
+/* 주의사항--------------------- */
+
+.caution-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  text-align: center;
+}
