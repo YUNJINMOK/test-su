@@ -3,9 +3,9 @@ import MenuBar from "./MenuBar";
 
 export default function Layout({ children }) {
   return (
-    <div>
+    <div className="w-full h-screen">
       <Header />
-      <div>{children}</div>
+      <div className="content">{children}</div>
       <MenuBar />
     </div>
   );
