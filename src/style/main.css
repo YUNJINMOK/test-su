@@ -1,0 +1,20 @@
+.main-bg {
+  width: 100vw;
+  height: 100vh;
+  background-color: #119724;
+}
+.main-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.main-logo {
+  width: 80%;
+}
+.main-title {
+  color: white;
+  font-family: "April16th-Promise";
+  font-size: 2.5rem;
+}
