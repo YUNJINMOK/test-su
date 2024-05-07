@@ -6,7 +6,7 @@ export default function Layout({ children }) {
     <div className="w-full h-screen">
       <Header />
       <div className="content">{children}</div>
-      <MenuBar className="fixed bottom-0" />
+      <MenuBar />
     </div>
   );
 }
