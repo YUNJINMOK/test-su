@@ -1,4 +1,4 @@
-import "../style/menubar";
+import "../style/menubar.css";
 import { AiFillHome } from "react-icons/ai";
 
 export default function MenuBar() {
