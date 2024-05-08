@@ -1,5 +1,7 @@
+import GreenDot from "../components/GreenDot";
 import Hours from "../components/Hours";
 import Layout from "../components/Layout";
+import Title from "../components/Title";
 import "../style/introsumok.css";
 import { GiCampingTent } from "react-icons/gi";
 
@@ -8,12 +10,11 @@ export default function IntroSumok() {
     <Layout>
       <div className="intro-section">
         {/* 타이틀 */}
-        <div className="intro-title">
-          <h1>수목원 소개</h1>
-        </div>
+        <Title title="수목원 소개" />
         {/* 컨텐츠 */}
         {/* 이용시간 */}
         <div className="intro-time">
+          <GreenDot title="이용시간" />
           <Hours
             date1="0월 0일~0월 0일"
             time1="0시간"

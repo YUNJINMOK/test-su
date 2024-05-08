@@ -20,3 +20,67 @@
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+
+/* 공통적용 css ------------------------------------------*/
+/* GreenDot */
+.hoursT {
+  position: relative;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+h3::before {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 5px;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #119724;
+  display: inline-block;
+  border-radius: 50%;
+}
+/* Hours */
+.intro-title {
+  margin-bottom: 20px;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.intro-timetable {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.timetable-title {
+  display: flex;
+  justify-content: space-around;
+  border-top: 2px solid #119724;
+  border-bottom: 2px solid #119724;
+  padding: 5px 0;
+}
+.timetable-title p:first-child {
+  position: relative;
+}
+.timetable-title p:first-child::after {
+  content: "";
+  position: absolute;
+  right: -85px;
+  width: 2px;
+  height: 20px;
+  background-color: #119724;
+  display: inline-block;
+}
+.timetable-column {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid lightgray;
+  padding: 5px 0;
+}
+.timetable-column:last-of-type {
+  border-bottom: none;
+}
+.timetable-column p {
+  flex: 1;
+  text-align: center;
+}

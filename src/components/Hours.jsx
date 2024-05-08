@@ -3,7 +3,6 @@ import React from "react";
 export default function Hours({date1,date2,date3, time1,time2,time3}) {
   return (
     <>
-      <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이용시간</h3>
       <div className="intro-timetable">
         <div className="timetable-title">
           <p>기간</p>
