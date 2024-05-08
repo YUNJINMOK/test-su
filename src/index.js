@@ -10,6 +10,7 @@ import IntroSumok from "./router/IntroSumok";
 import StampPage from "./router/StampPage";
 import MyPage from "./router/MyPage";
 import IndoorInfo from "./router/IndoorInfo";
+import Shelter from "./router/Shelter";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
         path: "/indoorinfo",
         element: <IndoorInfo />,
       },
+      {
+        path: "/shelter",
+        element: <Shelter />,
+      },
+
     ],
   },
 ]);
