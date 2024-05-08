@@ -50,8 +50,7 @@ section#mypage #accountInfo div p:last-child {
 }
 
 .settingBtn .btnTxt {
-  padding: 0 20px 0 0;
-  max-width: 200px;
+  max-width: 210px;
 }
 .settingBtn .btnTxt p:first-child {
   font-size: 24px;
@@ -59,7 +58,7 @@ section#mypage #accountInfo div p:last-child {
   margin-bottom: 10px;
 }
 .settingBtn .btnTxt p:last-child {
-  font-size: 18px;
+  font-size: 15px;
   line-height: 24px;
 }
 .settingBtn .togBtn {
