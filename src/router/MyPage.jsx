@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
-import "../style/mypage.css";
 import { useTheme } from "../context/themeProvider.js";
-// import styled from "styled-components";
+import "../style/mypage.css";
 
 export default function MyPage() {
   const [btn1, setBtn1] = useState(false);
   const [btn2, setBtn2] = useState(false);
   const [ThemeMode, toggleTheme] = useTheme();
-  console.log(ThemeMode)
-  function darkMode () {setBtn1(!btn1);
-    toggleTheme()}
+  console.log(ThemeMode);
+  function darkMode() {
+    setBtn1(!btn1);
+    toggleTheme();
+  }
 
   return (
     <Layout>
-      <section>
+      <section id="mypage">
         <h2>ooo123 님의 마이페이지</h2>
         <div id="accountInfo">
           <div>
@@ -30,18 +31,13 @@ export default function MyPage() {
           </div>
         </div>
       </section>
-      <div className="settingBtn"
-      onClick={darkMode
-      }>
+      <div className="settingBtn" onClick={darkMode}>
         <div className="btnTxt">
           <p>다크 모드</p>
           <p>앱 화면을 어둡게 변경합니다.</p>
         </div>
         <div className="togBtn">
-          <div
-            className="togCircle"
-            style={{ left: btn1 ? "22px" : "0" }}
-          ></div>
+          <div className="togCircle" style={{ left: btn1 ? "22px" : "0" }}></div>
         </div>
       </div>
       <div className="settingBtn" onClick={() => setBtn2(!btn2)}>
@@ -50,10 +46,7 @@ export default function MyPage() {
           <p>버튼 설명이 들어오는 곳</p>
         </div>
         <div className="togBtn">
-          <div
-            className="togCircle"
-            style={{ left: btn2 ? "22px" : "0" }}
-          ></div>
+          <div className="togCircle" style={{ left: btn2 ? "22px" : "0" }}></div>
         </div>
       </div>
     </Layout>

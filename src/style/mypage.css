@@ -1,36 +1,37 @@
-section {
+section#mypage {
   padding: 60px 25px;
 }
-section h2 {
+
+section#mypage h2 {
   font-size: 30px;
   font-weight: bold;
 }
 
-section #accountInfo {
+section#mypage #accountInfo {
   padding: 40px 30px 0 10px;
 }
 
-section #accountInfo > div:last-child {
+section#mypage #accountInfo > div:last-child {
   margin-top: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-section #accountInfo > div:last-child button {
+section#mypage #accountInfo > div:last-child button {
   padding: 5px 20px;
   border-radius: 50px;
   border: 1px solid gray;
   font-size: 18px;
 }
 
-section #accountInfo div p:first-child {
+section#mypage #accountInfo div p:first-child {
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 5px;
 }
 
-section #accountInfo div p:last-child {
+section#mypage #accountInfo div p:last-child {
   font-size: 20px;
   color: gray;
 }
