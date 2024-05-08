@@ -18,7 +18,7 @@ export default function Home() {
             <img className=" absolute right-[10%] top-4 w-[30%] -z-10" src="https://images.unsplash.com/photo-1517157488732-b80ab10430e4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="진목픽 이미지" />
           </div>
         </div>
-        <div className={`w-[300px] h-[390px] ${ThemeMode==="dark"? "bg-[#292929]" : "bg-[#ECECEC]"}  rounded-lg flex flex-col`}>
+        <div className={`w-[300px] h-[390px] ${ThemeMode === "dark" ? "bg-[#292929]" : "bg-[#ECECEC]"}  rounded-lg flex flex-col`}>
           <Link to="/introsumok" className="w-full h-1/3">
             <Textbox title="수목원소개" text="이용시간, 주의사항 등" />
           </Link>
@@ -26,7 +26,7 @@ export default function Home() {
             <Textbox title="내부 시설 안내" text="전시관, 체험장 소개" />
           </Link>
           <Link className="w-full h-1/3">
-            <Textbox title="편의시설 안내" text="ㅁㄴㅇㄻㄴㅇㄹ" />
+            <Textbox title="편의시설 안내" text="ㅁㄴㅇㄻㄴㅇㄹ" border="border-none" />
           </Link>
         </div>
       </div>
