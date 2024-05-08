@@ -42,8 +42,8 @@ export default function MyPage() {
       </div>
       <div className="settingBtn" onClick={() => setBtn2(!btn2)}>
         <div className="btnTxt">
-          <p>버튼 이름</p>
-          <p>버튼 설명이 들어오는 곳</p>
+          <p>색맹 모드</p>
+          <p>색깔을 구분하기 힘든 분들을 위해 찍힌 스탬프의 모양을 변경합니다.</p>
         </div>
         <div className="togBtn">
           <div className="togCircle" style={{ left: btn2 ? "22px" : "0" }}></div>
