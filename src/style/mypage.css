@@ -81,3 +81,8 @@ section#mypage #accountInfo div p:last-child {
   border-radius: 100%;
   margin: 0 6px;
 }
+
+.settingBtn .darkBtn {
+  background : #383838;
+}
+
