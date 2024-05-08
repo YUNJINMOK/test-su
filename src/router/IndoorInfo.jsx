@@ -13,21 +13,13 @@ export default function IndoorInfo() {
         {/* 산림문화전시관 */}
         <div className="forestcul">
           <p className="forestcul-title">산림문화전시관</p>
-          <p className="forestcul-text">
-            대구수목원의 설립목적 중 하나인 도시민들의 자연체험과 학습의 기회를
-            제공하는데 일익을 담당하고, 자연학습장으로서의 역할 강화에 있습니다.
-          </p>
+          <p className="forestcul-text">대구수목원의 설립목적 중 하나인 도시민들의 자연체험과 학습의 기회를 제공하는데 일익을 담당하고, 자연학습장으로서의 역할 강화에 있습니다.</p>
         </div>
         {/* 이용시간 */}
 
         <div className="intro-time">
-          <GreenDot title="이용 시간" />
-          <Hours
-            date1="0월 0일~0월 0일"
-            time1="0시간"
-            date2="0월 0일~0월 0일"
-            time2="0시간"
-          />
+          <GreenDot title="이용시간" />
+          <Hours date1="0월 0일~0월 0일" time1="0시간" date2="0월 0일~0월 0일" time2="0시간" />
           <div className="timetable-caution">
             <p>※매주 월요일과 추석, 설날은 휴관일입니다. </p>
           </div>
@@ -57,26 +49,18 @@ export default function IndoorInfo() {
             </div>
           </div>
         </div>
-        {/* 산림문화전시관 */}
+        {/* 목재문화체험장 */}
         <div className="forestcul">
-          <p className="forestcul-title">산림문화전시관</p>
-          <p className="forestcul-text">
-            대구수목원의 설립목적 중 하나인 도시민들의 자연체험과 학습의 기회를
-            제공하는데 일익을 담당하고, 자연학습장으로서의 역할 강화에 있습니다.
-          </p>
+          <p className="forestcul-title">목재문화체험장</p>
+          <p className="forestcul-text">시민들에게 목공체험을 통한 다양한 목재문화 및 목공예에 관한 정보를 제공하고자 합니다.</p>
         </div>
         {/* 이용시간 */}
 
         <div className="intro-time">
           <GreenDot title="이용 시간" />
-          <Hours
-            date1="0월 0일~0월 0일"
-            time1="0시간"
-            date2="0월 0일~0월 0일"
-            time2="0시간"
-          />
+          <Hours date1="0월 0일~0월 0일" time1="0시간" date2="0월 0일~0월 0일" time2="0시간" />
           <div className="timetable-caution">
-            <p>※매주 월요일과 추석, 설날은 휴관일입니다. </p>
+            <p>※매주 월요일과 공휴일은 휴관일입니다. </p>
           </div>
         </div>
       </div>

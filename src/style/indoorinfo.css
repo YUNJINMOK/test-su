@@ -1,29 +1,30 @@
 .indoor-section {
-    padding: 1rem;
-    word-break: keep-all;
-  }
-  /* 산림문화전시관 */
-  .forestcul {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
-  .forestcul-title {
-    color: #119724;
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-  .forestcul-text {
-    font-size: 15px;
-    padding-left: 5px;
-    word-break: normal;
-  }
+  padding: 1rem;
+  word-break: keep-all;
+}
+/* 산림문화전시관 */
+.forestcul {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.forestcul-title {
+  color: #119724;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.forestcul-text {
+  font-size: 15px;
+  padding-left: 5px;
+  word-break: normal;
+}
 
 /* 층별안내 */
 .floorInfo {
-  display: flex;  
+  display: flex;
   flex-direction: column;
+  margin-bottom: 50px;
 }
 .floorInfo-con-box p {
   border-bottom: 1px solid gray;
@@ -36,10 +37,8 @@
   display: flex;
   justify-content: space-around;
 }
-.floorImg div{
+.floorImg div {
   width: 145px;
   height: 145px;
   background: gray;
 }
-
-
