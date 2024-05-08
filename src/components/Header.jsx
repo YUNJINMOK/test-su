@@ -9,9 +9,8 @@ export default function Header() {
         <div className="w-[20%] ml-4 flex justify-start items-center">
           <IoIosArrowBack />
         </div>
-
         <img className="w-[15%] h-[50%]" src={headerLogo} alt="logo" />
-        <span className="text-2xl text-[#119724] font-semibold ffTitle">대구 수목원</span>
+        <span className="text-2xl text-[#119724] font-semibold ffTitle">대구수목원</span>
       </div>
     </div>
   );
