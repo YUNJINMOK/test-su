@@ -1,26 +1,25 @@
-
 .intro-section {
   padding: 1rem;
   word-break: keep-all;
 }
-.intro-time, .caution {
+.intro-time,
+.caution {
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
 }
 /* 이용시간---------------------------- */
-.intro-title{
+.intro-title {
   margin-bottom: 50px;
 }
 
 h3 {
   position: relative;
   margin-bottom: 15px;
-  
 }
 h3::before {
   position: absolute;
-  top:50%;
+  top: 50%;
   transform: translateY(-50%);
   left: 5px;
   content: "";
@@ -42,7 +41,7 @@ h3::before {
   border-bottom: 2px solid #119724;
   padding: 5px 0;
 }
-.timetable-title p:first-child{
+.timetable-title p:first-child {
   position: relative;
 }
 .timetable-title p:first-child::after {
@@ -72,7 +71,7 @@ h3::before {
 .caution-box {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 10px;
   justify-items: center;
 }
 .caution-box div {
@@ -80,4 +79,8 @@ h3::before {
   flex-direction: column;
   text-align: center;
   align-items: center;
+  background: #f7f7f7;
+  border: 1px solid #dee4e7;
+  border-radius: 10px;
+  width: 100%;
 }
