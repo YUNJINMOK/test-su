@@ -1,6 +1,5 @@
 import React from "react";
 import { IoIosArrowBack } from "react-icons/io";
-
 import headerLogo from "../assets/gpsLogo.svg";
 
 export default function Header() {
@@ -12,9 +11,7 @@ export default function Header() {
         </div>
 
         <img className="w-[15%] h-[50%]" src={headerLogo} alt="logo" />
-        <span className=" text-2xl text-[#119724] font-semibold">
-          대구 수목원
-        </span>
+        <span className="text-2xl text-[#119724] font-semibold ffTitle">대구 수목원</span>
       </div>
     </div>
   );

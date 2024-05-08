@@ -2,24 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.ffTitle {
+  font-family: "April16th-Promise";
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+* {
+  word-break: keep-all;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 @font-face {
   font-family: "April16th-Promise";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2404-2@1.0/April16th-Promise.woff2")
-    format("woff2");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2404-2@1.0/April16th-Promise.woff2") format("woff2");
   font-weight: 200;
   font-style: normal;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
