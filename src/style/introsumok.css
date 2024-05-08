@@ -14,6 +14,9 @@
 .timetable-caution {
   font-size: 12px;
 }
+.timetable-caution p {
+  line-height: 16px;
+}
 
 /* 주의사항--------------------- */
 
@@ -33,7 +36,7 @@
   border-radius: 10px;
   width: 100%;
   padding: 20px 10px;
-  font-size: 18px;
+  line-height: 19px;
   height: 190px;
   position: relative;
 }
@@ -42,7 +45,7 @@
   content: "";
   width: 8px;
   height: 65px;
-  background: var(--mainGreen);
+  background: #1bcc34;
   opacity: 0.5;
   top: 27px;
   transform: rotate(-35deg);
@@ -52,7 +55,7 @@
   content: "";
   width: 80px;
   height: 80px;
-  border: 8px solid var(--mainGreen);
+  border: 8px solid #1bcc34;
   border-radius: 50px;
   opacity: 0.5;
   display: inline-block;

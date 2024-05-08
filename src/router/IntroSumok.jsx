@@ -28,32 +28,32 @@ export default function IntroSumok() {
         <div className="caution">
           <GreenDot title="금지사항" />
           <div className="caution-box">
-            <div style={{background: ThemeMode==='dark'? "#292929" : ""}}>
-              <PiTentLight/>
+            <div style={{ background: ThemeMode === "dark" ? "#292929" : "" }}>
+              <PiTentLight />
               <p>주류, 버너, 텐트, 그늘막 취사 등</p>
             </div>
-            <div style={{background: ThemeMode==='dark'? "#292929" : ""}}>
+            <div style={{ background: ThemeMode === "dark" ? "#292929" : "" }}>
               <PiBicycleLight />
-              <p>자전거, 전자퀵보드, 전기자전거, 인라인 등</p>
+              <p>자전거, 킥보드, 인라인 스케이트</p>
             </div>
-            <div style={{background: ThemeMode==='dark'? "#292929" : ""}}>
-              <PiKnifeLight />
-              <p>기타 위협을 줄 수 있는 물품</p>
-            </div>
-            <div style={{background: ThemeMode==='dark'? "#292929" : ""}}>
+            <div style={{ background: ThemeMode === "dark" ? "#292929" : "" }}>
               <PiShovelLight />
               <p>
                 식물 및 토석
                 <br /> 채집, 채취
               </p>
             </div>
-            <div style={{background: ThemeMode==='dark'? "#292929" : ""}}>
+            <div style={{ background: ThemeMode === "dark" ? "#292929" : "" }}>
               <PiMegaphoneLight />
-              <p>확성기, 블루투스 마이크 등 방송기기</p>
+              <p>확성기, 마이크 등 방송기기</p>
             </div>
-            <div style={{background: ThemeMode==='dark'? "#292929" : ""}}>
+            <div style={{ background: ThemeMode === "dark" ? "#292929" : "" }}>
               <PiDogLight />
               <p>안내견 이외 반려동물 출입</p>
+            </div>
+            <div style={{ background: ThemeMode === "dark" ? "#292929" : "" }}>
+              <PiKnifeLight />
+              <p>기타 위협을 줄 수 있는 물품</p>
             </div>
           </div>
         </div>

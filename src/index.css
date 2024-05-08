@@ -10,6 +10,7 @@
   word-break: keep-all;
   font-family: "Noto Sans KR", sans-serif;
   --mainGreen: #119724;
+  --subGreen: #1bcc34;
 }
 
 @font-face {
@@ -58,14 +59,15 @@ h3::before {
   border-top: 2px solid #119724;
   border-bottom: 2px solid #119724;
   padding: 5px 0;
-}
-.timetable-title p:first-child {
   position: relative;
 }
-.timetable-title p:first-child::after {
+
+.timetable-title::after {
   content: "";
   position: absolute;
-  right: -85px;
+  top: 3px;
+  right: 50%;
+  transform: translateX(-50%);
   width: 2px;
   height: 20px;
   background-color: #119724;
