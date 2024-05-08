@@ -45,7 +45,7 @@ export default function MyPage() {
           <p>색맹 모드</p>
           <p>색깔을 구분하기 힘든 분들을 위해 찍힌 스탬프의 모양을 변경합니다.</p>
         </div>
-        <div className={`togBtn ${ThemeMode==="dark"? "darkBtn": ""}`}>
+        <div className="togBtn">
           <div className="togCircle" style={{ left: btn2 ? "22px" : "0" }}></div>
         </div>
       </div>
