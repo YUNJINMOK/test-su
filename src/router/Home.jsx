@@ -22,7 +22,7 @@ export default function Home() {
           <Link to="/introsumok" className="w-full h-1/3">
             <Textbox title="수목원소개" text="이용시간, 주의사항 등" />
           </Link>
-          <Link className="w-full h-1/3">
+          <Link to="/indoorinfo" className="w-full h-1/3">
             <Textbox title="내부 시설 안내" text="전시관, 체험장 소개" />
           </Link>
           <Link className="w-full h-1/3">

@@ -19,15 +19,14 @@ export default function IntroSumok() {
           <GreenDot title="이용시간" />
           <Hours date1="0월 0일~0월 0일" time1="0시간" date2="0월 0일~0월 0일" time2="0시간" date3="0월 0일~0월 0일" time3="0시간" />
           <div className="timetable-caution">
+            <p>※ 온실 이용시간: 오전 10시 ~ 오후 4시</p>
             <p>※ 월요일: 온실, 산림문화전시관, 목재문화체험장 이용 불가</p>
-            <p>※ 내부 시설(산림문화전시관, 목재문화체험장)의 이용시간은 ‘내부시설 안내’ 페이지를 참고해주세요.</p>
-            <p>※ 온실 견학 가능시간: 오전 10시 ~ 오후 4시</p>
             <p>※ 입장료·주차요금은 무료이며 발생된 쓰레기는 반드시 되가져 가야합니다.</p>
           </div>
         </div>
         {/* 주의사항 */}
         <div className="caution">
-          <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;금지 사항</h3>
+          <GreenDot title="금지사항" />
           <div className="caution-box">
             <div style={{background: ThemeMode==='dark'? "#292929" : ""}}>
               <PiTentLight/>
@@ -43,7 +42,10 @@ export default function IntroSumok() {
             </div>
             <div style={{background: ThemeMode==='dark'? "#292929" : ""}}>
               <PiShovelLight />
-              <p>식물 및 토석 채취</p>
+              <p>
+                식물 및 토석
+                <br /> 채집, 채취
+              </p>
             </div>
             <div style={{background: ThemeMode==='dark'? "#292929" : ""}}>
               <PiMegaphoneLight />

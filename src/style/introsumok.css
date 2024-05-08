@@ -1,6 +1,7 @@
 .intro-section {
   padding: 1rem;
   word-break: keep-all;
+  padding-bottom: 50px;
 }
 .intro-time,
 .caution {
@@ -18,11 +19,11 @@
 
 .caution-box {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   justify-items: center;
 }
-.caution-box div {
+.caution-box > div {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -31,8 +32,33 @@
   border: 1px solid #dee4e7;
   border-radius: 10px;
   width: 100%;
+  padding: 20px 10px;
+  font-size: 18px;
+  height: 190px;
+  position: relative;
+}
+.caution-box > div::before {
+  position: absolute;
+  content: "";
+  width: 8px;
+  height: 65px;
+  background: var(--mainGreen);
+  opacity: 0.5;
+  top: 27px;
+  transform: rotate(-35deg);
+}
+.caution-box > div::after {
+  position: absolute;
+  content: "";
+  width: 80px;
+  height: 80px;
+  border: 8px solid var(--mainGreen);
+  border-radius: 50px;
+  opacity: 0.5;
+  display: inline-block;
 }
 .caution-box svg {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
 }
