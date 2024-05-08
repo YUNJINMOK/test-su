@@ -14,7 +14,7 @@ export default function MenuBar() {
       <Link to="/stamp">
         <Icon text="스템프" />
       </Link>
-      <Link>
+      <Link to="/mypage">
         <Icon text="마이페이지" />
       </Link>
     </nav>

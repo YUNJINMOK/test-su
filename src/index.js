@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import Notfound from "./router/Notfound";
 import IntroSumok from "./router/IntroSumok";
 import StampPage from "./router/StampPage";
+import MyPage from "./router/MyPage";
 
 const router = createBrowserRouter([
   {
@@ -23,18 +24,24 @@ const router = createBrowserRouter([
         path: "/home",
         element: <Home />,
       },
-      {path: "/introsumok",
-    element: <IntroSumok/>},
-    {path: "/stamp",
-    element: <StampPage/>},
-
+      {
+        path: "/introsumok",
+        element: <IntroSumok />,
+      },
+      {
+        path: "/stamp",
+        element: <StampPage />,
+      },
+      {
+        path: "/mypage",
+        element: <MyPage />,
+      },
     ],
   },
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
 const queryClient = new QueryClient();
-root.render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <QueryClientProvider client={queryClient}>
     <RouterProvider router={router} />
   </QueryClientProvider>
