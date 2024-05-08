@@ -88,3 +88,7 @@ h3::before {
   border-radius: 10px;
   width: 100%;
 }
+.caution-box svg {
+  width: 100px;
+  height: 100px;
+}
