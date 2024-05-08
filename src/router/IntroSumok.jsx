@@ -1,3 +1,4 @@
+import Hours from "../components/Hours";
 import Layout from "../components/Layout";
 import "../style/introsumok.css";
 import { GiCampingTent } from "react-icons/gi";
@@ -13,25 +14,14 @@ export default function IntroSumok() {
         {/* 컨텐츠 */}
         {/* 이용시간 */}
         <div className="intro-time">
-          <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이용시간</h3>
-          <div className="intro-timetable">
-            <div className="timetable-title">
-              <p>기간</p>
-              <p>시간</p>
-            </div>
-            <div className="timetable-column">
-              <p>0월 0일 ~ 0월 0일</p>
-              <p>오전 0시 ~ 오후 0시</p>
-            </div>
-            <div className="timetable-column">
-              <p>0월 0일 ~ 0월 0일</p>
-              <p>오전 0시 ~ 오후 0시</p>
-            </div>
-            <div className="timetable-column">
-              <p>0월 0일 ~ 0월 0일</p>
-              <p>오전 0시 ~ 오후 0시</p>
-            </div>
-          </div>
+          <Hours
+            date1="0월 0일~0월 0일"
+            time1="0시간"
+            date2="0월 0일~0월 0일"
+            time2="0시간"
+            date3="0월 0일~0월 0일"
+            time3="0시간"
+          />
           <div className="timetable-caution">
             <p>※ 월요일: 온실, 산림문화전시관, 목재문화체험장 이용 불가</p>
             <p>
