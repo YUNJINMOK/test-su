@@ -11,6 +11,8 @@ import StampPage from "./router/StampPage";
 import MyPage from "./router/MyPage";
 import IndoorInfo from "./router/IndoorInfo";
 import Shelter from "./router/Shelter";
+import { ThemeProvider } from "./context/themeProvider";
+import  {GlobalStyle} from "./theme/GlobalStyle.js";
 
 const router = createBrowserRouter([
   {
@@ -46,14 +48,16 @@ const router = createBrowserRouter([
         path: "/shelter",
         element: <Shelter />,
       },
-
     ],
   },
 ]);
 
 const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <QueryClientProvider client={queryClient}>
-    <RouterProvider router={router} />
-  </QueryClientProvider>
+  <ThemeProvider>
+    <GlobalStyle />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  </ThemeProvider>
 );

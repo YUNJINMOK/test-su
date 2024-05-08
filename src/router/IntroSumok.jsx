@@ -4,8 +4,10 @@ import Layout from "../components/Layout";
 import Title from "../components/Title";
 import "../style/introsumok.css";
 import { PiTentLight, PiKnifeLight, PiMegaphoneLight, PiBicycleLight, PiDogLight, PiShovelLight } from "react-icons/pi";
+import { useTheme } from "../context/themeProvider.js";
 
 export default function IntroSumok() {
+  const [ThemeMode, toggleTheme] = useTheme();
   return (
     <Layout>
       <div className="intro-section">
@@ -27,27 +29,27 @@ export default function IntroSumok() {
         <div className="caution">
           <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;금지 사항</h3>
           <div className="caution-box">
-            <div>
-              <PiTentLight />
+            <div style={{background: ThemeMode==='dark'? "#292929" : ""}}>
+              <PiTentLight/>
               <p>주류, 버너, 텐트, 그늘막 취사 등</p>
             </div>
-            <div>
+            <div style={{background: ThemeMode==='dark'? "#292929" : ""}}>
               <PiBicycleLight />
               <p>자전거, 전자퀵보드, 전기자전거, 인라인 등</p>
             </div>
-            <div>
+            <div style={{background: ThemeMode==='dark'? "#292929" : ""}}>
               <PiKnifeLight />
               <p>기타 위협을 줄 수 있는 물품</p>
             </div>
-            <div>
+            <div style={{background: ThemeMode==='dark'? "#292929" : ""}}>
               <PiShovelLight />
               <p>식물 및 토석 채취</p>
             </div>
-            <div>
+            <div style={{background: ThemeMode==='dark'? "#292929" : ""}}>
               <PiMegaphoneLight />
               <p>확성기, 블루투스 마이크 등 방송기기</p>
             </div>
-            <div>
+            <div style={{background: ThemeMode==='dark'? "#292929" : ""}}>
               <PiDogLight />
               <p>안내견 이외 반려동물 출입</p>
             </div>
