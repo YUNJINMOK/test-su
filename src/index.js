@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         element: <IndoorInfo />,
       },
       {
-        path: "/shelter",
+        path: "/shelterinfo",
         element: <Shelter />,
       },
     ],

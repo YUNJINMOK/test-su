@@ -25,7 +25,7 @@ export default function Home() {
           <Link to="/indoorinfo" className="w-full h-1/3">
             <Textbox title="내부 시설 안내" text="전시관, 체험장 소개" />
           </Link>
-          <Link className="w-full h-1/3">
+          <Link to="/shelterinfo"className="w-full h-1/3">
             <Textbox title="편의시설 안내" text="ㅁㄴㅇㄻㄴㅇㄹ" />
           </Link>
         </div>
