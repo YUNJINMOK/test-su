@@ -7,7 +7,6 @@ export default function MyPage() {
   const [btn1, setBtn1] = useState(false);
   const [btn2, setBtn2] = useState(false);
   const [ThemeMode, toggleTheme] = useTheme();
-  console.log(ThemeMode);
   function darkMode() {
     setBtn1(!btn1);
     toggleTheme();
@@ -36,7 +35,7 @@ export default function MyPage() {
           <p>다크 모드</p>
           <p>앱 화면을 어둡게 변경합니다.</p>
         </div>
-        <div className={`togBtn ${ThemeMode==="dark"? "darkBtn": ""}`} >
+        <div className={`togBtn ${ThemeMode === "dark" ? "darkBtn" : ""}`}>
           <div className="togCircle" style={{ left: btn1 ? "22px" : "0" }}></div>
         </div>
       </div>
