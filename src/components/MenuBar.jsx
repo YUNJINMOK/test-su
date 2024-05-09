@@ -23,9 +23,7 @@ export default function MenuBar() {
           to="/qr"
           className="relative w-[75px] h-[75px] rounded-full bg-white mb-14 flex flex-col items-center justify-center"
         >
-          <div className="absolute bg-[#ECECEC] w-[60px] h-[60px] rounded-full flex items-center justify-center">
-            <TbLineScan className="text-5xl" />
-          </div>
+          <div className="absolute bg-[#ECECEC] w-[60px] h-[60px] rounded-full flex items-center justify-center"></div>
         </Link>
 
         <Link to="/stamp" className="w-[60px]">
