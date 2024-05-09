@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import { IoMdArrowDropdown } from "react-icons/io";
+
 
 export default function DropdownMenu() {
   const [selectedMenu, setSelectedMenu] = useState("보상");
@@ -31,23 +33,11 @@ export default function DropdownMenu() {
       <div>
         <button
           type="button"
-          className="inline-flex justify-center items-center rounded-md w-[310px] py-5 bg-[#E6E6E6] font-bold text-[30px] text-[#8B8B8B]"
+          className="relative inline-flex justify-center items-center rounded-md w-[310px] px-2 py-5 bg-[#E6E6E6] font-bold text-[30px] text-[#8B8B8B]"
           onClick={() => setMenuOpen(!menuOpen)} // 버튼 클릭 시 메뉴 열기/닫기 토글
         >
           {selectedMenu}
-          <svg
-            className="-mr-1 ml-2 h-5 w-5"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              fillRule="evenodd"
-              d="M10 12a1 1 0 01-.707-.293l-4-4a1 1 0 111.414-1.414L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-.707.293z"
-              clipRule="evenodd"
-            />
-          </svg>
+          <IoMdArrowDropdown className="absolute right-2"/>
         </button>
       </div>
 
