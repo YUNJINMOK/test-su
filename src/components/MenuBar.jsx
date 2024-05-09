@@ -8,22 +8,18 @@ export default function MenuBar() {
   const [ThemeMode, toggleTheme] = useTheme();
   return (
     <>
-      <nav
-        className={`fixed bottom-0 w-full h-[70px] ${
-          ThemeMode === "dark" ? "bg-[#292929]" : "bg-[#ECECEC]"
-        }  flex items-center justify-between px-2`}
-      >
+      <nav className={`fixed bottom-0 w-full h-[70px] ${ThemeMode === "dark" ? "bg-[#292929]" : "bg-[#ECECEC]"}  flex items-center justify-between px-2`}>
         <Link to="/home" className="w-[60px]">
           <Icon text="홈" />
         </Link>
         <Link to="/map" className="w-[60px]">
           <Icon text="지도" />
         </Link>
-        <Link
-          to="/qr"
-          className="relative w-[75px] h-[75px] rounded-full bg-white mb-14 flex flex-col items-center justify-center"
-        >
-          <div className="absolute bg-[#ECECEC] w-[60px] h-[60px] rounded-full flex items-center justify-center"></div>
+        <Link to="/qr" className="relative w-[75px] h-[75px] rounded-full bg-white mb-[60px]  flex flex-col items-center justify-center">
+          <div className="absolute bg-[#ECECEC] w-[55px] h-[55px] rounded-full flex items-center justify-center">
+            <TbLineScan className="text-4xl" />
+          </div>
+          <p className=" absolute top-[76px] text-xs text-[#808080]">QR코드</p>
         </Link>
 
         <Link to="/stamp" className="w-[60px]">
