@@ -1,6 +1,7 @@
 .indoor-section {
-  padding: 1rem;
+  padding: 20px;
   word-break: keep-all;
+  line-height: normal;
 }
 /* 산림문화전시관 */
 .forestcul {

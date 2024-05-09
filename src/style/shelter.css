@@ -1,0 +1,12 @@
+.shelterSection {
+    padding: 20px;
+}
+.shelterInfo {
+    display: flex;
+    flex-direction: column;
+}
+.shelterImg {
+    width: 300px;
+    height: 280px;
+    background-color: gray;
+}
