@@ -5,8 +5,8 @@ import { IoMdHome } from "react-icons/io";
 export default function Icon({ text }) {
   return (
     <div className="flex flex-col items-center">
-      <IoMdHome className="text-4xl" />
-      <p className="text-sm">{text}</p>
+      <IoMdHome className="text-4xl text-[#808080]" />
+      <p className=" text-xs text-[#808080]">{text}</p>
     </div>
   );
 }
