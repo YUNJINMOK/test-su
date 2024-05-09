@@ -23,6 +23,7 @@ export default function KakaoMap({ userLocation }) {
       const marker = new kakao.maps.Marker({
         position: userPosition,
       });
+      const restroomPosition = new kakao.maps.LatLng(33.450701, 126.570667);
 
       // 마커를 지도에 표시
       marker.setMap(map);
@@ -36,7 +37,7 @@ export default function KakaoMap({ userLocation }) {
     <div
       id="map"
       style={{
-        width: "100%",
+        width: "90%",
         height: "350px",
       }}
     ></div>

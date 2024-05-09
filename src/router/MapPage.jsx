@@ -35,14 +35,22 @@ export default function MapPage() {
 
   return (
     <Layout>
-      <KakaoMap userLocation={userLocation} />
-      {errorMessage && <p>{errorMessage}</p>}
-      <button
-        className="w-[100px] h-[50px] text-center bg-red-300"
-        onClick={getCurrentLocation} // 내 위치 가져오기 함수를 클릭 이벤트에 연결
-      >
-        내 위치
-      </button>
+      <div className="w-full flex flex-col justify-center items-center py-10 gap-4">
+        <KakaoMap userLocation={userLocation} />
+        {errorMessage && <p>{errorMessage}</p>}
+        <button
+          className="w-[100px] h-[50px] text-center bg-red-300"
+          onClick={getCurrentLocation} // 내 위치 가져오기 함수를 클릭 이벤트에 연결
+        >
+          내 위치
+        </button>
+        <button
+          className="w-[100px] h-[50px] text-center bg-red-300"
+          onClick={getCurrentLocation} // 내 위치 가져오기 함수를 클릭 이벤트에 연결
+        >
+          화장실
+        </button>
+      </div>
     </Layout>
   );
 }
