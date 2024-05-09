@@ -1,38 +1,43 @@
-section#mypage {
+section#myPage {
+  margin-bottom: 80px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+article#myAccount {
   padding: 40px 20px 60px;
 }
 
-section#mypage h2 {
+article#myAccount h2 {
   font-size: 27px;
   font-weight: bold;
   margin-bottom: 15px;
 }
 
-section#mypage #accountInfo {
+article#myAccount #accountInfo {
   padding: 40px 30px 0 10px;
 }
 
-section#mypage #accountInfo > div:last-child {
+article#myAccount #accountInfo > div:last-child {
   margin-top: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-section#mypage #accountInfo > div:last-child button {
+article#myAccount #accountInfo > div:last-child button {
   padding: 8px 20px;
   border-radius: 50px;
   border: 1px solid gray;
   font-size: 18px;
 }
 
-section#mypage #accountInfo div p:first-child {
+article#myAccount #accountInfo div p:first-child {
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 10px;
 }
 
-section#mypage #accountInfo div p:last-child {
+article#myAccount #accountInfo div p:last-child {
   font-size: 20px;
   color: gray;
 }

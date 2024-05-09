@@ -2,12 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 .stamp-box {
   display: grid;
-  grid-template-columns: repeat(2,2fr);
- gap: 20px;
+  grid-template-columns: repeat(2, 2fr);
+  gap: 20px;
 }
 .stamp-box img {
   width: 130px;

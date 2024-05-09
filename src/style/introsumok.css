@@ -2,6 +2,7 @@
   padding: 20px;
   word-break: keep-all;
   padding-bottom: 50px;
+  font-family: "Noto Sans KR", sans-serif;
 }
 .intro-time,
 .caution {
@@ -12,10 +13,8 @@
 /* 이용시간---------------------------- */
 
 .timetable-caution {
-  font-size: 12px;
-}
-.timetable-caution p {
-  line-height: 16px;
+  font-size: 14px;
+  line-height: 18px;
 }
 
 /* 주의사항--------------------- */

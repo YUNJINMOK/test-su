@@ -1,12 +1,13 @@
 .shelterSection {
-    padding: 20px;
+  padding: 20px;
+  font-family: "Noto Sans KR", sans-serif;
 }
 .shelterInfo {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .shelterImg {
-    width: 300px;
-    height: 280px;
-    background-color: gray;
+  width: 300px;
+  height: 280px;
+  background-color: gray;
 }

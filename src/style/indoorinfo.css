@@ -1,7 +1,10 @@
 .indoor-section {
   padding: 20px;
-  word-break: keep-all;
   line-height: normal;
+  font-family: "Noto Sans KR", sans-serif;
+}
+.indoor-section article {
+  margin-bottom: 60px;
 }
 /* 산림문화전시관 */
 .forestcul {
@@ -19,21 +22,19 @@
   font-size: 15px;
   line-height: 22px;
   padding-left: 5px;
-  word-break: normal;
 }
 
 /* 층별안내 */
 .floorInfo {
   display: flex;
   flex-direction: column;
-  margin-bottom: 50px;
 }
-.floorInfo-con-box p {
+.floorInfo-con-box > p {
   border-bottom: 1px solid gray;
-  margin-bottom: 10px;
+  margin: 0 10px 15px;
 }
 .floorInfo-con-box {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 .floorImg {
   display: flex;
