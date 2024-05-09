@@ -25,7 +25,6 @@ export default function MenuBar() {
         >
           <div className="absolute bg-[#ECECEC] w-[60px] h-[60px] rounded-full flex items-center justify-center">
             <TbLineScan className="text-5xl" />
-            <p className=" mb-8">qr찍기</p>
           </div>
         </Link>
 
