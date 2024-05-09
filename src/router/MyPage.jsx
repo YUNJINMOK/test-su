@@ -47,6 +47,7 @@ export default function MyPage() {
             <div className="togCircle" style={{ left: btn2 ? "22px" : "0" }}></div>
           </div>
         </div>
+        <p id="logout">로그아웃</p>
       </section>
     </Layout>
   );
