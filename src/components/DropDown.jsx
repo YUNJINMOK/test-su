@@ -27,11 +27,11 @@ export default function DropdownMenu() {
   }, []);
 
   return (
-    <div className="relative inline-block text-left" ref={menuRef}>
+    <div className="relative mt-[20px] inline-block text-left" ref={menuRef}>
       <div>
         <button
           type="button"
-          className="inline-flex justify-center w-full rounded-md border border-none w-[310px] py-4 bg-[#F1F1F1] text-sm font-medium text-[24px] focus:outline-none"
+          className="inline-flex justify-center items-center rounded-md w-[310px] py-5 bg-[#E6E6E6] font-bold text-[30px] text-[#8B8B8B]"
           onClick={() => setMenuOpen(!menuOpen)} // 버튼 클릭 시 메뉴 열기/닫기 토글
         >
           {selectedMenu}
