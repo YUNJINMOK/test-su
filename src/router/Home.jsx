@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import Textbox from "../components/Textbox";
 import { Link } from "react-router-dom";
 import { useTheme } from "../context/themeProvider.js";
+import infoMark from "../assets/qr-scan.png";
 
 export default function Home() {
   const [ThemeMode, toggleTheme] = useTheme();
@@ -12,10 +13,10 @@ export default function Home() {
         <div className="w-[300px] h-[100px]  ">
           <div className=" relative w-full h-full flex items-center">
             <div className="w-full h-full flex flex-col ml-4 justify-center">
-              <span>앱 이용방법</span>
-              <span>스템프 찍고 다양한 경품 받기!</span>
+              <span className="text-2xl">앱 이용 방법</span>
+              <span>스탬프 찍고 경품 받아가세요!</span>
             </div>
-            <img className=" absolute right-[10%] top-4 w-[30%] -z-10" src="https://images.unsplash.com/photo-1517157488732-b80ab10430e4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="진목픽 이미지" />
+            <img className=" absolute -right-0 top-[22px] w-[30%] -z-10" src={infoMark} alt="안내 이미지" />
           </div>
         </div>
         <div className={`w-[300px] h-[390px] ${ThemeMode === "dark" ? "bg-[#292929]" : "bg-[#ECECEC]"}  rounded-lg flex flex-col`}>

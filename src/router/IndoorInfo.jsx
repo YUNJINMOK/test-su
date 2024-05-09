@@ -14,12 +14,12 @@ export default function IndoorInfo() {
         <article>
           <div className="forestcul">
             <p className="forestcul-title">산림문화전시관</p>
-            <p className="forestcul-text">대구수목원의 설립목적 중 하나인 도시민들의 자연 체험과 학습의 기회를 제공하는데 일익을 담당하고 있습니다.</p>
+            <p className="forestcul-text">수목원과 대구의 식물상을 소개하는 공간입니다. 나무 이름의 유래, 꽃의 구조, 식물, 새, 곤충의 세밀화 등 다양한 정보를 접할 수 있습니다.</p>
           </div>
           {/* 이용시간 */}
           <div className="intro-time">
             <GreenDot title="이용시간" />
-            <Hours date1="0월 0일~0월 0일" time1="0시간" date2="0월 0일~0월 0일" time2="0시간" />
+            <Hours date1="3월 1일 ~ 10월 31일" time1="오전 10시 ~ 오후 5시" date2="11월 1일 ~ 2월 28일" time2="오전 10시 ~ 오후 4시" />
             <div className="timetable-caution">※매주 월요일과 추석, 설날은 휴관일입니다.</div>
           </div>
           {/* 층별안내 */}
