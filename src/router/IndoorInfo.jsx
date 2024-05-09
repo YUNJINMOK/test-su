@@ -13,7 +13,7 @@ export default function IndoorInfo() {
         {/* 산림문화전시관 */}
         <article>
           <div className="forestcul">
-            <p className="forestcul-title">산림문화전시관</p>
+            <p className="mainGreen-title">산림문화전시관</p>
             <p className="forestcul-text">수목원과 대구의 식물상을 소개하는 공간입니다. 나무 이름의 유래, 꽃의 구조, 식물, 새, 곤충의 세밀화 등 다양한 정보를 접할 수 있습니다.</p>
           </div>
           {/* 이용시간 */}

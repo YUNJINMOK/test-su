@@ -91,3 +91,10 @@ h3::before {
   flex: 1;
   text-align: center;
 }
+
+.mainGreen-title {
+  color: var(--mainGreen);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
