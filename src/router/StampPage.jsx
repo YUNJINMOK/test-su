@@ -1,6 +1,8 @@
+import "../style/stamp.css";
 import Layout from "../components/Layout";
 import GrayStamp from "../assets/stampGray.svg";
-import "../style/stamp.css";
+import GreenStamp from "../assets/stampGreen.svg";
+import BlackStamp from "../assets/stampBlack.svg";
 import DropDown from "../components/DropDown";
 
 export default function StampPage() {
@@ -12,22 +14,34 @@ export default function StampPage() {
         {/* 스탬프 */}
         <div className="stamp-box">
           <p>
-            <img src={GrayStamp} alt="stamp" />
+            <img src={GrayStamp} alt="미완성 스탬프" />
+            <img id="greenStamp" src={GreenStamp} alt="완성 스탬프" />
+            <img id="blackStamp" src={BlackStamp} alt="맹인 스탬프" />
           </p>
           <p>
-            <img src={GrayStamp} alt="stamp" />
+            <img src={GrayStamp} alt="미완성 스탬프" />
+            <img id="greenStamp" src={GreenStamp} alt="완성 스탬프" />
+            <img id="blackStamp" src={BlackStamp} alt="맹인 스탬프" />
           </p>
           <p>
-            <img src={GrayStamp} alt="stamp" />
+            <img src={GrayStamp} alt="미완성 스탬프" />
+            <img id="greenStamp" src={GreenStamp} alt="완성 스탬프" />
+            <img id="blackStamp" src={BlackStamp} alt="맹인 스탬프" />
           </p>
           <p>
-            <img src={GrayStamp} alt="stamp" />
+            <img src={GrayStamp} alt="미완성 스탬프" />
+            <img id="greenStamp" src={GreenStamp} alt="완성 스탬프" />
+            <img id="blackStamp" src={BlackStamp} alt="맹인 스탬프" />
           </p>
           <p>
-            <img src={GrayStamp} alt="stamp" />
+            <img src={GrayStamp} alt="미완성 스탬프" />
+            <img id="greenStamp" src={GreenStamp} alt="완성 스탬프" />
+            <img id="blackStamp" src={BlackStamp} alt="맹인 스탬프" />
           </p>
           <p>
-            <img src={GrayStamp} alt="stamp" />
+            <img src={GrayStamp} alt="미완성 스탬프" />
+            <img id="greenStamp" src={GreenStamp} alt="완성 스탬프" />
+            <img id="blackStamp" src={BlackStamp} alt="맹인 스탬프" />
           </p>
         </div>
       </div>
