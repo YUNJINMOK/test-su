@@ -3,7 +3,7 @@ import { IoMdArrowDropdown } from "react-icons/io";
 
 
 export default function DropdownMenu() {
-  const [selectedMenu, setSelectedMenu] = useState("보상");
+  const [selectedMenu, setSelectedMenu] = useState("전체보기");
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
 
@@ -51,25 +51,25 @@ export default function DropdownMenu() {
             aria-labelledby="options-menu"
           >
             <button
-              onClick={() => handleMenuClick("보상")}
+              onClick={() => handleMenuClick("전체보기")}
               className="w-full block px-4 py-2 text-sm text-gray-700"
               role="menuitem"
             >
-              보상
+              전체보기
             </button>
             <button
-              onClick={() => handleMenuClick("완료")}
+              onClick={() => handleMenuClick("완료 스탬프")}
               className="w-full block px-4 py-2 text-sm text-gray-700"
               role="menuitem"
             >
-              완료
+              완료 스탬프
             </button>
             <button
-              onClick={() => handleMenuClick("미완료")}
+              onClick={() => handleMenuClick("미완료 스탬프")}
               className="w-full block px-4 py-2 text-sm text-gray-700"
               role="menuitem"
             >
-              미완료
+              미완료 스탬프
             </button>
           </div>
         </div>
