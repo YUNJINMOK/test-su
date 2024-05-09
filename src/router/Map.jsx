@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
+import Layout from "../components/Layout";
 
 export default function Map() {
   return (
-    <div>지도</div>
-  )
+    <Layout>
+      <div>지도</div>
+    </Layout>
+  );
 }
