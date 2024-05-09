@@ -16,6 +16,8 @@ import { GlobalStyle } from "./theme/GlobalStyle.js";
 import MapPage from "./router/MapPage.jsx";
 import QrPage from "./router/QrPage.jsx";
 import Login from "./router/Login.jsx";
+import AppInfo from "./router/AppInfo.jsx";
+import SignUp from "./router/SignUp.jsx";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +64,14 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/signup",
+        element: <SignUp />,
+      },
+      {
+        path: "/appinfo",
+        element: <AppInfo />,
       },
     ],
   },
