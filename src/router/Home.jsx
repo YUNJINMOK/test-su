@@ -11,15 +11,13 @@ export default function Home() {
     <Layout>
       <div className="w-full h-full flex flex-col justify-center items-center py-10">
         <div className="w-[300px] h-[100px]  ">
-          <Link to="/appinfo">
-            <div className=" relative w-full h-full flex items-center">
-              <div className="w-full h-full flex flex-col ml-4 justify-center">
-                <span className="text-2xl">앱 이용 방법</span>
-                <span>스탬프 찍고 경품 받아가세요!</span>
-              </div>
-              <img className=" absolute -right-0 top-[22px] w-[30%] -z-10" src={infoMark} alt="안내 이미지" />
+          <div className=" relative w-full h-full flex items-center">
+            <div className="w-full h-full flex flex-col ml-4 justify-center">
+              <span className="text-2xl">앱 이용 방법</span>
+              <span>스탬프 찍고 경품 받아가세요!</span>
             </div>
-          </Link>
+            <img className=" absolute -right-0 top-[22px] w-[30%] -z-10" src={infoMark} alt="안내 이미지" />
+          </div>
         </div>
         <div className={`w-[300px] h-[390px] ${ThemeMode === "dark" ? "bg-[#292929]" : "bg-[#ECECEC]"}  rounded-lg flex flex-col`}>
           <Link to="/introsumok" className="w-full h-1/3">
