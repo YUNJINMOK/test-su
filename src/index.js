@@ -13,7 +13,8 @@ import IndoorInfo from "./router/IndoorInfo";
 import Shelter from "./router/Shelter";
 import { ThemeProvider } from "./context/themeProvider";
 import  {GlobalStyle} from "./theme/GlobalStyle.js";
-import Map from "./router/Map.jsx";
+import MapPage from "./router/MapPage.jsx";
+import QrPage from "./router/QrPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -51,7 +52,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/map",
-        element: <Map />,
+        element: <MapPage />,
+      },
+      {
+        path: "/qr",
+        element: <QrPage />,
       },
     ],
   },
