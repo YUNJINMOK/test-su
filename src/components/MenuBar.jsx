@@ -15,8 +15,8 @@ export default function MenuBar() {
         <Link to="/map" className="w-[60px]">
           <Icon text="지도" />
         </Link>
-        <Link to="/qr" className="relative w-[75px] h-[75px] rounded-full bg-white mb-[60px]  flex flex-col items-center justify-center">
-          <div className="absolute bg-[#ECECEC] w-[55px] h-[55px] rounded-full flex items-center justify-center">
+        <Link to="/qr" className="relative w-[75px] h-[75px] rounded-full bg-[#ECECEC] mb-[60px]  flex flex-col items-center justify-center">
+          <div className="absolute bg-white w-[55px] h-[55px] rounded-full flex items-center justify-center">
             <TbLineScan className="text-4xl" />
           </div>
           <p className=" absolute top-[76px] text-xs text-[#808080]">QR코드</p>

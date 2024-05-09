@@ -12,9 +12,10 @@ import MyPage from "./router/MyPage";
 import IndoorInfo from "./router/IndoorInfo";
 import Shelter from "./router/Shelter";
 import { ThemeProvider } from "./context/themeProvider";
-import  {GlobalStyle} from "./theme/GlobalStyle.js";
+import { GlobalStyle } from "./theme/GlobalStyle.js";
 import MapPage from "./router/MapPage.jsx";
 import QrPage from "./router/QrPage.jsx";
+import Login from "./router/Login.jsx";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: "/qr",
         element: <QrPage />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },

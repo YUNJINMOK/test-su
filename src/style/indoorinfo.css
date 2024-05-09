@@ -3,9 +3,13 @@
   line-height: normal;
   font-family: "Noto Sans KR", sans-serif;
 }
-.indoor-section article {
+.indoor-section article:first-of-type {
   margin-bottom: 60px;
 }
+.indoor-section article:last-of-type {
+  margin-bottom: 100px;
+}
+
 /* 산림문화전시관 */
 .forestcul {
   display: flex;
