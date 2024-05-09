@@ -69,6 +69,7 @@ export default function MyPage() {
             ></div>
           </div>
         </div>
+        <p id="logout">로그아웃</p>
       </section>
     </Layout>
   );

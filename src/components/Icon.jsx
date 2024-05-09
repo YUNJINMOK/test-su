@@ -1,12 +1,28 @@
 import React from "react";
-import { IoMdHome } from "react-icons/io";
+import { FaHome, FaMap, FaStamp, FaUser } from "react-icons/fa";
+import { useTheme } from "../context/themeProvider";
 
-// text를 구조 분해하여 사용하도록 수정
-export default function Icon({ text }) {
+export default function Icon({ text, icon, size }) {
+  const [ThemeMode, toggleTheme] = useTheme();
+  let IconImg;
+  switch (icon) {
+    case "home":
+      IconImg = FaHome;
+      break;
+    case "map":
+      IconImg = FaMap;
+      break;
+    case "stamp":
+      IconImg = FaStamp;
+      break;
+    case "user":
+      IconImg = FaUser;
+      break;
+  }
   return (
-    <div className="flex flex-col items-center">
-      <IoMdHome className="text-4xl text-[#808080]" />
-      <p className=" text-xs text-[#808080]">{text}</p>
+    <div className={`flex flex-col items-center ${ThemeMode === "dark" ? "text-[#f1f1f1]" : "text-[#808080]"}`}>
+      <IconImg className="mb-1" size={size} />
+      <p className="text-xs">{text}</p>
     </div>
   );
 }
