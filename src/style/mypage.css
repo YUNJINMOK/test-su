@@ -24,10 +24,10 @@ article#myAccount #accountInfo > div:last-child {
   justify-content: space-between;
 }
 
-article#myAccount #accountInfo > div:last-child button {
+article#myAccount #accountInfo .editBtn {
   padding: 8px 20px;
   border-radius: 50px;
-  border: 1px solid gray;
+  border: 1px solid lightgray;
   font-size: 18px;
 }
 
@@ -80,7 +80,6 @@ article#myAccount ~ #logout {
   border-radius: 50px;
   position: relative;
 }
-
 .togBtn .togCircle {
   position: absolute;
   top: 50%;
@@ -93,6 +92,21 @@ article#myAccount ~ #logout {
   margin: 0 6px;
 }
 
+
+/* 다크모드 적용 css */
+article#myAccount #accountInfo .darkEditBtn {
+  border: 1px solid #383838;
+}
+.DarkSettingBtn {
+  border: 1px solid #383838;
+}
+
 .settingBtn .darkBtn {
   background: #383838;
 }
+
+.togBtn .darkTogCircle {
+  background-color: #121212;
+
+}
+

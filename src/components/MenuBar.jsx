@@ -18,8 +18,8 @@ export default function MenuBar() {
           <Icon text="지도" icon="map" size="30px" green={pathname === "/map" ? "green" : ""} />
         </Link>
         <Link to="/qr" className={`relative w-[75px] h-[75px] rounded-full ${ThemeMode === "dark" ? "bg-[#292929]" : "bg-[#f1f1f1]"} mb-[60px] flex flex-col items-center justify-center`}>
-          <div className="absolute bg-white w-[55px] h-[55px] rounded-full flex items-center justify-center">
-            <TbLineScan className="text-4xl" color="black" />
+          <div className={`absolute ${ThemeMode === "dark" ? "bg-black" : "bg-white"} w-[55px] h-[55px] rounded-full flex items-center justify-center`}>
+            <TbLineScan className="text-4xl"/>
           </div>
           <p className={`absolute top-[76px] text-xs ${ThemeMode === "dark" ? "text-[#f1f1f1]" : "text-[#808080]"}`}>QR코드</p>
         </Link>

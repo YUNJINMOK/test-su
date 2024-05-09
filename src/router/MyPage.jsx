@@ -25,26 +25,48 @@ export default function MyPage() {
                 <p>비밀번호</p>
                 <p>******</p>
               </div>
-              <button>수정</button>
+              <button className={`editBtn ${ThemeMode==="dark"?"darkEditBtn":""}`}>수정</button>
             </div>
           </div>
         </article>
-        <div className="settingBtn" onClick={darkMode}>
+        <div
+          className={`settingBtn ${
+            ThemeMode === "dark" ? "DarkSettingBtn" : ""
+          }`}
+          onClick={darkMode}
+        >
           <div className="btnTxt">
             <p>다크 모드</p>
             <p>앱 화면을 어둡게 변경합니다.</p>
           </div>
           <div className={`togBtn ${ThemeMode === "dark" ? "darkBtn" : ""}`}>
-            <div className="togCircle" style={{ left: ThemeMode === "dark" ? "22px" : "0" }}></div>
+            <div
+              className={`togCircle ${
+                ThemeMode === "dark" ? "darkTogCircle" : ""
+              }`}
+              style={{ left: ThemeMode === "dark" ? "22px" : "0" }}
+            ></div>
           </div>
         </div>
-        <div className="settingBtn" onClick={() => setBtn2(!btn2)}>
+        <div
+          className={`settingBtn ${
+            ThemeMode === "dark" ? "DarkSettingBtn" : ""
+          }`}
+          onClick={() => setBtn2(!btn2)}
+        >
           <div className="btnTxt">
             <p>색맹 모드</p>
-            <p>색깔을 구분하기 힘든 분들을 위해 찍힌 스탬프의 모양을 변경합니다.</p>
+            <p>
+              색깔을 구분하기 힘든 분들을 위해 찍힌 스탬프의 모양을 변경합니다.
+            </p>
           </div>
           <div className={`togBtn ${ThemeMode === "dark" ? "darkBtn" : ""}`}>
-            <div className="togCircle" style={{ left: btn2 ? "22px" : "0" }}></div>
+            <div
+              className={`togCircle ${
+                ThemeMode === "dark" ? "darkTogCircle" : ""
+              }`}
+              style={{ left: btn2 ? "22px" : "0" }}
+            ></div>
           </div>
         </div>
         <p id="logout">로그아웃</p>
