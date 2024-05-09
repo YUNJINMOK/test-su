@@ -13,6 +13,7 @@ import IndoorInfo from "./router/IndoorInfo";
 import Shelter from "./router/Shelter";
 import { ThemeProvider } from "./context/themeProvider";
 import  {GlobalStyle} from "./theme/GlobalStyle.js";
+import Map from "./router/Map.jsx";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/shelterinfo",
         element: <Shelter />,
+      },
+      {
+        path: "/map",
+        element: <Map />,
       },
     ],
   },

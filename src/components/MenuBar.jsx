@@ -10,7 +10,7 @@ export default function MenuBar() {
       <Link to="/home">
         <Icon text="홈" />
       </Link>
-      <Link>
+      <Link to="/map">
         <Icon text="지도" />
       </Link>
       <Link to="/stamp">
