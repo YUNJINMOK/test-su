@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 const { kakao } = window;
 
-export default function KakaoMap({ userLocation }) {
+export default function KakaoMap({ userLocation, iwContent }) {
   useEffect(() => {
     const mapContainer = document.getElementById("map"), // 지도를 표시할 div
       mapOption = {
@@ -24,6 +24,16 @@ export default function KakaoMap({ userLocation }) {
       const marker = new kakao.maps.Marker({
         position: userPosition,
       });
+
+      // 인포윈도우를 생성합니다
+      let infowindow = new kakao.maps.InfoWindow({
+        content: iwContent,
+        removable: true, // X 버튼으로 인포윈도우를 닫을 수 있도록 설정합니다
+      });
+
+      // 인포윈도우를 표시합니다
+
+      infowindow.open(map, marker);
 
       let circle = new kakao.maps.Circle({
         center: userPosition, // 원의 중심좌표 입니다
