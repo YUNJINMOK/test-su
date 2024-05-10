@@ -5,18 +5,29 @@ import { Link } from "react-router-dom";
 import { useTheme } from "../context/themeProvider.js";
 import infoMark from "../assets/qr-scan.png";
 
+function GuideEle({ zIndex, txt, bg }) {
+  return (
+    <div className={`absolute grid font-semibold text-center w-full h-full text-white text-2xl leading-[36px] ${zIndex} ${bg} bg-contain bg-bottom bg-no-repeat`}>
+      <p className="self-center justify-self-center" dangerouslySetInnerHTML={{ __html: txt }} />
+    </div>
+  );
+}
+
 export default function Home() {
   const [ThemeMode, toggleTheme] = useTheme();
   let [showGuide, setShowGuide] = useState(false);
   let [guideNum, setGuideNum] = useState(1);
-  const [guide, setGuide] = useState(<div className="absolute self-center justify-self-center font-semibold text-center w-3/4 text-white text-2xl">아래쪽의 QR 촬영 버튼을 누르면 카메라가 켜집니다.</div>);
+  const [zin, setZin] = useState("z-10");
+  const [guide, setGuide] = useState(<div></div>);
+
   const nextGuide = () => {
     if (guideNum === 1) {
-      setGuide(<div className="absolute self-center justify-self-center font-semibold text-center w-3/4 text-white text-2xl">가이드 2번</div>);
+      setZin("z-30");
+      setGuide(<GuideEle zIndex="z-30" txt="QR 코드는 대구 수목원 곳곳에 있습니다. 카메라 렌즈를 QR코드에 가까이 대주세요." bg="bg-[url('./assets/guide2.svg')]" />);
     } else if (guideNum === 2) {
-      setGuide(<div className="absolute self-center justify-self-center font-semibold text-center w-3/4 text-white text-2xl">가이드 3번</div>);
+      setGuide(<GuideEle zIndex="z-30" txt="qr 코드의 스캔이 완료되면 스탬프가 찍힙니다. 찍힌 스탬프는 스탬프 메뉴에서 확인할 수 있습니다." bg="bg-[url('./assets/guide3.svg')]" />);
     } else if (guideNum === 3) {
-      setGuide(<div className="absolute self-center justify-self-center font-semibold text-center w-3/4 text-white text-2xl">가이드 4번</div>);
+      setGuide(<GuideEle zIndex="z-30" txt="찍힌 스탬프의 갯수에 따라 다양한 경품을 받을 수 있습니다." bg="bg-[url('./assets/guide4.svg')]" />);
     } else if (guideNum === 4) {
       setShowGuide(false);
       return;
@@ -26,7 +37,7 @@ export default function Home() {
   return (
     <Layout>
       {showGuide && (
-        <div onClick={nextGuide} className="absolute h-[108vh] -top-[60px] w-screen bg-black/70 z-10 grid">
+        <div onClick={nextGuide} className={`absolute h-[108vh] -top-[60px] w-screen ${zin}`}>
           {guide}
         </div>
       )}
@@ -34,7 +45,15 @@ export default function Home() {
         <div
           className="w-[300px] h-[100px]"
           onClick={() => {
-            setGuide(<div className="absolute self-center justify-self-center font-semibold text-center w-3/4 text-white text-2xl">아래쪽의 QR 촬영 버튼을 누르면 카메라가 켜집니다.</div>);
+            setGuide(
+              <GuideEle
+                zIndex="z-0"
+                txt="아래쪽의 QR 촬영 버튼을 누르면
+              카메라가 켜집니다."
+                bg="bg-black/70"
+              />
+            );
+            setZin("z-10");
             setGuideNum(1);
             setShowGuide(true);
           }}
