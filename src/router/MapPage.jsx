@@ -45,9 +45,11 @@ export default function MapPage() {
         <div className="w-full flex flex-wrap gap-6 justify-center">
           <button
             className="w-[100px] h-[50px] text-center bg-red-300"
-            onClick={getCurrentLocation}
+            onClick={() =>
+              handleButtonClick(35.80119999998254, 128.52099220293818)
+            }
           >
-            내 위치
+            활엽수림
           </button>
           <button
             className="w-[100px] h-[50px] text-center bg-red-300"
@@ -56,14 +58,6 @@ export default function MapPage() {
             }
           >
             습지원
-          </button>
-          <button
-            className="w-[100px] h-[50px] text-center bg-red-300"
-            onClick={() =>
-              handleButtonClick(35.80119999998254, 128.52099220293818)
-            }
-          >
-            활엽수림
           </button>
           <button
             className="w-[100px] h-[50px] text-center bg-red-300"
@@ -96,6 +90,12 @@ export default function MapPage() {
             }
           >
             전통정원
+          </button>
+          <button
+            className="w-[100px] h-[50px] text-center bg-red-300"
+            onClick={getCurrentLocation}
+          >
+            내 위치
           </button>
         </div>
       </div>
