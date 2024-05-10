@@ -11,6 +11,7 @@ export default function KakaoMap({ userLocation }) {
 
     // 지도를 표시할 div와 지도 옵션으로 지도를 생성합니다
     const map = new kakao.maps.Map(mapContainer, mapOption);
+    map.setZoomable(false);
 
     // 사용자의 위치가 있을 경우 마커로 표시
     if (userLocation) {

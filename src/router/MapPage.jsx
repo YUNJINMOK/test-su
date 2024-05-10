@@ -12,7 +12,6 @@ export default function MapPage() {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          console.log("내 위치:", latitude, longitude);
           setUserLocation({ latitude, longitude });
         },
         (error) => {
@@ -33,17 +32,32 @@ export default function MapPage() {
     }
   }, [userLocation]);
 
+  // 각 버튼 클릭 이벤트 핸들러
+  const handleButtonClick = (latitude, longitude) => {
+    setUserLocation({ latitude, longitude }); // 클릭된 버튼의 위치를 사용자의 위치로 설정
+  };
+
   return (
     <Layout>
       <div className="w-full flex flex-col justify-center items-center py-10 gap-4">
         <KakaoMap userLocation={userLocation} />
         {errorMessage && <p>{errorMessage}</p>}
-        <button
-          className="w-[100px] h-[50px] text-center bg-red-300"
-          onClick={getCurrentLocation} // 내 위치 가져오기 함수를 클릭 이벤트에 연결
-        >
-          내 위치
-        </button>
+        <div className="w-full flex flex-wrap gap-6 justify-center">
+          <button
+            className="w-[100px] h-[50px] text-center bg-red-300"
+            onClick={getCurrentLocation}
+          >
+            내 위치
+          </button>
+          <button
+            className="w-[100px] h-[50px] text-center bg-red-300"
+            onClick={() =>
+              handleButtonClick(35.80052370351272, 128.5201012191372)
+            }
+          >
+            습지원
+          </button>
+        </div>
       </div>
     </Layout>
   );
