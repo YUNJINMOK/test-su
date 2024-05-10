@@ -84,14 +84,13 @@ article#myAccount ~ #logout {
   position: absolute;
   top: 50%;
   transform: translateY(-52%);
-  transition: all 0.2s;
+  transition: left 0.2s;
   height: 25px;
   width: 25px;
   background: #fff;
   border-radius: 100%;
   margin: 0 6px;
 }
-
 
 /* 다크모드 적용 css */
 article#myAccount #accountInfo .darkEditBtn {
@@ -107,6 +106,4 @@ article#myAccount #accountInfo .darkEditBtn {
 
 .togBtn .darkTogCircle {
   background-color: #121212;
-
 }
-
