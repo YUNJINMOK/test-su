@@ -5,6 +5,7 @@ import KakaoMap from "../components/KakaoMap";
 export default function MapPage() {
   const [errorMessage, setErrorMessage] = useState(null);
   const [userLocation, setUserLocation] = useState(null);
+  const [iwContent, setIwContent] = useState("");
 
   // 내 위치 가져오기 함수
   const getCurrentLocation = () => {
@@ -12,7 +13,6 @@ export default function MapPage() {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          console.log("내 위치:", latitude, longitude);
           setUserLocation({ latitude, longitude });
         },
         (error) => {
@@ -33,23 +33,98 @@ export default function MapPage() {
     }
   }, [userLocation]);
 
+  // 각 버튼 클릭 이벤트 핸들러
+  const handleButtonClick = (latitude, longitude, locationName) => {
+    setUserLocation({ latitude, longitude });
+    setIwContent(`<div style="padding: 10px;">${locationName}</div>`); // 클릭된 버튼의 위치를 사용자의 위치로 설정
+  };
+
   return (
     <Layout>
       <div className="w-full flex flex-col justify-center items-center py-10 gap-4">
-        <KakaoMap userLocation={userLocation} />
+        {/* 카카오지도 */}
+        <KakaoMap userLocation={userLocation} iwContent={iwContent} />
         {errorMessage && <p>{errorMessage}</p>}
-        <button
-          className="w-[100px] h-[50px] text-center bg-red-300"
-          onClick={getCurrentLocation} // 내 위치 가져오기 함수를 클릭 이벤트에 연결
-        >
-          내 위치
-        </button>
-        <button
-          className="w-[100px] h-[50px] text-center bg-red-300"
-          onClick={getCurrentLocation} // 내 위치 가져오기 함수를 클릭 이벤트에 연결
-        >
-          화장실
-        </button>
+        {/* 버튼 */}
+        <div className="w-full flex flex-wrap gap-6 justify-center py-4">
+          <button
+            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
+            onClick={() =>
+              handleButtonClick(
+                35.80119999998254,
+                128.52099220293818,
+                "활엽수림"
+              )
+            }
+          >
+            활엽수림
+          </button>
+          <button
+            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
+            onClick={() =>
+              handleButtonClick(35.80052370351272, 128.5201012191372, "습지원")
+            }
+          >
+            습지원
+          </button>
+          <button
+            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
+            onClick={() =>
+              handleButtonClick(
+                35.799712542069514,
+                128.52292532334738,
+                "무궁화원"
+              )
+            }
+          >
+            무궁화원
+          </button>
+          <button
+            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
+            onClick={() =>
+              handleButtonClick(
+                35.797142822107794,
+                128.5259099978123,
+                "염료 식물원"
+              )
+            }
+          >
+            염료 식물원
+          </button>
+          <button
+            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
+            onClick={() =>
+              handleButtonClick(
+                35.795706624856,
+                128.52537693278592,
+                "양치 식물원"
+              )
+            }
+          >
+            양치 식물원
+          </button>
+          <button
+            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
+            onClick={() =>
+              handleButtonClick(
+                35.79479437605564,
+                128.52571073583277,
+                "전통정원"
+              )
+            }
+          >
+            전통정원
+          </button>
+          <button
+            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
+            onClick={() => {
+              getCurrentLocation();
+              setIwContent(`<div style="padding: 10px;">내 위치</div>`);
+            }}
+          >
+            내 위치
+          </button>
+        </div>
       </div>
     </Layout>
   );
