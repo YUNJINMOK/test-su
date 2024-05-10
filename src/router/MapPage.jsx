@@ -46,9 +46,9 @@ export default function MapPage() {
         <KakaoMap userLocation={userLocation} iwContent={iwContent} />
         {errorMessage && <p>{errorMessage}</p>}
         {/* 버튼 */}
-        <div className="w-full flex flex-wrap gap-6 justify-center">
+        <div className="w-full flex flex-wrap gap-6 justify-center py-4">
           <button
-            className="w-[100px] h-[50px] text-center bg-red-300 cursor-pointer"
+            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
             onClick={() =>
               handleButtonClick(
                 35.80119999998254,
@@ -60,7 +60,7 @@ export default function MapPage() {
             활엽수림
           </button>
           <button
-            className="w-[100px] h-[50px] text-center bg-red-300 cursor-pointer"
+            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
             onClick={() =>
               handleButtonClick(35.80052370351272, 128.5201012191372, "습지원")
             }
@@ -68,7 +68,7 @@ export default function MapPage() {
             습지원
           </button>
           <button
-            className="w-[100px] h-[50px] text-center bg-red-300 cursor-pointer"
+            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
             onClick={() =>
               handleButtonClick(
                 35.799712542069514,
@@ -80,7 +80,7 @@ export default function MapPage() {
             무궁화원
           </button>
           <button
-            className="w-[100px] h-[50px] text-center bg-red-300 cursor-pointer"
+            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
             onClick={() =>
               handleButtonClick(
                 35.797142822107794,
@@ -92,7 +92,7 @@ export default function MapPage() {
             염료 식물원
           </button>
           <button
-            className="w-[100px] h-[50px] text-center bg-red-300 cursor-pointer"
+            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
             onClick={() =>
               handleButtonClick(
                 35.795706624856,
@@ -104,7 +104,7 @@ export default function MapPage() {
             양치 식물원
           </button>
           <button
-            className="w-[100px] h-[50px] text-center bg-red-300 cursor-pointer"
+            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
             onClick={() =>
               handleButtonClick(
                 35.79479437605564,
@@ -116,7 +116,7 @@ export default function MapPage() {
             전통정원
           </button>
           <button
-            className="w-[100px] h-[50px] text-center bg-red-300 cursor-pointer"
+            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
             onClick={() => {
               getCurrentLocation();
               setIwContent(`<div style="padding: 10px;">내 위치</div>`);
