@@ -27,3 +27,17 @@ export async function apiPostUserRegiser(data) {
     console.log(error)
   }
 }
+
+//로그인 요청
+export async function apiPostUserLogin(data) {
+  console.log(data)
+  try {
+    return await fetch(`${BASE_URL}/users/login`, {
+      method : "POST",
+      headers : {"Content-Type": "application/json"},
+      body : JSON.stringify(data)
+    }).then((res) => res.json())
+  } catch (error) {
+    console.log(error)
+  }
+}
