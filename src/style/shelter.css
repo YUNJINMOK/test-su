@@ -4,9 +4,10 @@
   font-family: "Noto Sans KR", sans-serif;
 }
 .shelterBox {
-  margin: 20px 0;
+  margin: 50px 0;
 }
-.shelterImg {
+.shelterCafe, .shelterGreenHouse {
+  position: relative;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -14,11 +15,49 @@
   height: 220px;
   background-color: lightgray;
 }
+.shelterCafe img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+}
+.shelterGreenHouse img::before {
+  content : "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+}
 .shelterTitle {
   color: var(--mainGreen);
 }
 /* 그 외시설 */
 .etcShelter {
-  display: flex;
+  display:flex;
   justify-content: space-around;
+  margin-top: 15px;
+}
+.etcShelter .etcIconBox {
+  background-color: #f7f7f7;
+  width: 100px;
+  padding: 20px;
+  border: 1px solid #dee4e7;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  
+  /* text-align: center; */
+}
+.etcIcon {
+  font-size: 50px;
+  color: var(--mainGreen);
+  margin-bottom: 10px;
+
 }
