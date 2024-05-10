@@ -4,11 +4,24 @@ import Textbox from "../components/Textbox";
 import { Link } from "react-router-dom";
 import { useTheme } from "../context/themeProvider.js";
 import infoMark from "../assets/qr-scan.png";
+import { GrFormNext, GrClose } from "react-icons/gr";
 
-function GuideEle({ zIndex, txt, bg }) {
+function GuideEle({ zIndex, txt, bg, close }) {
   return (
     <div className={`absolute grid font-semibold text-center w-full h-full text-white text-2xl leading-[36px] ${zIndex} ${bg} bg-contain bg-bottom bg-no-repeat`}>
-      <p className="self-center justify-self-center" dangerouslySetInnerHTML={{ __html: txt }} />
+      <div className="self-center justify-self-center">
+        <p dangerouslySetInnerHTML={{ __html: txt }} />
+        {close ? (
+          <p className="flex items-center justify-end pt-5 px-2 font-normal text-[20px]">
+            닫기&nbsp;
+            <GrClose size="16px" />
+          </p>
+        ) : (
+          <p className="flex items-center justify-end pt-5 px-6 font-normal text-[20px]">
+            다음 <GrFormNext />
+          </p>
+        )}
+      </div>
     </div>
   );
 }
@@ -27,7 +40,7 @@ export default function Home() {
     } else if (guideNum === 2) {
       setGuide(<GuideEle zIndex="z-30" txt="qr 코드의 스캔이 완료되면 스탬프가 찍힙니다. 찍힌 스탬프는 스탬프 메뉴에서 확인할 수 있습니다." bg="bg-[url('./assets/guide3.svg')]" />);
     } else if (guideNum === 3) {
-      setGuide(<GuideEle zIndex="z-30" txt="찍힌 스탬프의 갯수에 따라 다양한 경품을 받을 수 있습니다." bg="bg-[url('./assets/guide4.svg')]" />);
+      setGuide(<GuideEle zIndex="z-30" txt="찍힌 스탬프의 갯수에 따라 다양한 경품을 받을 수 있습니다." bg="bg-[url('./assets/guide4.svg')]" close={true} />);
     } else if (guideNum === 4) {
       setShowGuide(false);
       return;
