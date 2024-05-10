@@ -44,7 +44,7 @@ export default function MapPage() {
         {errorMessage && <p>{errorMessage}</p>}
         <div className="w-full flex flex-wrap gap-6 justify-center">
           <button
-            className="w-[100px] h-[50px] text-center bg-red-300"
+            className="w-[100px] h-[50px] text-center bg-red-300 cursor-pointer"
             onClick={() =>
               handleButtonClick(35.80119999998254, 128.52099220293818)
             }
@@ -52,7 +52,7 @@ export default function MapPage() {
             활엽수림
           </button>
           <button
-            className="w-[100px] h-[50px] text-center bg-red-300"
+            className="w-[100px] h-[50px] text-center bg-red-300 cursor-pointer"
             onClick={() =>
               handleButtonClick(35.80052370351272, 128.5201012191372)
             }
@@ -60,7 +60,7 @@ export default function MapPage() {
             습지원
           </button>
           <button
-            className="w-[100px] h-[50px] text-center bg-red-300"
+            className="w-[100px] h-[50px] text-center bg-red-300 cursor-pointer"
             onClick={() =>
               handleButtonClick(35.799712542069514, 128.52292532334738)
             }
@@ -68,7 +68,7 @@ export default function MapPage() {
             무궁화원
           </button>
           <button
-            className="w-[100px] h-[50px] text-center bg-red-300"
+            className="w-[100px] h-[50px] text-center bg-red-300 cursor-pointer"
             onClick={() =>
               handleButtonClick(35.797142822107794, 128.5259099978123)
             }
@@ -76,7 +76,7 @@ export default function MapPage() {
             염료 식물원
           </button>
           <button
-            className="w-[100px] h-[50px] text-center bg-red-300"
+            className="w-[100px] h-[50px] text-center bg-red-300 cursor-pointer"
             onClick={() =>
               handleButtonClick(35.795706624856, 128.52537693278592)
             }
@@ -84,7 +84,7 @@ export default function MapPage() {
             양치 식물원
           </button>
           <button
-            className="w-[100px] h-[50px] text-center bg-red-300"
+            className="w-[100px] h-[50px] text-center bg-red-300 cursor-pointer"
             onClick={() =>
               handleButtonClick(35.79479437605564, 128.52571073583277)
             }
@@ -92,7 +92,7 @@ export default function MapPage() {
             전통정원
           </button>
           <button
-            className="w-[100px] h-[50px] text-center bg-red-300"
+            className="w-[100px] h-[50px] text-center bg-red-300 cursor-pointer"
             onClick={getCurrentLocation}
           >
             내 위치
