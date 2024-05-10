@@ -11,15 +11,13 @@ export default function Home() {
   let [guideNum, setGuideNum] = useState(1);
   const [guide, setGuide] = useState(<div className="absolute self-center justify-self-center font-semibold text-center w-3/4 text-white text-2xl">아래쪽의 QR 촬영 버튼을 누르면 카메라가 켜집니다.</div>);
   const nextGuide = () => {
-    if (guideNum === 1) setGuideNum(++guideNum);
-    if (guideNum === 2) {
+    if (guideNum === 1) {
       setGuide(<div className="absolute self-center justify-self-center font-semibold text-center w-3/4 text-white text-2xl">가이드 2번</div>);
-    } else if (guideNum === 3) {
+    } else if (guideNum === 2) {
       setGuide(<div className="absolute self-center justify-self-center font-semibold text-center w-3/4 text-white text-2xl">가이드 3번</div>);
-    } else if (guideNum === 4) {
+    } else if (guideNum === 3) {
       setGuide(<div className="absolute self-center justify-self-center font-semibold text-center w-3/4 text-white text-2xl">가이드 4번</div>);
-    } else if (guideNum === 5) {
-      setGuideNum(1);
+    } else if (guideNum === 4) {
       setShowGuide(false);
       return;
     }
@@ -36,6 +34,7 @@ export default function Home() {
         <div
           className="w-[300px] h-[100px]"
           onClick={() => {
+            setGuide(<div className="absolute self-center justify-self-center font-semibold text-center w-3/4 text-white text-2xl">아래쪽의 QR 촬영 버튼을 누르면 카메라가 켜집니다.</div>);
             setGuideNum(1);
             setShowGuide(true);
           }}
