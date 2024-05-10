@@ -1,15 +1,26 @@
 import React, { useState, useEffect, useRef } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 
+function DropdownBtn({ onClick, text1, text2, border }) {
+  return (
+    <button onClick={onClick} className={`w-full px-4 py-3 text-gray-700 grid grid-cols-[1fr_185px] justify-center items-center gap-x-4 ${border} border-white text-lg`} role="menuitem">
+      <div className="w-[60px] h-[60px] bg-white rounded-full justify-self-end"></div>
+      <div className="text-left">
+        <p className="font-semibold">{text1}</p>
+        <p>{text2}</p>
+      </div>
+    </button>
+  );
+}
 
 export default function DropdownMenu() {
-  const [selectedMenu, setSelectedMenu] = useState("보상");
+  const [selectedMenu, setSelectedMenu] = useState(["asdf", "zxcv"]);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
 
   //   메뉴 선택하면 닫히게
-  const handleMenuClick = (menu) => {
-    setSelectedMenu(menu);
+  const handleMenuClick = (text) => {
+    setSelectedMenu(text);
     setMenuOpen(false);
   };
 
@@ -29,48 +40,29 @@ export default function DropdownMenu() {
   }, []);
 
   return (
-    <div className="relative mt-[20px] inline-block text-left" ref={menuRef}>
+    <div className="relative my-7 inline-block text-left" ref={menuRef}>
       <div>
         <button
           type="button"
-          className="relative inline-flex justify-center items-center rounded-md w-[310px] px-2 py-5 bg-[#E6E6E6] font-bold text-[30px] text-[#8B8B8B]"
+          className="relative grid grid-cols-[1fr_190px] justify-center items-center rounded-md w-[310px] px-2 py-5 bg-[#E6E6E6] text-lg gap-x-4 "
           onClick={() => setMenuOpen(!menuOpen)} // 버튼 클릭 시 메뉴 열기/닫기 토글
         >
-          {selectedMenu}
-          <IoMdArrowDropdown className="absolute right-2"/>
+          <div className="w-[60px] h-[60px] bg-white rounded-full justify-self-end"></div>
+          <div className="text-left">
+            <p className="font-semibold">{selectedMenu[0]}</p>
+            <p>{selectedMenu[1]}</p>
+          </div>
+          <IoMdArrowDropdown className="absolute right-2" />
         </button>
       </div>
 
       {/* 드롭다운 메뉴 */}
       {menuOpen && (
-        <div className="origin-top-right absolute right-0 w-full rounded-md shadow-lg bg-white">
-          <div
-            className="py-1"
-            role="menu"
-            aria-orientation="vertical"
-            aria-labelledby="options-menu"
-          >
-            <button
-              onClick={() => handleMenuClick("보상")}
-              className="w-full block px-4 py-2 text-sm text-gray-700"
-              role="menuitem"
-            >
-              보상
-            </button>
-            <button
-              onClick={() => handleMenuClick("완료 스탬프")}
-              className="w-full block px-4 py-2 text-sm text-gray-700"
-              role="menuitem"
-            >
-              완료 스탬프
-            </button>
-            <button
-              onClick={() => handleMenuClick("미완료 스탬프")}
-              className="w-full block px-4 py-2 text-sm text-gray-700"
-              role="menuitem"
-            >
-              미완료 스탬프
-            </button>
+        <div className="origin-top-right absolute right-0 w-full rounded-md shadow-lg bg-[#e6e6e6] mt-1">
+          <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+            <DropdownBtn onClick={() => handleMenuClick(["스탬프 1개", "생분해 대나무 칫솔"])} text1="스탬프 1개" text2="생분해 대나무 칫솔" border="border-b" />
+            <DropdownBtn onClick={() => handleMenuClick(["스탬프 3개", "친환경 설거지 비누"])} text1="스탬프 3개" text2="친환경 설거지 비누" border="border-b" />
+            <DropdownBtn onClick={() => handleMenuClick(["스탬프 6개", "업사이클링 에코백"])} text1="스탬프 6개" text2="업사이클링 에코백" />
           </div>
         </div>
       )}
