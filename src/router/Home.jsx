@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../components/Layout";
 import Textbox from "../components/Textbox";
 import { Link } from "react-router-dom";
@@ -7,10 +7,38 @@ import infoMark from "../assets/qr-scan.png";
 
 export default function Home() {
   const [ThemeMode, toggleTheme] = useTheme();
+  let [showGuide, setShowGuide] = useState(false);
+  let [guideNum, setGuideNum] = useState(1);
+  const [guide, setGuide] = useState(<div className="absolute self-center justify-self-center font-semibold text-center w-3/4 text-white text-2xl">아래쪽의 QR 촬영 버튼을 누르면 카메라가 켜집니다.</div>);
+  const nextGuide = () => {
+    if (guideNum === 1) {
+      setGuide(<div className="absolute self-center justify-self-center font-semibold text-center w-3/4 text-white text-2xl">가이드 2번</div>);
+    } else if (guideNum === 2) {
+      setGuide(<div className="absolute self-center justify-self-center font-semibold text-center w-3/4 text-white text-2xl">가이드 3번</div>);
+    } else if (guideNum === 3) {
+      setGuide(<div className="absolute self-center justify-self-center font-semibold text-center w-3/4 text-white text-2xl">가이드 4번</div>);
+    } else if (guideNum === 4) {
+      setShowGuide(false);
+      return;
+    }
+    setGuideNum(++guideNum);
+  };
   return (
     <Layout>
+      {showGuide && (
+        <div onClick={nextGuide} className="absolute h-[108vh] -top-[60px] w-screen bg-black/70 z-10 grid">
+          {guide}
+        </div>
+      )}
       <div className="w-full h-full flex flex-col justify-center items-center py-10">
-        <div className="w-[300px] h-[100px]  ">
+        <div
+          className="w-[300px] h-[100px]"
+          onClick={() => {
+            setGuide(<div className="absolute self-center justify-self-center font-semibold text-center w-3/4 text-white text-2xl">아래쪽의 QR 촬영 버튼을 누르면 카메라가 켜집니다.</div>);
+            setGuideNum(1);
+            setShowGuide(true);
+          }}
+        >
           <div className=" relative w-full h-full flex items-center">
             <div className="w-full h-full flex flex-col ml-4 justify-center">
               <span className="text-2xl">앱 이용 방법</span>
