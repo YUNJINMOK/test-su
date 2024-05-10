@@ -50,7 +50,7 @@ export default function IndoorInfo() {
         {/* 목재문화체험장 */}
         <article>
           <div className="forestcul">
-            <p className="forestcul-title">목재문화체험장</p>
+            <p className="mainGreen-title">목재문화체험장</p>
             <p className="forestcul-text">시민들에게 목공체험을 통한 다양한 목재문화 및 목공예에 관한 정보를 제공하는 공간입니다.</p>
           </div>
           {/* 이용시간 */}

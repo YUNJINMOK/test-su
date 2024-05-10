@@ -83,7 +83,7 @@ article#myAccount ~ #logout {
 .togBtn .togCircle {
   position: absolute;
   top: 50%;
-  transform: translateY(-52%);
+  transform: translateY(-50%);
   transition: left 0.2s;
   height: 25px;
   width: 25px;

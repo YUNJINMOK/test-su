@@ -13,15 +13,6 @@
   --subGreen: #1bcc34;
 }
 
-@font-face {
-  font-family: "April16th-Promise";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2404-2@1.0/April16th-Promise.woff2") format("woff2");
-  font-weight: 200;
-  font-style: normal;
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
-
 /* 공통적용 css ------------------------------------------*/
 /* GreenDot */
 .hoursT {
@@ -44,7 +35,7 @@ h3::before {
 }
 /* Hours */
 .intro-title {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-size: 32px;
   font-weight: bold;
 }
@@ -94,7 +85,16 @@ h3::before {
 
 .mainGreen-title {
   color: var(--mainGreen);
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
   margin-bottom: 15px;
 }
+
+@font-face {
+  font-family: "April16th-Promise";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2404-2@1.0/April16th-Promise.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
