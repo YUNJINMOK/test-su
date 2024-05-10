@@ -28,7 +28,7 @@ export default function KakaoMap({ userLocation, iwContent }) {
       // 인포윈도우를 생성합니다
       let infowindow = new kakao.maps.InfoWindow({
         content: iwContent,
-        removable: true, // X 버튼으로 인포윈도우를 닫을 수 있도록 설정합니다
+        removable: false, // X 버튼으로 인포윈도우를 닫을 수 있도록 설정합니다
       });
 
       // 인포윈도우를 표시합니다
