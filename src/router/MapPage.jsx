@@ -40,8 +40,10 @@ export default function MapPage() {
   return (
     <Layout>
       <div className="w-full flex flex-col justify-center items-center py-10 gap-4">
+        {/* 카카오지도 */}
         <KakaoMap userLocation={userLocation} />
         {errorMessage && <p>{errorMessage}</p>}
+        {/* 버튼 */}
         <div className="w-full flex flex-wrap gap-6 justify-center">
           <button
             className="w-[100px] h-[50px] text-center bg-red-300 cursor-pointer"
