@@ -3,8 +3,10 @@ import Layout from "../components/Layout";
 import { useTheme } from "../context/themeProvider.js";
 import "../style/mypage.css";
 import IsLogin from "../components/IsLogin.js";
+import { useNavigate } from "react-router-dom";
 
 export default function MyPage() {
+  const navigate = useNavigate()
   const [btn2, setBtn2] = useState(false);
   const [ThemeMode, toggleTheme] = useTheme();
   function darkMode() {
@@ -12,7 +14,12 @@ export default function MyPage() {
   }
 
   const [user, setUser] = useState(null); // 사용자 정보를 상태로 관리
+  const onClick = () => {
+    sessionStorage.removeItem("userData");
+    alert("로그아웃 되었습니다.");
+    navigate("/home")
 
+  }
   // IsLogin 컴포넌트에서 전달한 사용자 정보를 받아 상태를 업데이트하는 함수
   const updateUser = (userData) => {
     setUser(userData);
@@ -61,7 +68,7 @@ export default function MyPage() {
             <div className={`togCircle ${ThemeMode === "dark" ? "darkTogCircle" : ""}`} style={{ left: btn2 ? "22px" : "0" }}></div>
           </div>
         </div>
-        <p id="logout">로그아웃</p>
+        <p id="logout" onClick={onClick}>로그아웃</p>
       </section>
     </Layout>
   );

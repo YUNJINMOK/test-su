@@ -17,6 +17,8 @@ import MapPage from "./router/MapPage.jsx";
 import QrPage from "./router/QrPage.jsx";
 import Login from "./router/Login.jsx";
 import SignUp from "./router/SignUp.jsx";
+import Kakao from "./router/Kakao.jsx";
+import Google from "./router/Google.jsx";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +69,14 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp />,
+      },
+      {
+        path: 'socials/kakao',
+        element: <Kakao />,
+      },
+      {
+        path: 'socials/google',
+        element: <Google />,
       },
     ],
   },
