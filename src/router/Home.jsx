@@ -6,9 +6,10 @@ import { useTheme } from "../context/themeProvider.js";
 import infoMark from "../assets/qr-scan.png";
 import { GrFormNext, GrClose } from "react-icons/gr";
 
+
 function GuideEle({ zIndex, txt, bg, close }) {
   return (
-    <div className={`absolute grid font-semibold text-center w-full h-full text-white text-2xl leading-[36px] ${zIndex} ${bg} bg-contain bg-bottom bg-no-repeat`}>
+    <div className={`absolute grid font-semibold text-center w-full h-full text-white text-2xl leading-[36px] ${zIndex} ${bg} bg-cover bg-center bg-no-repeat`} >
       <div className="self-center justify-self-center">
         <p dangerouslySetInnerHTML={{ __html: txt }} />
         {close ? (
