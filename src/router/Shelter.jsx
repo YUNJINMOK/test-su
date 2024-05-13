@@ -6,7 +6,9 @@ import { FaParking } from "react-icons/fa";
 import { MdForest } from "react-icons/md";
 
 import "../style/shelter.css";
-import { Link } from "react-router-dom";
+import ShelterMap from "../components/ShelterMap";
+import ParkingMap from "../components/ParkingMap";
+import RestMap from "../components/RestMap";
 
 export default function Shelter() {
   return (
@@ -48,18 +50,23 @@ export default function Shelter() {
         <div>
           <h2 className="mainGreen-title">그 외 시설</h2>
           <div className="etcShelter">
-            <Link to="/map" className="etcIconBox">
+            <button className="toiletMap">
               <FaRestroom className="etcIcon" />
               <p>화장실</p>
-            </Link>
-            <Link to="/map" className="etcIconBox">
+            </button>
+            <button className="parkingMap">
               <FaParking className="etcIcon" />
               <p>주차장</p>
-            </Link>
-            <Link to="/map" className="etcIconBox">
+            </button>
+            <button className="restMap">
               <MdForest className="etcIcon" />
               <p>쉼터</p>
-            </Link>
+            </button>
+          </div>
+          <div className="shelterMap">
+            <ShelterMap />
+            <ParkingMap />
+            <RestMap/>
           </div>
         </div>
       </div>
