@@ -11,18 +11,21 @@ export default function Login() {
     onSuccess: (data) => {
       if (data.result === true) {
         sessionStorage.setItem("userData", JSON.stringify(data));
-        console.log(data);
         navigate("/home");
       }
     },
     onSettled: (data) => {
-      if (data.result === false) {
-        setError(`user_id`, {
-          message: data.message,
-        });
-        setError(`user_pw`, {
-          message: data.message,
-        });
+      if (data.result !== true || data.result2 !== true) {
+        if (data.result2 === false) {
+          setError(`user_id`, {
+            message: data.message,
+          });
+        }
+        if (data.result === false) {
+          setError(`user_pw`, {
+            message: data.message,
+          });
+        }
       }
     },
   });

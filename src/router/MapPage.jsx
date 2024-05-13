@@ -47,73 +47,23 @@ export default function MapPage() {
         {errorMessage && <p>{errorMessage}</p>}
         {/* 버튼 */}
         <div className="w-full flex flex-wrap gap-6 justify-center py-4">
-          <button
-            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
-            onClick={() =>
-              handleButtonClick(
-                35.80119999998254,
-                128.52099220293818,
-                "활엽수림"
-              )
-            }
-          >
-            활엽수림
+          <button className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm" onClick={() => handleButtonClick(35.80119999998254, 128.52099220293818, "활엽수림")}>
+            1. 활엽수림
           </button>
-          <button
-            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
-            onClick={() =>
-              handleButtonClick(35.80052370351272, 128.5201012191372, "습지원")
-            }
-          >
-            습지원
+          <button className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm" onClick={() => handleButtonClick(35.80052370351272, 128.5201012191372, "습지원")}>
+            2. 습지원
           </button>
-          <button
-            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
-            onClick={() =>
-              handleButtonClick(
-                35.799712542069514,
-                128.52292532334738,
-                "무궁화원"
-              )
-            }
-          >
-            무궁화원
+          <button className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm" onClick={() => handleButtonClick(35.799712542069514, 128.52292532334738, "무궁화원")}>
+            3. 무궁화원
           </button>
-          <button
-            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
-            onClick={() =>
-              handleButtonClick(
-                35.797142822107794,
-                128.5259099978123,
-                "염료 식물원"
-              )
-            }
-          >
-            염료 식물원
+          <button className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm" onClick={() => handleButtonClick(35.797142822107794, 128.5259099978123, "염료 식물원")}>
+            4. 염료 식물원
           </button>
-          <button
-            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
-            onClick={() =>
-              handleButtonClick(
-                35.795706624856,
-                128.52537693278592,
-                "양치 식물원"
-              )
-            }
-          >
-            양치 식물원
+          <button className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm" onClick={() => handleButtonClick(35.795706624856, 128.52537693278592, "양치 식물원")}>
+            5. 양치 식물원
           </button>
-          <button
-            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
-            onClick={() =>
-              handleButtonClick(
-                35.79479437605564,
-                128.52571073583277,
-                "전통정원"
-              )
-            }
-          >
-            전통정원
+          <button className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm" onClick={() => handleButtonClick(35.79479437605564, 128.52571073583277, "전통정원")}>
+            6. 전통정원
           </button>
           <button
             className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
