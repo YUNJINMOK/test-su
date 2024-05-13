@@ -87,7 +87,7 @@ export default function Home() {
             <Textbox title="내부 시설 안내" text="전시관, 체험장 소개" />
           </Link>
           <Link to="/shelterinfo" className="w-full h-1/3">
-            <Textbox title="편의시설 안내" text="ㅁㄴㅇㄻㄴㅇㄹ" border="border-none" />
+            <Textbox title="편의시설 안내" text="카페, 화장실 및 편의시설 안내" border="border-none" />
           </Link>
         </div>
       </div>
