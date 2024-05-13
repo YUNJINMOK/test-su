@@ -53,3 +53,8 @@
   color: var(--mainGreen);
   margin-bottom: 10px;
 }
+.toiletMap:focus,
+.parkingMap:focus,
+.restMap:focus {
+  border: 2px solid var(--mainGreen);
+}

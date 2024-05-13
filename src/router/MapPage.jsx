@@ -2,6 +2,14 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import KakaoMap from "../components/KakaoMap";
 
+function MapBtn({ onClick, txt }) {
+  return (
+    <button className="w-[100px] py-2 text-center border-2 border-[#119724] font-semibold shadow-sm" onClick={onClick}>
+      {txt}
+    </button>
+  );
+}
+
 export default function MapPage() {
   const [errorMessage, setErrorMessage] = useState(null);
   const [userLocation, setUserLocation] = useState(null);
@@ -41,40 +49,13 @@ export default function MapPage() {
 
   return (
     <Layout>
-      <div className="w-full flex flex-col justify-center items-center py-10 gap-4">
+      <div className="w-full flex flex-col justify-center items-center pb-10 gap-4">
+        <div className="flex">
+          <MapBtn txt="화장실" />
+        </div>
         {/* 카카오지도 */}
         <KakaoMap userLocation={userLocation} iwContent={iwContent} />
         {errorMessage && <p>{errorMessage}</p>}
-        {/* 버튼 */}
-        <div className="w-full flex flex-wrap gap-6 justify-center py-4">
-          <button className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm" onClick={() => handleButtonClick(35.80119999998254, 128.52099220293818, "활엽수림")}>
-            1. 활엽수림
-          </button>
-          <button className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm" onClick={() => handleButtonClick(35.80052370351272, 128.5201012191372, "습지원")}>
-            2. 습지원
-          </button>
-          <button className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm" onClick={() => handleButtonClick(35.799712542069514, 128.52292532334738, "무궁화원")}>
-            3. 무궁화원
-          </button>
-          <button className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm" onClick={() => handleButtonClick(35.797142822107794, 128.5259099978123, "염료 식물원")}>
-            4. 염료 식물원
-          </button>
-          <button className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm" onClick={() => handleButtonClick(35.795706624856, 128.52537693278592, "양치 식물원")}>
-            5. 양치 식물원
-          </button>
-          <button className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm" onClick={() => handleButtonClick(35.79479437605564, 128.52571073583277, "전통정원")}>
-            6. 전통정원
-          </button>
-          <button
-            className="w-[100px] h-[50px] text-center bg-[#119724] cursor-pointer text-white font-semibold shadow-sm"
-            onClick={() => {
-              getCurrentLocation();
-              setIwContent(`<div style="padding: 10px;">내 위치</div>`);
-            }}
-          >
-            내 위치
-          </button>
-        </div>
       </div>
     </Layout>
   );

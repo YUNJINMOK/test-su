@@ -9,7 +9,7 @@ const IsLogin = ({ updateUser }) => {
     const userData = JSON.parse(sessionStorage.getItem("userData"));
     if (!userData) {
       alert("로그인 해주세요");
-      navigate('/login'); // 로그인 페이지 경로로 이동합니다.
+      navigate("/login"); // 로그인 페이지 경로로 이동합니다.
       return;
     }
     updateUser(userData); // 부모 컴포넌트로 사용자 정보를 전달합니다.
