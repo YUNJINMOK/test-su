@@ -6,10 +6,7 @@ import IsLogin from "../components/IsLogin.js";
 import { useNavigate } from "react-router-dom";
 
 export default function MyPage() {
-<<<<<<< HEAD
   const navigate = useNavigate()
-=======
->>>>>>> 192e588e45d39db45003dcc4ed2cc51113b5474f
   const [btn2, setBtn2] = useState(false);
   const [ThemeMode, toggleTheme] = useTheme();
   function darkMode() {
