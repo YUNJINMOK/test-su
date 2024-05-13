@@ -4,8 +4,21 @@ import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "react-query";
 import { useForm } from "react-hook-form";
 import { apiPostUserRegiser } from "../api";
+import Kakao from "../assets/kakaoLogo.png";
+import Google from "../assets/googleLogo.svg"
 
 export default function SignUp() {
+  const kakaoUrl = 'https://kauth.kakao.com/oauth/authorize';
+  const config = {
+      response_type: 'code',
+      client_id: process.env.REACT_APP_KAKAO_CLIENT_ID,
+      redirect_uri: process.env.REACT_APP_KAKAO_REDIRECT_URI,
+  };
+
+  const params = new URLSearchParams(config).toString();
+  const finalUrl = `${kakaoUrl}?${params}`;
+
+  const googleUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.REACT_APP_GOOGLE_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_GOOGLE_REDIRECT_URL}&response_type=code&scope=email profile`;
   const navigate = useNavigate();
   const { mutate } = useMutation(apiPostUserRegiser, {
     onSuccess: (data) => {
@@ -51,6 +64,24 @@ export default function SignUp() {
           <input {...register("password2")} name="password2" className="w-[300px] h-[50px] rounded-lg border-none ring-1 ring-gray-300 outline-none focus:ring-2 focus:ring-[#119724]" type="password" placeholder="비밀번호 확인" />
           <button className="w-[300px] h-[50px] bg-[#119724] rounded-lg flex justify-center items-center text-xl text-white cursor-pointer mt-8">가입하기</button>
         </form>
+        <div className="w-[300px] h-[50px] bg-[#FEE500] rounded-lg flex justify-around items-center mb-2">
+          <img className="w-[50px] h-[100%] object-contain" src={Kakao} alt="kakao" />
+          <Link to={finalUrl} className=" no-underline text-black">
+              <p className="flex items-center justify-center text-xl font-semibold">카카오 회원가입</p>
+          </Link>
+          <span className="w-[10%]"></span>
+        </div>
+        <div className="w-[300px] h-[50px] bg-[#F2F2F2] rounded-lg flex justify-around items-center mb-2">
+          <img
+              className="w-[50px] h-[100%] cursor-pointer object-contain"
+              src={Google}
+              alt="google"
+          />
+          <Link to={googleUrl} className=" no-underline text-black">
+              <p className="flex items-center justify-center text-xl font-semibold">구글 회원가입</p>
+          </Link>
+          <span className="w-[10%]"></span>
+      </div>
         <Link to="/login">이미 계정이 있다면 로그인</Link>
       </div>
     </Layout>
