@@ -116,6 +116,23 @@ h3::before {
   background-position: 0 calc((10px + 59px * 5) * -1);
 }
 
+.swal2-container {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.swal2-actions {
+  width: 100%;
+}
+
+.swal2-confirm {
+  color: #3670da;
+  font-weight: 500;
+  margin-top: 10px;
+  padding: 10px 35px 10px 10px;
+  width: 100%;
+  text-align: end;
+}
+
 @font-face {
   font-family: "April16th-Promise";
   src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2404-2@1.0/April16th-Promise.woff2") format("woff2");

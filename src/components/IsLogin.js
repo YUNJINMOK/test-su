@@ -8,7 +8,6 @@ const IsLogin = ({ updateUser }) => {
   useEffect(() => {
     const userData = JSON.parse(sessionStorage.getItem("userData"));
     if (!userData) {
-      alert("로그인 해주세요");
       navigate("/login"); // 로그인 페이지 경로로 이동합니다.
       return;
     }

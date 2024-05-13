@@ -84,10 +84,10 @@ export default function Home() {
             <Textbox title="수목원소개" text="이용시간, 주의사항 등" />
           </Link>
           <Link to="/indoorinfo" className="w-full h-1/3">
-            <Textbox title="산림문화 전시관 안내" text="ㅁㄴㅇㄹ" />
+            <Textbox title="산림문화 전시관 안내" text="대구 시민들의 자연학습 체험장" />
           </Link>
           <Link to="/indoorinfo2" className="w-full h-1/3">
-            <Textbox title="목재문화 체험장 안내" text="ㅁㄴㅇㄹ" border="border-none" />
+            <Textbox title="목재문화 체험장 안내" text="누구나 시작할 수 있는 목공예" border="border-none" />
           </Link>
         </div>
       </div>
