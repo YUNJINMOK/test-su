@@ -5,6 +5,7 @@ import { FaRestroom } from "react-icons/fa";
 import { FaParking } from "react-icons/fa";
 import { MdForest } from "react-icons/md";
 import CafeImg from "../assets/coffee.jpg";
+import GreenHouse from "../assets/greenhouse.png"
 
 import "../style/shelter.css";
 import ToiletMap from "../components/ToiletMap";
@@ -46,7 +47,7 @@ export default function Shelter() {
         <div className="shelterBox">
           <h2 className="mainGreen-title">선인장 온실</h2>
           <div className="shelterImg">
-            <img src="" alt="선인장 온실 사진" />
+            <img src={GreenHouse} alt="선인장 온실 사진 (출처 : 대구트립로드 https://tour.daegu.go.kr/index.do?menu_id=00002913)" />
           </div>
           <div className="shelterText">
             <p>
