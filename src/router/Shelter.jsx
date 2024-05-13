@@ -5,14 +5,13 @@ import { FaRestroom } from "react-icons/fa";
 import { FaParking } from "react-icons/fa";
 import { MdForest } from "react-icons/md";
 import CafeImg from "../assets/coffee.jpg";
-import GreenHouse from "../assets/greenhouse.png"
-
-import "../style/shelter.css";
+import GreenHouse from "../assets/greenhouse.png";
 import ToiletMap from "../components/ToiletMap";
 import ParkingMap from "../components/ParkingMap";
 import RestMap from "../components/RestMap";
 import GreenDot from "../components/GreenDot";
 import Hours from "../components/Hours";
+import "../style/shelter.css";
 
 export default function Shelter() {
   const [activeComponent, setActiveComponent] = useState("toilet");
@@ -47,7 +46,10 @@ export default function Shelter() {
         <div className="shelterBox">
           <h2 className="mainGreen-title">선인장 온실</h2>
           <div className="shelterImg">
-            <img src={GreenHouse} alt="선인장 온실 사진 (출처 : 대구트립로드 https://tour.daegu.go.kr/index.do?menu_id=00002913)" />
+            <img
+              src={GreenHouse}
+              alt="선인장 온실 사진 (출처 : 대구트립로드 https://tour.daegu.go.kr/index.do?menu_id=00002913)"
+            />
           </div>
           <div className="shelterText">
             <p>
@@ -71,15 +73,19 @@ export default function Shelter() {
         <div>
           <h2 className="mainGreen-title">그 외 시설</h2>
           <div className="etcShelter">
-            <button className="toiletMap" onClick={showToiletMap}>
+            <button className="toiletMap" onClick={showToiletMap} tabIndex="0">
               <FaRestroom className="etcIcon" />
               <p>화장실</p>
             </button>
-            <button className="parkingMap" onClick={showParkingMap}>
+            <button
+              className="parkingMap"
+              onClick={showParkingMap}
+              tabIndex="0"
+            >
               <FaParking className="etcIcon" />
               <p>주차장</p>
             </button>
-            <button className="restMap" onClick={showRestMap}>
+            <button className="restMap" onClick={showRestMap} tabIndex="0">
               <MdForest className="etcIcon" />
               <p>쉼터</p>
             </button>
