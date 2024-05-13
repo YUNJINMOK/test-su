@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { useTheme } from "../context/themeProvider";
 
 function DropdownBtn({ onClick, text1, text2, border }) {
   return (
-    <button onClick={onClick} className={`w-full px-4 py-3 text-gray-700 grid grid-cols-[1fr_185px] justify-center items-center gap-x-4 ${border} border-white text-lg`} role="menuitem">
+    <button onClick={onClick} className={`w-full px-4 py-3 grid grid-cols-[1fr_185px] justify-center items-center gap-x-4 ${border} border-white text-lg`} role="menuitem">
       <div className="w-[60px] h-[60px] bg-white rounded-full justify-self-end"></div>
       <div className="text-left">
         <p className="font-semibold">{text1}</p>
@@ -16,6 +17,7 @@ function DropdownBtn({ onClick, text1, text2, border }) {
 export default function DropdownMenu() {
   const [selectedMenu, setSelectedMenu] = useState(["asdf", "zxcv"]);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [ThemeMode, toggleTheme] = useTheme();
   const menuRef = useRef(null);
 
   //   메뉴 선택하면 닫히게
@@ -44,7 +46,7 @@ export default function DropdownMenu() {
       <div>
         <button
           type="button"
-          className="relative grid grid-cols-[1fr_190px] justify-center items-center rounded-md w-[310px] px-2 py-5 bg-[#E6E6E6] text-lg gap-x-4 "
+          className={`relative grid grid-cols-[1fr_190px] justify-center items-center rounded-md w-[310px] px-2 py-5 text-lg gap-x-4 ${ThemeMode === "dark" ? "bg-[#2e2e2e] text-white" : "bg-[#E6E6E6] text-inherit"}`}
           onClick={() => setMenuOpen(!menuOpen)} // 버튼 클릭 시 메뉴 열기/닫기 토글
         >
           <div className="w-[60px] h-[60px] bg-white rounded-full justify-self-end"></div>
@@ -58,7 +60,7 @@ export default function DropdownMenu() {
 
       {/* 드롭다운 메뉴 */}
       {menuOpen && (
-        <div className="origin-top-right absolute right-0 w-full rounded-md shadow-lg bg-[#e6e6e6] mt-1">
+        <div className={`origin-top-right absolute right-0 w-full rounded-md shadow-lg mt-1 ${ThemeMode === "dark" ? "bg-[#2e2e2e] text-white" : "bg-[#E6E6E6] text-inherit"}`}>
           <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
             <DropdownBtn onClick={() => handleMenuClick(["스탬프 1개", "생분해 대나무 칫솔"])} text1="스탬프 1개" text2="생분해 대나무 칫솔" border="border-b" />
             <DropdownBtn onClick={() => handleMenuClick(["스탬프 3개", "친환경 설거지 비누"])} text1="스탬프 3개" text2="친환경 설거지 비누" border="border-b" />
