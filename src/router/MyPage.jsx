@@ -2,33 +2,49 @@ import React, { useState } from "react";
 import Layout from "../components/Layout";
 import { useTheme } from "../context/themeProvider.js";
 import "../style/mypage.css";
+import IsLogin from "../components/IsLogin.js";
+
 
 export default function MyPage() {
+  
   const [btn2, setBtn2] = useState(false);
   const [ThemeMode, toggleTheme] = useTheme();
   function darkMode() {
     toggleTheme();
   }
 
+  const [user, setUser] = useState(null); // 사용자 정보를 상태로 관리
+
+  // IsLogin 컴포넌트에서 전달한 사용자 정보를 받아 상태를 업데이트하는 함수
+  const updateUser = (userData) => {
+    setUser(userData);
+  };
   return (
     <Layout>
       <section id="myPage">
         <article id="myAccount">
-          <h2>ooo123 님의 마이페이지</h2>
-          <div id="accountInfo">
-            <div>
-              <p>아이디</p>
-              <p>ooo123</p>
-            </div>
-            <div>
+        {/* IsLogin 컴포넌트에 updateUser 함수를 props로 전달하여 사용자 정보 업데이트 */}
+        <IsLogin updateUser={updateUser} />
+        {/* 사용자 정보를 이용하여 마이페이지 렌더링 */}
+        {user && (
+          <>
+            <h2>{user?.user_id}님의 마이페이지</h2>
+            <div id="accountInfo">
               <div>
-                <p>비밀번호</p>
-                <p>******</p>
+                <p>아이디</p>
+                <p>{user?.user_id}</p>
               </div>
-              <button className={`editBtn ${ThemeMode==="dark"?"darkEditBtn":""}`}>수정</button>
+              <div>
+                <div>
+                  <p>비밀번호</p>
+                  <p>******</p>
+                </div>
+                <button className={`editBtn ${ThemeMode==="dark"?"darkEditBtn":""}`}>수정</button>
+              </div>
             </div>
-          </div>
-        </article>
+          </>
+        )}
+      </article>
         <div
           className={`settingBtn ${
             ThemeMode === "dark" ? "DarkSettingBtn" : ""

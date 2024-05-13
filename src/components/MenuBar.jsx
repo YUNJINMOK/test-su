@@ -16,7 +16,7 @@ export default function MenuBar() {
     <>
       <nav className={`fixed bottom-0 z-20 w-full h-[70px] ${ThemeMode === "dark" ? "bg-[#292929]" : "bg-[#f1f1f1]"} flex items-center justify-between px-2`}>
         <Link to="/home" className="w-[60px]">
-          <Icon text="홈" icon="home" size="30px" green={pathname === "/home" ? "green" : ""} />
+          <Icon text="홈" icon="home" size="30px" green={/^(\/home|\/introsumok|\/indoorinfo|\/shelterinfo)$/.test(pathname) ? "green" : ""} />
         </Link>
         <Link to="/map" className="w-[60px]">
           <Icon text="지도" icon="map" size="30px" green={pathname === "/map" ? "green" : ""} />
