@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import KakaoMap from "../components/KakaoMap";
 import { stampPositions, toiletPositions, parkPositions, cafePosition } from "../lib/positions.js";
-import { FaRestroom, FaStamp } from "react-icons/fa";
+import { FaRestroom } from "react-icons/fa";
 import { MdForest } from "react-icons/md";
 import { TbLineScan } from "react-icons/tb";
 

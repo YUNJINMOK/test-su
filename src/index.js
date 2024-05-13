@@ -19,6 +19,7 @@ import Login from "./router/Login.jsx";
 import SignUp from "./router/SignUp.jsx";
 import Kakao from "./router/Kakao.jsx";
 import Google from "./router/Google.jsx";
+import IndoorInfo2 from "./router/IndoorInfo2.jsx";
 
 const router = createBrowserRouter([
   {
@@ -51,9 +52,13 @@ const router = createBrowserRouter([
         element: <IndoorInfo />,
       },
       {
-        path: "/shelterinfo",
-        element: <Shelter />,
+        path: "/indoorinfo2",
+        element: <IndoorInfo2 />,
       },
+      // {
+      //   path: "/shelterinfo",
+      //   element: <Shelter />,
+      // },
       {
         path: "/map",
         element: <MapPage />,
@@ -71,11 +76,11 @@ const router = createBrowserRouter([
         element: <SignUp />,
       },
       {
-        path: 'socials/kakao',
+        path: "socials/kakao",
         element: <Kakao />,
       },
       {
-        path: 'socials/google',
+        path: "socials/google",
         element: <Google />,
       },
     ],
