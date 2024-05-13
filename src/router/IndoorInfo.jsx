@@ -28,17 +28,17 @@ export default function IndoorInfo() {
             <GreenDot title="층별 안내" />
             <div>
               <div className="floorInfo-con-box">
-                <p>
+                <div>
                   1층 <p>비지터 센터, 제1전시실, 작은 도서관</p>
-                </p>
+                </div>
                 <div className="floorImg">
                   <div></div>
                 </div>
               </div>
               <div className="floorInfo-con-box">
-                <p>
+                <div>
                   2층<p>제2전시실, 기획전시실</p>
-                </p>
+                </div>
                 <div className="floorImg">
                   <div></div>
                 </div>
@@ -78,17 +78,17 @@ export default function IndoorInfo() {
             <GreenDot title="층별 안내" />
             <div>
               <div className="floorInfo-con-box">
-                <p>
+                <div>
                   1층 <p>유아체험장· 유아놀이방, 초등체험장</p>
-                </p>
+                </div>
                 <div className="floorImg">
                   <div></div>
                 </div>
               </div>
               <div className="floorInfo-con-box">
-                <p>
+                <div>
                   2층<p>중등체험장, 성인체험장</p>
-                </p>
+                </div>
                 <div className="floorImg">
                   <div></div>
                 </div>

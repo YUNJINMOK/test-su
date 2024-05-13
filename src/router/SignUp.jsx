@@ -14,13 +14,17 @@ export default function SignUp() {
       }
     },
     onSettled: (data) => {
-      if (data.result === false) {
-        setError(`user_id`, {
-          message: data.message,
-        });
-        setError(`password1`, {
-          message: data.message,
-        });
+      if (data.result !== true || data.result2 !== true) {
+        if (data.result === false) {
+          setError(`user_id`, {
+            message: data.message,
+          });
+        }
+        if (data.result2 === false) {
+          setError(`password1`, {
+            message: data.message,
+          });
+        }
       }
     },
   });
