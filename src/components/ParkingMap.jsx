@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { parkPositions } from "../lib/positions.js";
 import GpsLogo from "../assets/gpsLogo.svg";
 
 export default function ParkingMap() {
@@ -14,29 +15,14 @@ export default function ParkingMap() {
 
       const map = new kakao.maps.Map(mapContainer, mapOption);
 
-      const positions = [
-        {
-          title: "제1 주차장",
-          latlng: new kakao.maps.LatLng(35.80176475470669, 128.5201687276982),
-        },
-        {
-          title: "제2 주차장",
-          latlng: new kakao.maps.LatLng(35.802384098351425, 128.52011591230576),
-        },
-        {
-          title: "제3 주차장",
-          latlng: new kakao.maps.LatLng(35.803452716053286, 128.5190209285164),
-        },
-      ];
-
-      for (let i = 0; i < positions.length; i++) {
+      for (let i = 0; i < parkPositions.length; i++) {
         const imageSize = new kakao.maps.Size(24, 35);
         const markerImage = new kakao.maps.MarkerImage(GpsLogo, imageSize);
 
         const marker = new kakao.maps.Marker({
           map: map,
-          position: positions[i].latlng,
-          title: positions[i].title,
+          position: parkPositions[i].latlng,
+          title: parkPositions[i].title,
           image: markerImage,
         });
       }

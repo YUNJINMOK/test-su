@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { toiletPositions } from "../lib/positions.js";
 import GpsLogo from "../assets/gpsLogo.svg";
 
 export default function ToiletMap() {
@@ -39,25 +40,6 @@ export default function ToiletMap() {
 
           const map = new kakao.maps.Map(mapContainer, mapOption);
 
-          const positions = [
-            {
-              title: "주차장 화장실",
-              latlng: new kakao.maps.LatLng(35.8017, 128.52),
-            },
-            {
-              title: "산책로 화장실 1",
-              latlng: new kakao.maps.LatLng(35.7995, 128.5207),
-            },
-            {
-              title: "산책로 화장실 2",
-              latlng: new kakao.maps.LatLng(35.7987, 128.5247),
-            },
-            {
-              title: "산책로 화장실 3",
-              latlng: new kakao.maps.LatLng(35.7951, 128.5256),
-            },
-          ];
-
           // 사용자 현재 위치 마커 생성
           const imageSize = new kakao.maps.Size(24, 35);
           const markerImage = new kakao.maps.MarkerImage(GpsLogo, imageSize);
@@ -69,7 +51,7 @@ export default function ToiletMap() {
           });
 
           // 화장실 위치 마커 생성
-          positions.forEach((pos) => {
+          toiletPositions.forEach((pos) => {
             const marker = new kakao.maps.Marker({
               map: map,
               position: pos.latlng,
