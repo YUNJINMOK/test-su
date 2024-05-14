@@ -74,6 +74,14 @@ export const parkPositions = [
 ];
 
 export const cafePosition = [
-  { title: "수목원 커피", latlng: new kakao.maps.LatLng(35.8008, 128.525), desc: "숲을 바라보며 차 한잔을 즐기기 좋은 곳입니다. 다양한 방문객의 취향에 맞춘 간식거리가 함께 판매되고 있습니다." },
-  { title: "쉼터", latlng: new kakao.maps.LatLng(35.7999830984602, 128.52304809244063), desc: "LOREM" },
+  {
+    title: "수목원 커피",
+    latlng: new kakao.maps.LatLng(35.80051980506114, 128.52245503345708),
+    desc: "숲을 바라보며 차 한잔을 즐기기 좋은 곳입니다. 다양한 방문객의 취향에 맞춘 간식거리가 함께 판매되고 있습니다.",
+  },
+  {
+    title: "쉼터",
+    latlng: new kakao.maps.LatLng(35.7999830984602, 128.52304809244063),
+    desc: "LOREM",
+  },
 ];
