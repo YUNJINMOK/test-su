@@ -11,7 +11,6 @@ export default function Weather({ latitude, longitude }) {
     axios
       .get(url)
       .then((responseData) => {
-        console.log(responseData);
         const data = responseData.data;
         const tempCelsius = (data.main.temp - 273.15).toFixed(0);
         setWeatherData({
