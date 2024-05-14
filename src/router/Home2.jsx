@@ -17,6 +17,19 @@ export default function Home2() {
             longitude="128.52369024972057"
           />
         </div>
+        {/*
+          {isLoggedIn ? (
+        <div>
+          <span className="pt-8 ml-[10%] text-2xl">{user.name}님 안녕하세요!</span>
+          <p className="py-2 ml-[10%]">내가 모은 스템프: {user.stamps}개</p>
+        </div>
+      ) : (
+        <div>
+          <span className="pt-8 ml-[10%] text-2xl">안녕하세요!</span>
+          <p className="py-2 ml-[10%]">로그인을 하셔야 스템프를 모을 수 있습니다.</p>
+        </div>
+      )} 이런식으로 만들예정.
+       */}
         <span className=" pt-8 ml-[10%] text-2xl">asdf님 안녕하세요!</span>
         <p className="py-2 ml-[10%]">내가 모은 스템프: 5개</p>
         <div className="w-full flex flex-col items-center py-6">
