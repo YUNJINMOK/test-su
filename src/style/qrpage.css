@@ -4,8 +4,8 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-
   align-items: center;
+  font-family: "Noto Sans KR", sans-serif;
 }
 .qrArrow {
   position: fixed;
@@ -27,14 +27,12 @@
 .qrZone {
   position: relative;
   width: 100%;
+  height: 450px;
   display: flex;
+  flex-direction: column;
   justify-content: center; /* 수평 중앙 정렬 */
   align-items: center; /* 수직 중앙 정렬 */
-}
-
-.qrZone p {
-  margin: 0; /* 기본 마진 제거 */
-  width: 100%;
-  height: 450px;
-  background-color: #808080;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
 }
