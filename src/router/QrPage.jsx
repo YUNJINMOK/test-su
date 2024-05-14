@@ -10,7 +10,7 @@ export default function QrPage() {
         <IoIosArrowBack color="white" />
       </Link>
       <p className="qrText">QR 코드를 촬영해주세요</p>
-      <div class="qrZone">
+      <div className="qrZone">
         <p>화면을 인식 중입니다</p>
         <canvas id="canvas" width="300" height="300"></canvas>
       </div>
