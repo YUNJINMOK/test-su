@@ -2,17 +2,19 @@ import React from "react";
 import Layout from "../components/Layout";
 import { PiPlantLight } from "react-icons/pi";
 import { PiFlower } from "react-icons/pi";
-import { FiSun } from "react-icons/fi";
 import { PiTreeLight } from "react-icons/pi";
+import Weather from "../components/Weather";
 
 export default function Home2() {
   return (
     <Layout>
       <div className="w-full flex flex-col">
         <span className="pt-8 ml-8">지금 수목원은</span>
-        <div className="py-2 ml-8 flex">
-          <FiSun className="text-xl" />
-          <span className="ml-2">?</span>
+        <div className="py-2 ml-5">
+          <Weather
+            latitude="35.799208845005865"
+            longitude="128.52369024972057"
+          />
         </div>
         <span className=" pt-8 ml-[10%] text-2xl">asdf님 안녕하세요!</span>
         <p className="py-2 ml-[10%]">내가 모은 스템프: 5개</p>
