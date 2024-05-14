@@ -35,7 +35,7 @@ export default function KakaoMap({ userLocation, iwContent, markers }) {
         imageSize = new kakao.maps.Size(24, 41),
         imgOptions = {
           spriteSize: new kakao.maps.Size(24, 250), // 스프라이트 이미지의 크기
-          spriteOrigin: new kakao.maps.Point(0, index * 40 + 8), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+          spriteOrigin: new kakao.maps.Point(0, index * 41), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
           offset: new kakao.maps.Point(11, 37), // 마커 좌표에 일치시킬 이미지 내에서의 좌표
         },
         img = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions);

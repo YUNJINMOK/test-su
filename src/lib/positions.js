@@ -2,7 +2,7 @@ const { kakao } = window;
 
 export const stampPositions = [
   {
-    title: "침엽수림",
+    title: "침엽수원",
     latlng: new kakao.maps.LatLng(35.8013, 128.52097),
     desc: "잎이 바늘같이 뾰족한 침엽수들이 자라는 곳입니다.",
   },
@@ -19,12 +19,12 @@ export const stampPositions = [
   {
     title: "염료 식물원",
     latlng: new kakao.maps.LatLng(35.797142822107794, 128.5259099978123),
-    desc: "물체에서 만들어지는 색소를 이용하여 천연염료로 사용 가능한 식물을 모아 놓은 곳입니다.",
+    desc: "천연염료로 사용 가능한 식물을 모아 놓은 곳입니다.",
   },
   {
     title: "양치 식물원",
     latlng: new kakao.maps.LatLng(35.795706624856, 128.52537693278592),
-    desc: "꽃을 피우는 현화식물과 달리 꽃을 피우지 않고 포자로 번식하는 식물들을 총칭하는 양치식물을 전시한 곳입니다.",
+    desc: "꽃을 피우지 않고 포자로 번식하는 양치식물을 전시한 곳입니다.",
   },
   {
     title: "전통정원",
