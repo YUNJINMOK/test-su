@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { useTheme } from "../context/themeProvider.js";
 import infoMark from "../assets/qr-scan.png";
 import { GrFormNext, GrClose } from "react-icons/gr";
+import Weather from "../components/Weather.jsx";
+import { PiPlantLight, PiTreeLight, PiFlowerTulipLight } from "react-icons/pi";
 
 function GuideEle({ zIndex, txt, bg, close }) {
   return (
@@ -30,12 +32,10 @@ export default function Home() {
   const [ThemeMode, toggleTheme] = useTheme();
   let [showGuide, setShowGuide] = useState(false);
   let [guideNum, setGuideNum] = useState(1);
-  const [zin, setZin] = useState("z-10");
   const [guide, setGuide] = useState(<div></div>);
 
   const nextGuide = () => {
     if (guideNum === 1) {
-      setZin("z-30");
       setGuide(<GuideEle zIndex="z-30" txt="QR 코드는 대구 수목원 곳곳에 있습니다. 카메라 렌즈를 QR코드에 가까이 대주세요." bg="bg-[url('./assets/guide2.svg')]" />);
     } else if (guideNum === 2) {
       setGuide(<GuideEle zIndex="z-30" txt="qr 코드의 스캔이 완료되면 스탬프가 찍힙니다. 찍힌 스탬프는 스탬프 메뉴에서 확인할 수 있습니다." bg="bg-[url('./assets/guide3.svg')]" />);
@@ -50,36 +50,35 @@ export default function Home() {
   return (
     <Layout>
       {showGuide && (
-        <div onClick={nextGuide} className={`absolute h-[108vh] -top-[60px] w-screen ${zin}`}>
+        <div onClick={nextGuide} className={`absolute h-[108vh] -top-[60px] w-screen z-10`}>
           {guide}
         </div>
       )}
-      <div className="w-full h-full flex flex-col justify-center items-center py-10">
+      <div className="w-full h-full flex flex-col justify-center items-center pt-6 pb-10">
+        <div className="w-full max-w-[350px] mt-2 mb-7">
+          <Weather latitude="35.799208845005865" longitude="128.52369024972057" />
+        </div>
         <div
-          className="w-[300px] h-[100px]"
+          className="w-[300px] h-[100px] relative flex items-center"
           onClick={() => {
             setGuide(
               <GuideEle
-                zIndex="z-0"
                 txt="아래쪽의 QR 촬영 버튼을 누르면
               카메라가 켜집니다."
                 bg="bg-black/70"
               />
             );
-            setZin("z-10");
             setGuideNum(1);
             setShowGuide(true);
           }}
         >
-          <div className=" relative w-full h-full flex items-center">
-            <div className="w-full h-full flex flex-col ml-4 justify-center">
-              <span className="text-2xl">앱 이용 방법</span>
-              <span>스탬프 찍고 경품 받아가세요!</span>
-            </div>
-            <img className=" absolute -right-0 top-[22px] w-[30%] -z-10" src={infoMark} alt="안내 이미지" />
+          <div className="w-full h-full flex flex-col ml-4 justify-center">
+            <span className="text-2xl">앱 이용 방법</span>
+            <span>스탬프 찍고 경품 받아가세요!</span>
           </div>
+          <img className="absolute right-0 top-[22px] w-[30%] -z-10" src={infoMark} alt="안내 이미지" />
         </div>
-        <div className={`w-[300px] h-[390px] ${ThemeMode === "dark" ? "bg-[#292929]" : "bg-[#ECECEC]"}  rounded-lg flex flex-col`}>
+        {/* <div className={`w-[300px] h-[390px] ${ThemeMode === "dark" ? "bg-[#292929]" : "bg-[#ECECEC]"}  rounded-lg flex flex-col`}>
           <Link to="/introsumok" className="w-full h-1/3">
             <Textbox title="수목원소개" text="이용시간, 주의사항 등" />
           </Link>
@@ -88,6 +87,29 @@ export default function Home() {
           </Link>
           <Link to="/indoorinfo2" className="w-full h-1/3">
             <Textbox title="목재문화 체험장 안내" text="누구나 시작할 수 있는 목공예" border="border-none" />
+          </Link>
+        </div> */}
+        <div className="w-[90%] max-w-[370px] flex flex-wrap items-center gap-y-3 mx-auto">
+          <Link to="/introsumok" className="w-full h-[150px]">
+            <div className="w-full h-full rounded-lg bg-[#119724] text-white flex justify-center items-center">
+              <PiTreeLight className="text-8xl" />
+              <div className="w-[50%] ml-3">
+                <span className="text-2xl font-semibold">대구수목원 소개</span>
+                <p>이용시간, 주의 사항 등</p>
+              </div>
+            </div>
+          </Link>
+          <Link to="/indoorinfo" className="w-[48%] mr-auto h-[150px]">
+            <div className="w-full h-full rounded-lg bg-[#ddd] text-[#555] flex flex-col items-center justify-center">
+              <PiFlowerTulipLight className="text-7xl" />
+              <span className="text-xl mt-1 font-semibold">산림문화전시관</span>
+            </div>
+          </Link>
+          <Link to="/indoorinfo2" className="w-[48%] h-[150px]">
+            <div className="w-full h-full rounded-lg bg-[#f1a636] text-white flex flex-col items-center justify-center">
+              <PiPlantLight className="text-7xl" />
+              <span className="text-xl mt-1 font-semibold">목재문화체험장</span>
+            </div>
           </Link>
         </div>
       </div>

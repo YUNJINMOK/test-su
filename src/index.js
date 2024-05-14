@@ -20,8 +20,6 @@ import SignUp from "./router/SignUp.jsx";
 import Kakao from "./router/Kakao.jsx";
 import Google from "./router/Google.jsx";
 import IndoorInfo2 from "./router/IndoorInfo2.jsx";
-import Home2 from "./router/Home2.jsx";
-import Weather from "./components/Weather.jsx";
 
 const router = createBrowserRouter([
   {
@@ -84,10 +82,6 @@ const router = createBrowserRouter([
       {
         path: "socials/google",
         element: <Google />,
-      },
-      {
-        path: "/home2",
-        element: <Home2 />,
       },
     ],
   },

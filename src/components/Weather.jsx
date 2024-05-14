@@ -1,4 +1,11 @@
 import React, { useState, useEffect } from "react";
+import clouds1 from "../assets/weatherIcon/clouds1.svg";
+import clouds2 from "../assets/weatherIcon/clouds2.svg";
+import mist from "../assets/weatherIcon/mist.svg";
+import rain from "../assets/weatherIcon/rain.svg";
+import snow from "../assets/weatherIcon/snow.svg";
+import sun from "../assets/weatherIcon/sun.svg";
+import thunder from "../assets/weatherIcon/thunder.svg";
 import axios from "axios";
 
 export default function Weather({ latitude, longitude }) {
@@ -14,26 +21,50 @@ export default function Weather({ latitude, longitude }) {
         const data = responseData.data;
         const tempCelsius = (data.main.temp - 273.15).toFixed(0);
         setWeatherData({
-          temp: isNaN(tempCelsius) ? null : Number(tempCelsius), // 숫자로 변환
-          icon: data.weather[0].icon,
+          weather: data.weather[0].description,
+          temp: isNaN(tempCelsius) ? null : Number(tempCelsius),
         });
       })
       .catch((error) => console.log(error));
-  }, []); // 빈 배열을 전달하여 한 번만 실행되도록 함
-
+  }, []);
+  let weatherIcon = sun;
+  switch (weatherData?.weather) {
+    case "few clouds":
+      weatherIcon = clouds1;
+      break;
+    case "scattered clouds":
+      weatherIcon = clouds2;
+      break;
+    case "broken clouds":
+      weatherIcon = clouds2;
+      break;
+    case "shower rain":
+      weatherIcon = rain;
+      break;
+    case "rain":
+      weatherIcon = rain;
+      break;
+    case "thunderstorm":
+      weatherIcon = thunder;
+      break;
+    case "snow":
+      weatherIcon = snow;
+      break;
+    case "mist":
+      weatherIcon = mist;
+      break;
+  }
   return (
-    <div>
+    <>
       {weatherData ? (
-        <div className="flex items-center">
-          <img
-            src={`https://openweathermap.org/img/w/${weatherData.icon}.png`}
-            alt="Weather Icon"
-          />
+        <div className="flex items-center gap-x-2 text-center text-lg">
+          <p>지금 수목원은</p>
+          <img className="weatherIconImg w-7" src={weatherIcon} />
           <p>{weatherData.temp}℃</p>
         </div>
       ) : (
-        <p>Loading...</p>
+        <p>날씨 정보를 불러오는 중</p>
       )}
-    </div>
+    </>
   );
 }
