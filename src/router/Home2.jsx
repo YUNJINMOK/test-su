@@ -1,9 +1,9 @@
 import React from "react";
 import Layout from "../components/Layout";
 import { PiPlantLight } from "react-icons/pi";
-import { PiFlower } from "react-icons/pi";
 import { PiTreeLight } from "react-icons/pi";
 import Weather from "../components/Weather";
+import { PiFlowerTulipLight } from "react-icons/pi";
 
 export default function Home2() {
   return (
@@ -28,7 +28,7 @@ export default function Home2() {
           </div>
           <div className="w-[80%] h-[140px] flex justify-between py-4">
             <div className="w-[47%] h-full rounded-lg bg-[#D9D9D9] flex flex-col items-center justify-center">
-              <PiFlower className="text-6xl" />
+              <PiFlowerTulipLight className="text-6xl" />
               <span className="text-xl">산림문화전시관</span>
             </div>
             <div className="w-[47%] h-full rounded-lg bg-[#D9D9D9] flex flex-col items-center justify-center">
