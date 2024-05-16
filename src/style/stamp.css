@@ -11,7 +11,6 @@
   grid-template-columns: repeat(2, 2fr);
   gap: 25px;
   align-items: center;
-  margin-top: 20px;
 }
 .stamp-box img {
   width: 140px;

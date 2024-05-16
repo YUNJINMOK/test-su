@@ -63,7 +63,7 @@ export default function Weather() {
           <p>{weatherData.temp}℃</p>
         </div>
       ) : (
-        <p className="text-lg">날씨 정보를 불러오는 중</p>
+        <p className="text-lg text-center">날씨 정보를 불러오는 중</p>
       )}
     </>
   );

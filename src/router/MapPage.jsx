@@ -5,10 +5,11 @@ import { stampPositions, toiletPositions, parkPositions, cafePosition } from "..
 import { FaRestroom } from "react-icons/fa";
 import { MdForest } from "react-icons/md";
 import { TbLineScan } from "react-icons/tb";
+import { useTheme } from "../context/themeProvider.js";
 
-function MapBtn({ onClick, txt, border, Icon }) {
+function MapBtn({ onClick, txt, border, Icon, bg }) {
   return (
-    <button className={`bg-gray-100 w-[100px] py-5 px-4 border rounded-md flex flex-col items-center justify-around ${border}`} onClick={onClick}>
+    <button className={`w-[100px] py-5 px-4 border rounded-md flex flex-col items-center justify-around ${border} ${bg}`} onClick={onClick}>
       <Icon className=" text-[50px] text-[#119724] mb-2" />
       <p>{txt}</p>
     </button>
@@ -16,6 +17,7 @@ function MapBtn({ onClick, txt, border, Icon }) {
 }
 
 export default function MapPage() {
+  const [ThemeMode, toggleTheme] = useTheme();
   const [errorMessage, setErrorMessage] = useState(null);
   const [userLocation, setUserLocation] = useState(null);
   const [iwContent, setIwContent] = useState("");
@@ -74,9 +76,9 @@ export default function MapPage() {
     <Layout>
       <div className="w-full flex flex-col justify-center items-center pt-8 pb-32 gap-4">
         <div className="flex flex-wrap gap-2 justify-center">
-          <MapBtn txt="QR 코드" onClick={() => setMarkers("스탬프")} border={markers === "스탬프" ? "border-[#119724] font-semibold" : "border-gray-300"} Icon={TbLineScan} />
-          <MapBtn txt="카페/쉼터" onClick={() => setMarkers("카페/쉼터")} border={markers === "카페/쉼터" ? "border-[#119724] font-semibold" : "border-gray-300"} Icon={MdForest} />
-          <MapBtn txt="화장실" onClick={() => setMarkers("화장실")} border={markers === "화장실" ? "border-[#119724] font-semibold" : "border-gray-300"} Icon={FaRestroom} />
+          <MapBtn txt="QR 코드" onClick={() => setMarkers("스탬프")} border={markers === "스탬프" ? "border-[#119724] font-semibold" : "border-gray-300"} Icon={TbLineScan} bg={ThemeMode === "dark" ? "bg-[#232325]" : "bg-gray-100 "} />
+          <MapBtn txt="카페/쉼터" onClick={() => setMarkers("카페/쉼터")} border={markers === "카페/쉼터" ? "border-[#119724] font-semibold" : "border-gray-300"} Icon={MdForest} bg={ThemeMode === "dark" ? "bg-[#232325]" : "bg-gray-100 "} />
+          <MapBtn txt="화장실" onClick={() => setMarkers("화장실")} border={markers === "화장실" ? "border-[#119724] font-semibold" : "border-gray-300"} Icon={FaRestroom} bg={ThemeMode === "dark" ? "bg-[#232325]" : "bg-gray-100 "} />
         </div>
         {/* 카카오지도 */}
         <KakaoMap userLocation={userLocation} iwContent={iwContent} markers={markers} />
