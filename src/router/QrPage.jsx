@@ -72,14 +72,25 @@ export default function QrPage() {
         <IoIosArrowBack color="white" />
       </Link>
       <p className="qrText">QR 코드를 촬영해주세요</p>
-      <div className="qrZone">
-        {qrData ? (
-          <p>QR 코드 데이터: {qrData}</p>
-        ) : (
-          <div>
-            <canvas ref={canvasRef} width="300" height="300"></canvas>
-          </div>
+      <div
+        className="qrZone"
+        style={{ position: "relative", width: "300px", height: "300px" }}
+      >
+        <video
+          ref={videoRef}
+          autoPlay
+          playsInline
+          style={{ position: "absolute", width: "100%", height: "100%" }}
+        ></video>
+        {qrData && (
+          <p style={{ position: "absolute", top: 0, left: 0, zIndex: 1 }}>
+            QR 코드 데이터: {qrData}
+          </p>
         )}
+        <canvas
+          ref={canvasRef}
+          style={{ position: "absolute", top: 0, left: 0 }}
+        ></canvas>
       </div>
     </div>
   );
