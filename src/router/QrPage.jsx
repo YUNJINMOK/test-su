@@ -10,23 +10,27 @@ export default function QrPage() {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
-  const requestCameraPermission = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: {
-          facingMode: "environment", // 셀카 모드로 설정
-        },
-      });
-      // 카메라 액세스 허용됨
-      setPermissionGranted(true);
-      videoRef.current.srcObject = stream;
-    } catch (error) {
-      // 권한 거부 또는 오류 발생
-      console.error("카메라 액세스 거부:", error);
-    }
-  };
+  useEffect(() => {
+    const requestCameraPermission = async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: {
+            facingMode: "environment", // 셀카 모드로 설정
+          },
+        });
+        // 카메라 액세스 허용됨
+        setPermissionGranted(true);
+        videoRef.current.srcObject = stream;
+      } catch (error) {
+        // 권한 거부 또는 오류 발생
+        console.error("카메라 액세스 거부:", error);
+      }
+    };
 
-  requestCameraPermission();
+    if (!permissionGranted) {
+      requestCameraPermission();
+    }
+  }, [permissionGranted]);
 
   const startQrScanning = () => {
     const video = videoRef.current;
@@ -72,13 +76,7 @@ export default function QrPage() {
       <p className="qrText">QR 코드를 촬영해주세요</p>
       <div
         className="qrZone"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100vw",
-          height: "100vh",
-        }}
+        style={{ position: "relative", width: "300px", height: "300px" }}
       >
         {qrData && (
           <p style={{ position: "absolute", top: 0, left: 0, zIndex: 1 }}>
@@ -89,7 +87,12 @@ export default function QrPage() {
           ref={videoRef}
           autoPlay
           playsInline
-          style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "cover" }}
+          style={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
         ></video>
         <canvas
           ref={canvasRef}
