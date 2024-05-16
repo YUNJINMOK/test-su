@@ -7,8 +7,9 @@ import jsQR from "jsqr";
 export default function QrPage() {
   const [permissionGranted, setPermissionGranted] = useState(false);
   const [qrData, setQrData] = useState(null);
+  const videoRef = useRef(null);
   const canvasRef = useRef(null);
-  console.log(permissionGranted);
+
   useEffect(() => {
     const requestCameraPermission = async () => {
       try {
@@ -19,7 +20,7 @@ export default function QrPage() {
         });
         // 카메라 액세스 허용됨
         setPermissionGranted(true);
-        startQrScanning(stream);
+        videoRef.current.srcObject = stream;
       } catch (error) {
         // 권한 거부 또는 오류 발생
         console.error("카메라 액세스 거부:", error);
@@ -29,12 +30,8 @@ export default function QrPage() {
     requestCameraPermission();
   }, []);
 
-  const startQrScanning = (stream) => {
-    const video = document.createElement("video");
-    video.srcObject = stream;
-    video.setAttribute("playsinline", true);
-    video.play();
-
+  const startQrScanning = () => {
+    const video = videoRef.current;
     const canvas = canvasRef.current;
     const canvasContext = canvas.getContext("2d");
 
@@ -63,6 +60,12 @@ export default function QrPage() {
     requestAnimationFrame(scan);
   };
 
+  useEffect(() => {
+    if (permissionGranted) {
+      startQrScanning();
+    }
+  }, [permissionGranted]);
+
   return (
     <div className="qrSection">
       <Link to="/home" className="qrArrow">
@@ -73,7 +76,16 @@ export default function QrPage() {
         {qrData ? (
           <p>QR 코드 데이터: {qrData}</p>
         ) : (
-          <canvas ref={canvasRef}></canvas>
+          <div>
+            <video
+              ref={videoRef}
+              autoPlay
+              playsInline
+              width="300"
+              height="300"
+            ></video>
+            <canvas ref={canvasRef} width="300" height="300"></canvas>
+          </div>
         )}
       </div>
     </div>
