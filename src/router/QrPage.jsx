@@ -7,13 +7,14 @@ import jsQR from "jsqr";
 export default function QrPage() {
   const [permissionGranted, setPermissionGranted] = useState(false);
   const [qrData, setQrData] = useState(null);
-  console.log(permissionGranted);
 
   useEffect(() => {
     const requestCameraPermission = async () => {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
-          video: true,
+          video: {
+            facingMode: "environment", // 셀카 모드로 설정
+          },
         });
         // 카메라 액세스 허용됨
         setPermissionGranted(true);
@@ -40,13 +41,16 @@ export default function QrPage() {
       if (video.readyState === video.HAVE_ENOUGH_DATA) {
         canvasElement.height = video.videoHeight;
         canvasElement.width = video.videoWidth;
+        canvas.save();
+        canvas.scale(-1, 1); // 좌우 반전
         canvas.drawImage(
           video,
-          0,
+          -canvasElement.width,
           0,
           canvasElement.width,
           canvasElement.height
         );
+        canvas.restore();
         const imageData = canvas.getImageData(
           0,
           0,
