@@ -54,7 +54,7 @@ export default function Home() {
           {guide}
         </div>
       )}
-      <div className="w-full h-full flex flex-col justify-center items-center pt-6 pb-10">
+      <div className="w-full h-full flex flex-col justify-center items-center pt-8 pb-10">
         <div
           className="w-[300px] h-[100px] relative flex items-center"
           onClick={() => {
