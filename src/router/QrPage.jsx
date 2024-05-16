@@ -4,11 +4,12 @@ import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import jsQR from "jsqr";
 
-export default function QrPage() {
+export default function QrPage({ history }) {
   const [permissionGranted, setPermissionGranted] = useState(null);
   const [qrData, setQrData] = useState(null);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
+  console.log(qrData);
 
   useEffect(() => {
     const requestCameraPermission = async () => {
@@ -63,6 +64,11 @@ export default function QrPage() {
         const code = jsQR(imageData.data, imageData.width, imageData.height);
         if (code) {
           setQrData(code.data);
+
+          setTimeout(() => {
+            alert("방문 완료");
+            history.push("/stamp");
+          }, 1000);
         }
       }
       requestAnimationFrame(scan);
@@ -96,11 +102,6 @@ export default function QrPage() {
           overflow: "hidden",
         }}
       >
-        {qrData && (
-          <p style={{ position: "absolute", top: 0, left: 0, zIndex: 1 }}>
-            QR 코드 데이터: {qrData}
-          </p>
-        )}
         {permissionGranted !== false && (
           <video
             ref={videoRef}
