@@ -3,13 +3,12 @@ import "../style/qrpage.css";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import jsQR from "jsqr";
+import axios from "axios";
 
 export default function QrPage({ history }) {
   const [permissionGranted, setPermissionGranted] = useState(null);
-  const [qrData, setQrData] = useState(null);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
-  console.log(qrData);
 
   useEffect(() => {
     const requestCameraPermission = async () => {
@@ -63,17 +62,26 @@ export default function QrPage({ history }) {
         );
         const code = jsQR(imageData.data, imageData.width, imageData.height);
         if (code) {
-          setQrData(code.data);
-
-          setTimeout(() => {
-            alert("방문 완료");
-            history.push("/stamp");
-          }, 1000);
+          // QR 코드를 스캔했을 때 처리
+          handleQrScan(code.data);
         }
       }
       requestAnimationFrame(scan);
     };
     requestAnimationFrame(scan);
+  };
+
+  const handleQrScan = async (data) => {
+    try {
+      // 서버로 데이터 전송
+      await axios.post("/api/qrcode", { qrData: data });
+
+      // 방문 완료 알림 표시 후 스탬프 페이지로 이동
+      alert("방문 완료");
+      history.push("/stamp");
+    } catch (error) {
+      console.error("서버로 데이터 전송 중 오류 발생:", error);
+    }
   };
 
   useEffect(() => {
