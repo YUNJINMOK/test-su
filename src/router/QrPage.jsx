@@ -77,13 +77,6 @@ export default function QrPage() {
           <p>QR 코드 데이터: {qrData}</p>
         ) : (
           <div>
-            <video
-              ref={videoRef}
-              autoPlay
-              playsInline
-              width="300"
-              height="300"
-            ></video>
             <canvas ref={canvasRef} width="300" height="300"></canvas>
           </div>
         )}
