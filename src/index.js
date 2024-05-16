@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import MainPage from "./router/MainPage";
+
 import Home from "./router/Home";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -10,7 +10,7 @@ import IntroSumok from "./router/IntroSumok";
 import StampPage from "./router/StampPage";
 import MyPage from "./router/MyPage";
 import IndoorInfo from "./router/IndoorInfo";
-import Shelter from "./router/Shelter";
+
 import { ThemeProvider } from "./context/themeProvider";
 import { GlobalStyle } from "./theme/GlobalStyle.js";
 import MapPage from "./router/MapPage.jsx";
