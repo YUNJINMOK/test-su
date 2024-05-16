@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../style/qrpage.css";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
@@ -7,8 +7,7 @@ import jsQR from "jsqr";
 export default function QrPage() {
   const [permissionGranted, setPermissionGranted] = useState(null);
   const [qrData, setQrData] = useState(null);
-  const videoRef = useRef(null);
-  const canvasRef = useRef(null);
+  const [videoStream, setVideoStream] = useState(null);
 
   useEffect(() => {
     const requestCameraPermission = async () => {
@@ -20,7 +19,7 @@ export default function QrPage() {
         });
         // 카메라 액세스 허용됨
         setPermissionGranted(true);
-        videoRef.current.srcObject = stream;
+        setVideoStream(stream);
       } catch (error) {
         // 권한 거부 또는 오류 발생
         console.error("카메라 액세스 거부:", error);
@@ -35,54 +34,45 @@ export default function QrPage() {
 
     // 페이지 벗어날 때 스트림 해제
     return () => {
-      if (permissionGranted === true) {
-        const stream = videoRef.current.srcObject;
-        const tracks = stream.getTracks();
-
-        tracks.forEach((track) => {
+      if (videoStream) {
+        videoStream.getTracks().forEach((track) => {
           track.stop();
         });
       }
     };
-  }, [permissionGranted]);
-
-  const startQrScanning = () => {
-    if (!permissionGranted) return;
-
-    const video = videoRef.current;
-    const canvas = canvasRef.current;
-    const canvasContext = canvas.getContext("2d");
-
-    const scan = () => {
-      if (video.readyState === video.HAVE_ENOUGH_DATA) {
-        const videoWidth = video.videoWidth;
-        const videoHeight = video.videoHeight;
-
-        canvas.width = videoWidth;
-        canvas.height = videoHeight;
-        canvasContext.clearRect(0, 0, canvas.width, canvas.height); // 이전 프레임 지우기
-        canvasContext.drawImage(video, 0, 0, videoWidth, videoHeight);
-        const imageData = canvasContext.getImageData(
-          0,
-          0,
-          videoWidth,
-          videoHeight
-        );
-        const code = jsQR(imageData.data, imageData.width, imageData.height);
-        if (code) {
-          setQrData(code.data);
-        }
-      }
-      requestAnimationFrame(scan);
-    };
-    requestAnimationFrame(scan);
-  };
+  }, [permissionGranted, videoStream]);
 
   useEffect(() => {
-    if (permissionGranted === true) {
-      startQrScanning();
+    if (permissionGranted === true && videoStream) {
+      const video = document.getElementById("videoElement");
+      const canvas = document.getElementById("canvasElement");
+      const canvasContext = canvas.getContext("2d");
+
+      const scan = () => {
+        if (video.readyState === video.HAVE_ENOUGH_DATA) {
+          const videoWidth = video.videoWidth;
+          const videoHeight = video.videoHeight;
+
+          canvas.width = videoWidth;
+          canvas.height = videoHeight;
+          canvasContext.clearRect(0, 0, canvas.width, canvas.height); // 이전 프레임 지우기
+          canvasContext.drawImage(video, 0, 0, videoWidth, videoHeight);
+          const imageData = canvasContext.getImageData(
+            0,
+            0,
+            videoWidth,
+            videoHeight
+          );
+          const code = jsQR(imageData.data, imageData.width, imageData.height);
+          if (code) {
+            setQrData(code.data);
+          }
+        }
+        requestAnimationFrame(scan);
+      };
+      requestAnimationFrame(scan);
     }
-  }, [permissionGranted]);
+  }, [permissionGranted, videoStream]);
 
   return (
     <div className="qrSection">
@@ -109,7 +99,7 @@ export default function QrPage() {
         )}
         {permissionGranted !== false && (
           <video
-            ref={videoRef}
+            id="videoElement"
             autoPlay
             playsInline
             style={{
@@ -122,7 +112,7 @@ export default function QrPage() {
         )}
         {permissionGranted !== false && (
           <canvas
-            ref={canvasRef}
+            id="canvasElement"
             style={{
               position: "absolute",
               width: "100%",
