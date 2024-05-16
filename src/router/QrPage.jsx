@@ -74,7 +74,7 @@ export default function QrPage({ history }) {
   const handleQrScan = async (data) => {
     try {
       // 서버로 데이터 전송
-      await axios.post("/api/qrcode", { qrData: data });
+      await axios.post("/users/testQr", { qrData: data });
 
       // 방문 완료 알림 표시 후 스탬프 페이지로 이동
       alert("방문 완료");
