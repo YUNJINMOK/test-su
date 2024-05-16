@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../style/qrpage.css";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ import jsQR from "jsqr";
 export default function QrPage() {
   const [permissionGranted, setPermissionGranted] = useState(false);
   const [qrData, setQrData] = useState(null);
+  const canvasRef = useRef(null);
   console.log(permissionGranted);
   useEffect(() => {
     const requestCameraPermission = async () => {
@@ -34,28 +35,23 @@ export default function QrPage() {
     video.setAttribute("playsinline", true);
     video.play();
 
-    const canvasElement = document.getElementById("canvas");
-    const canvas = canvasElement.getContext("2d");
+    const canvas = canvasRef.current;
+    const canvasContext = canvas.getContext("2d");
 
     const scan = () => {
       if (video.readyState === video.HAVE_ENOUGH_DATA) {
-        canvasElement.height = video.videoHeight;
-        canvasElement.width = video.videoWidth;
-        canvas.save();
-        canvas.scale(-1, 1); // 좌우 반전
-        canvas.drawImage(
-          video,
-          -canvasElement.width,
-          0,
-          canvasElement.width,
-          canvasElement.height
-        );
-        canvas.restore();
-        const imageData = canvas.getImageData(
+        const videoWidth = video.videoWidth;
+        const videoHeight = video.videoHeight;
+
+        canvas.width = videoWidth;
+        canvas.height = videoHeight;
+        canvasContext.clearRect(0, 0, canvas.width, canvas.height); // 이전 프레임 지우기
+        canvasContext.drawImage(video, 0, 0, videoWidth, videoHeight);
+        const imageData = canvasContext.getImageData(
           0,
           0,
-          canvasElement.width,
-          canvasElement.height
+          videoWidth,
+          videoHeight
         );
         const code = jsQR(imageData.data, imageData.width, imageData.height);
         if (code) {
@@ -77,7 +73,7 @@ export default function QrPage() {
         {qrData ? (
           <p>QR 코드 데이터: {qrData}</p>
         ) : (
-          <canvas id="canvas" width="300" height="300"></canvas>
+          <canvas ref={canvasRef}></canvas>
         )}
       </div>
     </div>
