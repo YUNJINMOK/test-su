@@ -7,7 +7,7 @@ import jsQR from "jsqr";
 export default function QrPage() {
   const [permissionGranted, setPermissionGranted] = useState(false);
   const [qrData, setQrData] = useState(null);
-
+  console.log(permissionGranted);
   useEffect(() => {
     const requestCameraPermission = async () => {
       try {
