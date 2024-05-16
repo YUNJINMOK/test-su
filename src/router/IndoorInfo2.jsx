@@ -12,12 +12,22 @@ export default function IndoorInfo2() {
       <div className="indoor-section">
         <Title title="목재문화체험장" />
         <article>
-          <div className="forestcul-text">시민들에게 목공체험을 통한 다양한 목재문화 및 목공예에 관한 정보를 제공하는 공간입니다.</div>
+          <div className="forestcul-text">
+            시민들에게 목공체험을 통한 다양한 목재문화 및 목공예에 관한 정보를
+            제공하는 공간입니다.
+          </div>
           {/* 이용시간 */}
           <div className="intro-time">
             <GreenDot title="이용 시간" />
-            <Hours date1="3월 1일 ~ 10월 31일" time1="오전 9시 ~ 오후 5시" date2="11월 1일 ~ 2월 28일" time2="오전 9시 ~ 오후 4시" />
-            <div className="timetable-caution">※매주 월요일과 공휴일은 휴관일입니다.</div>
+            <Hours
+              date1="3월 1일 ~ 10월 31일"
+              time1="오전 9시 ~ 오후 5시"
+              date2="11월 1일 ~ 2월 28일"
+              time2="오전 9시 ~ 오후 4시"
+            />
+            <div className="timetable-caution">
+              ※매주 월요일과 공휴일은 휴관일입니다.
+            </div>
           </div>
           {/* 이용안내 */}
           <div className="useProgInfo">
@@ -25,7 +35,11 @@ export default function IndoorInfo2() {
             <div className="progInnerInfo">
               <p className="progTit">체험프로그램 참여 방법</p>
               <p className="mb-6">
-                - <Link to="https://yeyak.daegu.go.kr/yeyak/experience/experienceListView.do?memId=B0000005">대구광역시 통합예약시스템</Link>에서 3일전까지 예약
+                -{" "}
+                <Link to="https://yeyak.daegu.go.kr/yeyak/experience/experienceListView.do?memId=B0000005">
+                  대구광역시 통합예약시스템
+                </Link>
+                에서 3일전까지 예약
               </p>
               <p className="progTit">참여 비용</p>
               <p>- 성인: 2,000원</p>

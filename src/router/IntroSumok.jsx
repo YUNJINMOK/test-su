@@ -3,11 +3,19 @@ import Hours from "../components/Hours";
 import Layout from "../components/Layout";
 import Title from "../components/Title";
 import "../style/introsumok.css";
-import { PiTentLight, PiKnifeLight, PiMegaphoneLight, PiBicycleLight, PiDogLight, PiShovelLight } from "react-icons/pi";
+import {
+  PiTentLight,
+  PiKnifeLight,
+  PiMegaphoneLight,
+  PiBicycleLight,
+  PiDogLight,
+  PiShovelLight,
+} from "react-icons/pi";
 import { useTheme } from "../context/themeProvider.js";
 
 export default function IntroSumok() {
   const [ThemeMode, toggleTheme] = useTheme();
+  console.log(toggleTheme);
   return (
     <Layout>
       <div className="intro-section">
@@ -17,11 +25,20 @@ export default function IntroSumok() {
         {/* 이용시간 */}
         <div className="intro-time">
           <GreenDot title="이용시간" />
-          <Hours date1="1월 1일 ~ 4월 30일" time1="오전 9시 ~ 오후 6시" date2="5월 1일 ~ 8월 31일" time2="오전 8시 ~ 오후 7시" date3="9월 1일 ~ 12월 31일" time3="오전 9시 ~ 오후 6시" />
+          <Hours
+            date1="1월 1일 ~ 4월 30일"
+            time1="오전 9시 ~ 오후 6시"
+            date2="5월 1일 ~ 8월 31일"
+            time2="오전 8시 ~ 오후 7시"
+            date3="9월 1일 ~ 12월 31일"
+            time3="오전 9시 ~ 오후 6시"
+          />
           <div className="timetable-caution">
             <p>※ 온실 이용시간: 오전 10시 ~ 오후 4시</p>
             <p>※ 월요일: 온실, 산림문화전시관, 목재문화체험장 이용 불가</p>
-            <p>※ 입장료·주차요금은 무료이며 쓰레기는 반드시 되가져 가야합니다.</p>
+            <p>
+              ※ 입장료·주차요금은 무료이며 쓰레기는 반드시 되가져 가야합니다.
+            </p>
           </div>
         </div>
         {/* 주의사항 */}

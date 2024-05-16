@@ -5,13 +5,14 @@ import { Link } from "react-router-dom";
 
 export default function QrPage() {
   const [permissionGranted, setPermissionGranted] = useState(false);
-
+  console.log(permissionGranted);
   useEffect(() => {
     const requestCameraPermission = async () => {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
           video: true,
         });
+        console.log(stream);
         // 카메라 액세스 허용됨
         setPermissionGranted(true);
       } catch (error) {

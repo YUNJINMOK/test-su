@@ -43,22 +43,22 @@ export async function apiPostUserLogin(data) {
 export async function apiKakaoLogin(props) {
   const { code } = props.queryKey[1];
   try {
-      return await fetch(`${BASE_URL}/users/socials/kakao?code=${code}`, {
-          method: 'GET',
-      }).then((res) => res.json());
+    return await fetch(`${BASE_URL}/users/socials/kakao?code=${code}`, {
+      method: "GET",
+    }).then((res) => res.json());
   } catch (error) {
-      console.log(error);
+    console.log(error);
   }
 }
 //구글 로그인
 export async function apiGoogleLogin(props) {
   const { code } = props.queryKey[1];
   try {
-      return await fetch(`${BASE_URL}/users/socials/google?code=${code}`, {
-          method: 'GET',
-      }).then((res) => res.json());
+    return await fetch(`${BASE_URL}/users/socials/google?code=${code}`, {
+      method: "GET",
+    }).then((res) => res.json());
   } catch (error) {
-      console.log(error);
+    console.log(error);
   }
 }
 

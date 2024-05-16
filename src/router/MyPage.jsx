@@ -11,10 +11,8 @@ import { useMutation } from "react-query";
 import { apiPasswordEdit } from "../api.js";
 
 export default function MyPage() {
-  const token = JSON.parse(sessionStorage.getItem("userData"))
-  
-  
-  
+  const token = JSON.parse(sessionStorage.getItem("userData"));
+
   const navigate = useNavigate();
   const [type, setType] = useState(true);
   const [btn2, setBtn2] = useState(false);
@@ -40,8 +38,8 @@ export default function MyPage() {
     setUser(userData);
   };
   const { mutate } = useMutation(apiPasswordEdit, {
-    onSuccess : (data) => {
-      if(data.result===true) {
+    onSuccess: (data) => {
+      if (data.result === true) {
         Swal.fire({
           text: data.message,
           padding: "20px 0",
@@ -51,8 +49,8 @@ export default function MyPage() {
         });
       }
     },
-    onSettled : (data) => {
-      if(data.result===false) {
+    onSettled: (data) => {
+      if (data.result === false) {
         Swal.fire({
           text: data.message,
           padding: "20px 0",
@@ -61,22 +59,17 @@ export default function MyPage() {
           buttonsStyling: false,
         });
       }
-    }
-  })
-  const {
-    register,
-    handleSubmit,
-    setError,
-    formState: { errors },
-  } = useForm();
-    const onValid = (data) =>{ 
-      const postUserID = token.user_id
-      const modifiedData = {
-        ...data,
-        user_id: postUserID
+    },
+  });
+  const { register, handleSubmit } = useForm();
+  const onValid = (data) => {
+    const postUserID = token.user_id;
+    const modifiedData = {
+      ...data,
+      user_id: postUserID,
     };
-      mutate(modifiedData);
-    }
+    mutate(modifiedData);
+  };
   return (
     <Layout>
       <section id="myPage">
@@ -91,33 +84,73 @@ export default function MyPage() {
                 <div>
                   <p>비밀번호</p>
                   <div className="relative">
-                    <input {...register("passwordEdit")} type={type ? "password" : "text"} placeholder="******" className="w-[300px] h-[50px] rounded-lg border-none ring-1 ring-gray-300 outline-none focus:ring-2 focus:ring-[#119724]"/>
-                    <div onClick={() => setType(!type)} className="absolute top-[2px] right-[5px] px-3 py-[6px] bg-white">
-                    {type ? <PiEyeSlashLight size="35px" color="#aaa" /> : <PiEyeLight size="35px" color="#aaa" />}
+                    <input
+                      {...register("passwordEdit")}
+                      type={type ? "password" : "text"}
+                      placeholder="******"
+                      className="w-[300px] h-[50px] rounded-lg border-none ring-1 ring-gray-300 outline-none focus:ring-2 focus:ring-[#119724]"
+                    />
+                    <div
+                      onClick={() => setType(!type)}
+                      className="absolute top-[2px] right-[5px] px-3 py-[6px] bg-white"
+                    >
+                      {type ? (
+                        <PiEyeSlashLight size="35px" color="#aaa" />
+                      ) : (
+                        <PiEyeLight size="35px" color="#aaa" />
+                      )}
                     </div>
                   </div>
                 </div>
-                <button className={`editBtn ${ThemeMode === "dark" ? "darkEditBtn" : ""}`}>수정</button>
+                <button
+                  className={`editBtn ${
+                    ThemeMode === "dark" ? "darkEditBtn" : ""
+                  }`}
+                >
+                  수정
+                </button>
               </form>
             </>
           )}
         </article>
-        <div className={`settingBtn ${ThemeMode === "dark" ? "DarkSettingBtn" : ""}`} onClick={darkMode}>
+        <div
+          className={`settingBtn ${
+            ThemeMode === "dark" ? "DarkSettingBtn" : ""
+          }`}
+          onClick={darkMode}
+        >
           <div className="btnTxt">
             <p>다크 모드</p>
             <p>앱 화면을 어둡게 변경합니다.</p>
           </div>
           <div className={`togBtn ${ThemeMode === "dark" ? "darkBtn" : ""}`}>
-            <div className={`togCircle ${ThemeMode === "dark" ? "darkTogCircle" : ""}`} style={{ left: ThemeMode === "dark" ? "22px" : "0" }}></div>
+            <div
+              className={`togCircle ${
+                ThemeMode === "dark" ? "darkTogCircle" : ""
+              }`}
+              style={{ left: ThemeMode === "dark" ? "22px" : "0" }}
+            ></div>
           </div>
         </div>
-        <div className={`settingBtn ${ThemeMode === "dark" ? "DarkSettingBtn" : ""}`} onClick={() => setBtn2(!btn2)}>
+        <div
+          className={`settingBtn ${
+            ThemeMode === "dark" ? "DarkSettingBtn" : ""
+          }`}
+          onClick={() => setBtn2(!btn2)}
+        >
           <div className="btnTxt">
             <p>색맹 모드</p>
-            <p>색깔을 구분하기 힘든 분들을 위해 찍힌 스탬프의 모양을 변경합니다.</p>
+            <p>
+              색깔을 구분하기 힘든 분들을 위해 찍힌 스탬프의 모양을 변경합니다.
+            </p>
           </div>
           <div className={`togBtn ${ThemeMode === "dark" ? "darkBtn" : ""}`}>
-            <div className={`togCircle ${ThemeMode === "dark" ? "darkTogCircle" : ""}`} style={{ left: btn2 ? "22px" : "0" }}></div>
+            <div
+              className={`togCircle ${
+                ThemeMode === "dark" ? "darkTogCircle" : ""
+              }`}
+              style={{ left: btn2 ? "22px" : "0" }}
+            ></div>
           </div>
         </div>
         <p id="logout" onClick={onClick}>

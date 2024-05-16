@@ -34,7 +34,10 @@ export default function ToiletMap() {
         if (kakao) {
           const mapContainer = document.getElementById("map");
           const mapOption = {
-            center: new kakao.maps.LatLng(userLocation.latitude, userLocation.longitude),
+            center: new kakao.maps.LatLng(
+              userLocation.latitude,
+              userLocation.longitude
+            ),
             level: 5,
           };
 

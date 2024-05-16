@@ -4,7 +4,6 @@ import "../style/indoorinfo.css";
 import Title from "../components/Title";
 import Hours from "../components/Hours";
 import GreenDot from "../components/GreenDot";
-import { Link } from "react-router-dom";
 
 export default function IndoorInfo() {
   return (
@@ -12,12 +11,23 @@ export default function IndoorInfo() {
       <div className="indoor-section">
         <Title title="산림문화전시관" />
         <article>
-          <div className="forestcul-text">이곳 수목원과 대구의 식물상을 소개하는 공간입니다. 나무 이름의 유래, 꽃의 구조, 식물, 새, 곤충의 세밀화 등 다양한 정보를 접할 수 있습니다.</div>
+          <div className="forestcul-text">
+            이곳 수목원과 대구의 식물상을 소개하는 공간입니다. 나무 이름의 유래,
+            꽃의 구조, 식물, 새, 곤충의 세밀화 등 다양한 정보를 접할 수
+            있습니다.
+          </div>
           {/* 이용시간 */}
           <div className="intro-time">
             <GreenDot title="이용시간" />
-            <Hours date1="3월 1일 ~ 10월 31일" time1="오전 10시 ~ 오후 5시" date2="11월 1일 ~ 2월 28일" time2="오전 10시 ~ 오후 4시" />
-            <div className="timetable-caution">※매주 월요일과 추석, 설날은 휴관일입니다.</div>
+            <Hours
+              date1="3월 1일 ~ 10월 31일"
+              time1="오전 10시 ~ 오후 5시"
+              date2="11월 1일 ~ 2월 28일"
+              time2="오전 10시 ~ 오후 4시"
+            />
+            <div className="timetable-caution">
+              ※매주 월요일과 추석, 설날은 휴관일입니다.
+            </div>
           </div>
           {/* 층별안내 */}
           <div className="floorInfo">
