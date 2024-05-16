@@ -55,9 +55,6 @@ export default function Home() {
         </div>
       )}
       <div className="w-full h-full flex flex-col justify-center items-center pt-6 pb-10">
-        <div className="w-full max-w-[350px] mt-2 mb-7">
-          <Weather latitude="35.799208845005865" longitude="128.52369024972057" />
-        </div>
         <div
           className="w-[300px] h-[100px] relative flex items-center"
           onClick={() => {
@@ -100,7 +97,7 @@ export default function Home() {
             </div>
           </Link>
           <Link to="/indoorinfo" className="w-[48%] mr-auto h-[150px]">
-            <div className="w-full h-full rounded-lg bg-[#ddd] text-[#555] flex flex-col items-center justify-center">
+            <div className={`w-full h-full rounded-lg flex flex-col items-center justify-center ${ThemeMode === "dark" ? "bg-[#343434] text-[#b5b5b5]" : "bg-[#ddd] text-[#555]"}`}>
               <PiFlowerTulipLight className="text-7xl" />
               <span className="text-xl mt-1 font-semibold">산림문화전시관</span>
             </div>
@@ -111,6 +108,9 @@ export default function Home() {
               <span className="text-xl mt-1 font-semibold">목재문화체험장</span>
             </div>
           </Link>
+        </div>
+        <div className="w-full max-w-[350px] mt-4">
+          <Weather />
         </div>
       </div>
     </Layout>

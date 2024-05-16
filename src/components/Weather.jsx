@@ -8,11 +8,11 @@ import sun from "../assets/weatherIcon/sun.svg";
 import thunder from "../assets/weatherIcon/thunder.svg";
 import axios from "axios";
 
-export default function Weather({ latitude, longitude }) {
+export default function Weather() {
   const [weatherData, setWeatherData] = useState(null);
 
   const apiKey = "6a0d33958b14a3c26fa985a6fecc4763"; // API 키를 직접 지정
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=35.799208845005865&lon=128.52369024972057&appid=${apiKey}`;
 
   useEffect(() => {
     axios
@@ -57,13 +57,13 @@ export default function Weather({ latitude, longitude }) {
   return (
     <>
       {weatherData ? (
-        <div className="flex items-center gap-x-2 text-center text-lg">
+        <div className="flex items-center justify-center gap-x-2 text-center text-lg">
           <p>지금 수목원은</p>
           <img className="weatherIconImg w-7" src={weatherIcon} />
           <p>{weatherData.temp}℃</p>
         </div>
       ) : (
-        <p>날씨 정보를 불러오는 중</p>
+        <p className="text-lg">날씨 정보를 불러오는 중</p>
       )}
     </>
   );
