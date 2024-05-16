@@ -16,6 +16,7 @@ export async function setStamp(stamp_id) {
 
 //회원가입 요청
 export async function apiPostUserRegiser(data) {
+  console.log(data);
   try {
     return await fetch(`${BASE_URL}/users/register`, {
       method: "POST",
