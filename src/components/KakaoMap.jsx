@@ -1,5 +1,10 @@
 import React, { useEffect } from "react";
-import { stampPositions, toiletPositions, parkPositions, cafePosition } from "../lib/positions.js";
+import {
+  stampPositions,
+  toiletPositions,
+  parkPositions,
+  cafePosition,
+} from "../lib/positions.js";
 const { kakao } = window;
 
 export default function KakaoMap({ userLocation, iwContent, markers }) {
@@ -28,6 +33,9 @@ export default function KakaoMap({ userLocation, iwContent, markers }) {
       case "화장실":
         positions = toiletPositions;
         break;
+      default:
+        positions = [];
+        break; // 기본 케이스 추가
     }
 
     positions.forEach((p, index) => {
@@ -39,27 +47,25 @@ export default function KakaoMap({ userLocation, iwContent, markers }) {
           offset: new kakao.maps.Point(11, 37), // 마커 좌표에 일치시킬 이미지 내에서의 좌표
         },
         img = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions);
-      const marker = new kakao.maps.Marker({ position: p.latlng, title: p.title, image: img });
+      const marker = new kakao.maps.Marker({
+        position: p.latlng,
+        title: p.title,
+        image: img,
+      });
       marker.setMap(map);
     });
 
     // 사용자의 위치가 있을 경우 마커로 표시
     if (userLocation) {
-      const userPosition = new kakao.maps.LatLng(userLocation.latitude, userLocation.longitude);
+      const userPosition = new kakao.maps.LatLng(
+        userLocation.latitude,
+        userLocation.longitude
+      );
 
       // 사용자 위치를 나타낼 마커 생성
       const marker = new kakao.maps.Marker({
         position: userPosition,
       });
-
-      // 인포윈도우를 생성합니다
-      let infowindow = new kakao.maps.InfoWindow({
-        content: iwContent,
-        removable: false, // X 버튼으로 인포윈도우를 닫을 수 있도록 설정합니다
-      });
-
-      // 인포윈도우를 표시합니다
-      infowindow.open(map, marker);
 
       // 마커를 지도에 표시
       marker.setMap(map);
