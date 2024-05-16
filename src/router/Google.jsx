@@ -11,7 +11,7 @@ export default function Google() {
   const navigate = useNavigate();
   if (data?.result === true) {
     sessionStorage.setItem("userData", JSON.stringify(data));
-    navigate("https://sumokwon.netlify.app");
+    navigate("/");
   }
 
   return (
