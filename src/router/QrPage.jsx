@@ -38,7 +38,7 @@ export default function QrPage() {
         canvasElement.height = video.videoHeight;
         canvasElement.width = video.videoWidth;
         canvas.save();
-        canvas.scale(1, -1); // 좌우 반전
+
         canvas.drawImage(
           video,
           -canvasElement.width,
