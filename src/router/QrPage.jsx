@@ -60,7 +60,7 @@ export default function QrPage() {
   }, [qrData]);
 
   const sendDataToServer = async (data, userId) => {
-    const userid = { userId };
+    const userid = JSON.stringify(userId);
     try {
       const response = await axios.post(
         "https://port-0-sumokwonserver-17xco2nlstnj7hw.sel5.cloudtype.app/users/testQr",
