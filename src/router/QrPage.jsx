@@ -3,6 +3,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import jsQR from "jsqr";
 import axios from "axios";
+import "../style/qrpage.css";
 
 export default function QrPage() {
   const [qrData, setQrData] = useState(null);
