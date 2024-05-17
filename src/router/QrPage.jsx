@@ -81,7 +81,7 @@ export default function QrPage() {
         );
         const code = jsQR(imageData.data, imageData.width, imageData.height);
         if (code) {
-          console.log("QR 코드 스캔 성공:", code.data);
+          <p>스캔에성공했습니다</p>;
           handleQrScan(code.data);
         } else {
           console.log("QR 코드 스캔 실패");
