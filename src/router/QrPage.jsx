@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../style/qrpage.css";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import jsQR from "jsqr";
+
 export default function QrPage() {
   const [permissionGranted, setPermissionGranted] = useState(false);
   const [qrData, setQrData] = useState(null);
+  const videoRef = useRef(null);
+  const canvasRef = useRef(null);
 
-  console.log(permissionGranted);
   useEffect(() => {
     const requestCameraPermission = async () => {
       try {
@@ -16,42 +18,34 @@ export default function QrPage() {
             facingMode: "environment",
           },
         });
-        // 카메라 액세스 허용됨
         setPermissionGranted(true);
-        startQrScanning(stream);
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+        }
       } catch (error) {
-        // 권한 거부 또는 오류 발생
         console.error("카메라 액세스 거부:", error);
       }
     };
     requestCameraPermission();
   }, []);
-  const startQrScanning = (stream) => {
-    const video = document.createElement("video");
-    video.srcObject = stream;
-    video.setAttribute("playsinline", true);
-    video.play();
-    const canvasElement = document.getElementById("canvas");
-    const canvas = canvasElement.getContext("2d");
+
+  useEffect(() => {
+    if (permissionGranted) {
+      startQrScanning();
+    }
+  }, [permissionGranted]);
+
+  const startQrScanning = () => {
+    const video = videoRef.current;
+    const canvas = canvasRef.current.getContext("2d");
     const scan = () => {
       if (video.readyState === video.HAVE_ENOUGH_DATA) {
-        canvasElement.height = video.videoHeight;
-        canvasElement.width = video.videoWidth;
-        canvas.save();
-
-        canvas.drawImage(
-          video,
-          -canvasElement.width,
-          0,
-          canvasElement.width,
-          canvasElement.height
-        );
-        canvas.restore();
+        canvas.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
         const imageData = canvas.getImageData(
           0,
           0,
-          canvasElement.width,
-          canvasElement.height
+          canvasRef.current.width,
+          canvasRef.current.height
         );
         const code = jsQR(imageData.data, imageData.width, imageData.height);
         if (code) {
@@ -62,6 +56,7 @@ export default function QrPage() {
     };
     requestAnimationFrame(scan);
   };
+
   return (
     <div className="qrSection">
       <Link to="/home" className="qrArrow">
@@ -72,7 +67,21 @@ export default function QrPage() {
         {qrData ? (
           <p>QR 코드 데이터: {qrData}</p>
         ) : (
-          <canvas id="canvas" width="400" height="400"></canvas>
+          <canvas
+            id="canvas"
+            ref={canvasRef}
+            width="400"
+            height="400"
+            style={{ display: permissionGranted ? "block" : "none" }}
+          ></canvas>
+        )}
+        {permissionGranted && (
+          <video
+            ref={videoRef}
+            autoPlay
+            playsInline
+            style={{ display: "none" }}
+          ></video>
         )}
       </div>
     </div>
