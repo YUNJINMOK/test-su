@@ -1,59 +1,15 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import jsQR from "jsqr";
-import axios from "axios";
 import "../style/qrpage.css";
 
 export default function QrPage() {
+  const [permissionGranted, setPermissionGranted] = useState(null);
   const [qrData, setQrData] = useState(null);
-  const navigate = useNavigate();
+  const [videoStream, setVideoStream] = useState(null);
   const videoRef = useRef(null);
-  const streamRef = useRef(null);
-  const [permissionGranted, setPermissionGranted] = useState(false);
-
-  const handleQrScan = useCallback(
-    async (data) => {
-      try {
-        console.log("서버로 데이터 전송 중:", data);
-        const response = await axios.post("/users/testqr", { qrData: data });
-        console.log("서버 응답:", response.data);
-        setQrData(data);
-        setTimeout(() => {
-          navigate("/stamp");
-        }, 1000);
-      } catch (error) {
-        console.error("서버로 데이터 전송 중 오류 발생:", error);
-      }
-    },
-    [navigate]
-  );
-
-  const startQrScanning = useCallback(() => {
-    const video = videoRef.current;
-    const canvas = document.createElement("canvas");
-    const canvasContext = canvas.getContext("2d");
-
-    const scan = () => {
-      if (video.readyState === video.HAVE_ENOUGH_DATA) {
-        canvas.height = video.videoHeight;
-        canvas.width = video.videoWidth;
-        canvasContext.drawImage(video, 0, 0, canvas.width, canvas.height);
-        const imageData = canvasContext.getImageData(
-          0,
-          0,
-          canvas.width,
-          canvas.height
-        );
-        const code = jsQR(imageData.data, imageData.width, imageData.height);
-        if (code) {
-          handleQrScan(code.data);
-        }
-      }
-      requestAnimationFrame(scan);
-    };
-    requestAnimationFrame(scan);
-  }, [handleQrScan]);
+  const canvasRef = useRef(null);
 
   useEffect(() => {
     const requestCameraPermission = async () => {
@@ -63,28 +19,66 @@ export default function QrPage() {
             facingMode: "environment", // 셀카 모드로 설정
           },
         });
+        // 카메라 액세스 허용됨
         setPermissionGranted(true);
-        streamRef.current = stream;
-        videoRef.current.srcObject = stream;
-        videoRef.current.play();
-        startQrScanning();
+        setVideoStream(stream);
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+        }
       } catch (error) {
+        // 권한 거부 또는 오류 발생
         console.error("카메라 액세스 거부:", error);
+        setPermissionGranted(false);
       }
     };
 
-    if (!permissionGranted) {
+    // 페이지 진입 시 권한 확인
+    if (permissionGranted === null) {
       requestCameraPermission();
     }
 
+    // 페이지 벗어날 때 스트림 해제
     return () => {
-      const stream = streamRef.current;
-      if (stream) {
-        const tracks = stream.getTracks();
-        tracks.forEach((track) => track.stop());
+      if (videoStream) {
+        videoStream.getTracks().forEach((track) => {
+          track.stop();
+        });
       }
     };
-  }, [permissionGranted, startQrScanning]);
+  }, [permissionGranted, videoStream]);
+
+  useEffect(() => {
+    if (permissionGranted === true && videoStream) {
+      const video = videoRef.current;
+      const canvas = canvasRef.current;
+      const canvasContext = canvas.getContext("2d");
+
+      const scan = () => {
+        if (video.readyState === video.HAVE_ENOUGH_DATA) {
+          const videoWidth = video.videoWidth;
+          const videoHeight = video.videoHeight;
+
+          canvas.width = videoWidth;
+          canvas.height = videoHeight;
+          canvasContext.clearRect(0, 0, canvas.width, canvas.height); // 이전 프레임 지우기
+          canvasContext.drawImage(video, 0, 0, videoWidth, videoHeight);
+          const imageData = canvasContext.getImageData(
+            0,
+            0,
+            videoWidth,
+            videoHeight
+          );
+          const code = jsQR(imageData.data, imageData.width, imageData.height);
+          if (code) {
+            setQrData(code.data);
+          }
+        }
+        requestAnimationFrame(scan);
+      };
+
+      requestAnimationFrame(scan);
+    }
+  }, [permissionGranted, videoStream]);
 
   return (
     <div className="qrSection">
@@ -92,16 +86,48 @@ export default function QrPage() {
         <IoIosArrowBack color="white" />
       </Link>
       <p className="qrText">QR 코드를 촬영해주세요</p>
-      <div className="qrZone">
-        {permissionGranted && (
-          <video
-            ref={videoRef}
-            style={{ width: "100%", height: "100%" }}
-            playsInline
-            autoPlay
-          />
+      {permissionGranted === false && (
+        <p className="qrText">카메라 액세스 권한이 거부되었습니다.</p>
+      )}
+      <div
+        className="qrZone"
+        style={{
+          position: "relative",
+          width: "300px",
+          height: "300px",
+          overflow: "hidden",
+        }}
+      >
+        {qrData && (
+          <p style={{ position: "absolute", top: 0, left: 0, zIndex: 1 }}>
+            QR 코드 데이터: {qrData}
+          </p>
         )}
-        {qrData && <p>QR 코드 데이터: {qrData}</p>}
+        {permissionGranted !== false && (
+          <video
+            id="videoElement"
+            ref={videoRef}
+            autoPlay
+            playsInline
+            style={{
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          ></video>
+        )}
+        {permissionGranted !== false && (
+          <canvas
+            id="canvasElement"
+            ref={canvasRef}
+            style={{
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+            }}
+          ></canvas>
+        )}
       </div>
     </div>
   );
