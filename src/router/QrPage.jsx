@@ -72,7 +72,7 @@ export default function QrPage() {
       <p className="qrText">QR 코드를 촬영해주세요</p>
       <div className="qrZone">
         <p>화면을 인식 중입니다</p>
-        <canvas id="canvas" width="300" height="300"></canvas>
+        <canvas id="canvas" width="350" height="350"></canvas>
         {qrData ? (
           <p>QR 코드 데이터: {qrData}</p>
         ) : (
