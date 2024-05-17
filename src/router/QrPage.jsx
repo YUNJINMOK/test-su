@@ -63,7 +63,7 @@ export default function QrPage() {
     try {
       const response = await axios.post(
         "https://port-0-sumokwonserver-17xco2nlstnj7hw.sel5.cloudtype.app/users/testQr",
-        data
+        { data }
       );
       console.log("데이터 전송 완료:", response.data);
     } catch (error) {
