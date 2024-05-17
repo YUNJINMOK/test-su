@@ -1,17 +1,15 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import "../style/qrpage.css";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import jsQR from "jsqr";
 import axios from "axios";
 
 export default function QrPage() {
-  const [permissionGranted, setPermissionGranted] = useState(false);
   const [qrData, setQrData] = useState(null);
-
   const navigate = useNavigate();
   const videoRef = useRef(null);
   const streamRef = useRef(null);
+  const [permissionGranted, setPermissionGranted] = useState(false);
 
   const handleQrScan = useCallback(
     async (data) => {
@@ -33,27 +31,19 @@ export default function QrPage() {
 
   const startQrScanning = useCallback(() => {
     const video = videoRef.current;
-    const canvasElement = document.getElementById("canvas");
-    const canvas = canvasElement.getContext("2d");
+    const canvas = document.createElement("canvas");
+    const canvasContext = canvas.getContext("2d");
+
     const scan = () => {
       if (video.readyState === video.HAVE_ENOUGH_DATA) {
-        canvasElement.height = video.videoHeight;
-        canvasElement.width = video.videoWidth;
-        canvas.save();
-        canvas.scale(-1, 1); // 좌우 반전
-        canvas.drawImage(
-          video,
-          -canvasElement.width,
-          0,
-          canvasElement.width,
-          canvasElement.height
-        );
-        canvas.restore();
-        const imageData = canvas.getImageData(
+        canvas.height = video.videoHeight;
+        canvas.width = video.videoWidth;
+        canvasContext.drawImage(video, 0, 0, canvas.width, canvas.height);
+        const imageData = canvasContext.getImageData(
           0,
           0,
-          canvasElement.width,
-          canvasElement.height
+          canvas.width,
+          canvas.height
         );
         const code = jsQR(imageData.data, imageData.width, imageData.height);
         if (code) {
@@ -104,17 +94,16 @@ export default function QrPage() {
       </Link>
       <p className="qrText">QR 코드를 촬영해주세요</p>
       <div className="qrZone">
-        {qrData ? (
-          <p>QR 코드 데이터: {qrData}</p>
-        ) : (
-          <canvas id="canvas" width="300" height="300"></canvas>
+        {permissionGranted && (
+          <video
+            ref={videoRef}
+            style={{ width: "100%" }}
+            playsInline
+            autoPlay
+          />
         )}
+        {qrData && <p>QR 코드 데이터: {qrData}</p>}
       </div>
-      <video
-        ref={videoRef}
-        style={{ display: permissionGranted ? "block" : "none" }}
-        playsInline
-      />
     </div>
   );
 }
