@@ -37,13 +37,13 @@
   font-size: 18px;
 }
 .qrZone {
-  position: relative;
   width: 400px;
   height: 400px;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 50px;
 }
 
 #canvas {
