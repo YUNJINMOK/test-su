@@ -3,6 +3,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import jsQR from "jsqr";
 import "../style/qrpage.css";
+import axios from "axios"; // axios 추가
 
 export default function QrPage() {
   const [permissionGranted, setPermissionGranted] = useState(null);
@@ -46,6 +47,25 @@ export default function QrPage() {
       }
     };
   }, [permissionGranted, videoStream]);
+
+  useEffect(() => {
+    if (qrData) {
+      // qrData가 변경될 때마다 서버에 데이터 전송
+      sendDataToServer(qrData);
+    }
+  }, [qrData]);
+
+  const sendDataToServer = async (data) => {
+    try {
+      const response = await axios.post(
+        "https://port-0-sumokwonserver-17xco2nlstnj7hw.sel5.cloudtype.app/users/testQr",
+        { data }
+      ); // 서버 엔드포인트와 데이터 전송
+      console.log("데이터 전송 완료:", response.data);
+    } catch (error) {
+      console.error("데이터 전송 중 오류 발생:", error);
+    }
+  };
 
   useEffect(() => {
     if (permissionGranted === true && videoStream) {
