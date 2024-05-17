@@ -3,19 +3,19 @@ import "../style/qrpage.css";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import jsQR from "jsqr";
-
 export default function QrPage() {
   const [permissionGranted, setPermissionGranted] = useState(false);
   const [qrData, setQrData] = useState(null);
-  console.log(permissionGranted);
 
+  console.log(permissionGranted);
   useEffect(() => {
     const requestCameraPermission = async () => {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
-          video: true,
+          video: {
+            facingMode: "environment", // 셀카 모드로 설정
+          },
         });
-        console.log(stream);
         // 카메라 액세스 허용됨
         setPermissionGranted(true);
         startQrScanning(stream);
@@ -24,30 +24,29 @@ export default function QrPage() {
         console.error("카메라 액세스 거부:", error);
       }
     };
-
     requestCameraPermission();
   }, []);
-
   const startQrScanning = (stream) => {
     const video = document.createElement("video");
     video.srcObject = stream;
     video.setAttribute("playsinline", true);
     video.play();
-
     const canvasElement = document.getElementById("canvas");
     const canvas = canvasElement.getContext("2d");
-
     const scan = () => {
       if (video.readyState === video.HAVE_ENOUGH_DATA) {
         canvasElement.height = video.videoHeight;
         canvasElement.width = video.videoWidth;
+        canvas.save();
+        canvas.scale(-1, 1); // 좌우 반전
         canvas.drawImage(
           video,
-          0,
+          -canvasElement.width,
           0,
           canvasElement.width,
           canvasElement.height
         );
+        canvas.restore();
         const imageData = canvas.getImageData(
           0,
           0,
@@ -63,7 +62,6 @@ export default function QrPage() {
     };
     requestAnimationFrame(scan);
   };
-
   return (
     <div className="qrSection">
       <Link to="/home" className="qrArrow">
@@ -71,12 +69,10 @@ export default function QrPage() {
       </Link>
       <p className="qrText">QR 코드를 촬영해주세요</p>
       <div className="qrZone">
-        <p>화면을 인식 중입니다</p>
-        <canvas id="canvas" width="350" height="350"></canvas>
         {qrData ? (
           <p>QR 코드 데이터: {qrData}</p>
         ) : (
-          <canvas id="canvas" width="300" height="300"></canvas>
+          <canvas id="canvas" width="400" height="400"></canvas>
         )}
       </div>
     </div>
