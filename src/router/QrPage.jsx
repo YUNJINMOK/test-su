@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
-import "../style/qrpage.css";
+
 import { IoIosArrowBack } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import jsQR from "jsqr";
@@ -112,10 +112,10 @@ export default function QrPage() {
         className="qrZone"
         style={{
           position: "relative",
-          width: "300px",
-          height: "300px",
+          width: "350px",
+          height: "350px",
           overflow: "hidden",
-          paddingTop: "30px",
+          paddingTop: "50px",
         }}
       >
         {permissionGranted !== false && (
@@ -124,22 +124,11 @@ export default function QrPage() {
               ref={videoRef}
               autoPlay
               playsInline
-              style={{
-                position: "absolute",
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                zIndex: 2,
-              }}
+              className="absolute inset-0 w-full h-full object-cover z-1 "
             ></video>
             <canvas
               ref={canvasRef}
-              style={{
-                position: "absolute",
-                width: "100%",
-                height: "100%",
-                zIndex: 1,
-              }}
+              className="absolute inset-0 w-full h-full object-cover"
             ></canvas>
           </>
         )}
