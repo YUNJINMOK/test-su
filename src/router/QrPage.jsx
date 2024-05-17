@@ -129,7 +129,7 @@ export default function QrPage() {
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                zIndex: 1,
+                zIndex: 2,
               }}
             ></video>
             <canvas
@@ -138,7 +138,7 @@ export default function QrPage() {
                 position: "absolute",
                 width: "100%",
                 height: "100%",
-                zIndex: 2,
+                zIndex: 1,
               }}
             ></canvas>
           </>
