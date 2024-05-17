@@ -102,7 +102,7 @@ export default function QrPage() {
 
       requestAnimationFrame(scan);
     }
-  }, [permissionGranted, videoStream]);
+  }, [permissionGranted, videoStream, userId]);
 
   return (
     <div className="qrSection">
