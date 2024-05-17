@@ -80,7 +80,7 @@ export default function QrPage() {
             ref={videoRef}
             autoPlay
             playsInline
-            style={{ display: "none" }}
+            style={{ display: permissionGranted ? "block" : "none" }}
           ></video>
         )}
       </div>
