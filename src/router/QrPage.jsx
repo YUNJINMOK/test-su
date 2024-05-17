@@ -13,7 +13,7 @@ export default function QrPage() {
   const canvasRef = useRef(null);
 
   const userData = JSON.parse(sessionStorage.getItem("userData"));
-  const userId = userData.user_id;
+  const userId = JSON.stringify(userData.user_id);
   console.log(userId);
 
   useEffect(() => {
@@ -59,18 +59,11 @@ export default function QrPage() {
     }
   }, [qrData]);
 
-  const sendDataToServer = async (data, userId) => {
-    const payload = {
-      data: data,
-      userId: userId,
-    };
-
-    console.log("전송할 데이터:", payload); // 전송할 데이터 확인
-
+  const sendDataToServer = async (data) => {
     try {
       const response = await axios.post(
         "https://port-0-sumokwonserver-17xco2nlstnj7hw.sel5.cloudtype.app/users/testQr",
-        payload
+        data
       );
       console.log("데이터 전송 완료:", response.data);
     } catch (error) {
@@ -101,7 +94,7 @@ export default function QrPage() {
           );
           const code = jsQR(imageData.data, imageData.width, imageData.height);
           if (code) {
-            setQrData(code.data);
+            setQrData(code.data, userId);
           }
         }
         requestAnimationFrame(scan);
