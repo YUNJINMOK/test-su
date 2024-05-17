@@ -17,7 +17,7 @@ export default function QrPage() {
         console.log("서버로 데이터 전송 중:", data);
         const response = await axios.post("/users/testqr", { qrData: data });
         console.log("서버 응답:", response.data);
-
+        setQrData(data);
         setTimeout(() => {
           navigate("/stamp");
         }, 1000);
@@ -46,7 +46,6 @@ export default function QrPage() {
         );
         const code = jsQR(imageData.data, imageData.width, imageData.height);
         if (code) {
-          setQrData(code.data);
           handleQrScan(code.data);
         }
       }
