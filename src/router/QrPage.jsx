@@ -45,7 +45,7 @@ export default function QrPage() {
 
         // 서버로 데이터 전송
         try {
-          await axios.post("/api/qrcode", { qrData: data });
+          await axios.post("/users/testqr", { qrData: data });
           console.log("데이터 전송 성공");
           setShowSuccess(true);
 
