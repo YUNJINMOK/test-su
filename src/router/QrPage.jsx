@@ -12,6 +12,10 @@ export default function QrPage() {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
+  const userData = JSON.parse(sessionStorage.getItem("userData"));
+  const userId = userData.user_id;
+  console.log(userId);
+
   useEffect(() => {
     const requestCameraPermission = async () => {
       try {
@@ -55,11 +59,11 @@ export default function QrPage() {
     }
   }, [qrData]);
 
-  const sendDataToServer = async (data) => {
+  const sendDataToServer = async (data, userId) => {
     try {
       const response = await axios.post(
         "https://port-0-sumokwonserver-17xco2nlstnj7hw.sel5.cloudtype.app/users/testQr",
-        { data }
+        { data, userId }
       ); // 서버 엔드포인트와 데이터 전송
       console.log("데이터 전송 완료:", response.data);
     } catch (error) {
