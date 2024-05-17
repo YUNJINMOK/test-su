@@ -15,7 +15,7 @@ export default function QrPage({ history }) {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
           video: {
-            facingMode: "environment", // 셀카 모드로 설정
+            facingMode: "environment", // 환경 모드 설정
           },
         });
         // 카메라 액세스 허용됨
@@ -62,8 +62,10 @@ export default function QrPage({ history }) {
         );
         const code = jsQR(imageData.data, imageData.width, imageData.height);
         if (code) {
-          // QR 코드를 스캔했을 때 처리
+          console.log("QR 코드 스캔 성공:", code.data);
           handleQrScan(code.data);
+        } else {
+          console.log("QR 코드 스캔 실패");
         }
       }
       requestAnimationFrame(scan);
@@ -73,8 +75,9 @@ export default function QrPage({ history }) {
 
   const handleQrScan = async (data) => {
     try {
-      // 서버로 데이터 전송
-      await axios.post("/users/testQr", { qrData: data });
+      console.log("서버로 데이터 전송 중:", data);
+      const response = await axios.post("/users/testQr", { qrData: data });
+      console.log("서버 응답:", response);
 
       // 방문 완료 알림 표시 후 스탬프 페이지로 이동
       alert("방문 완료");
@@ -101,6 +104,7 @@ export default function QrPage({ history }) {
       {permissionGranted === false && (
         <p className="qrText">카메라 액세스 권한이 거부되었습니다.</p>
       )}
+
       <div
         className="qrZone"
         style={{
