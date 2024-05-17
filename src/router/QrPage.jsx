@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
-
+import "../style/qr.css";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import jsQR from "jsqr";
@@ -108,33 +108,32 @@ export default function QrPage() {
         <p className="qrText">카메라 액세스 권한이 거부되었습니다.</p>
       )}
 
-      <div
-        className="qrZone"
-        style={{
-          position: "relative",
-          width: "350px",
-          height: "350px",
-          overflow: "hidden",
-          paddingTop: "50px",
-        }}
-      >
-        {permissionGranted !== false && (
-          <>
+      <div className="qrZone">
+        <div className="videoWrapper">
+          {permissionGranted !== false && (
             <video
               ref={videoRef}
               autoPlay
               playsInline
-              className="absolute inset-0 w-full h-full object-cover z-1 "
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
             ></video>
+          )}
+          {permissionGranted !== false && (
             <canvas
               ref={canvasRef}
-              className="absolute inset-0 w-full h-full object-cover"
+              style={{
+                width: "100%",
+                height: "100%",
+              }}
             ></canvas>
-          </>
-        )}
+          )}
+        </div>
+        {scannedData && <div className="qrSuccessMessage">방문 완료</div>}
       </div>
-
-      {scannedData && <div className="qrSuccessMessage">방문 완료</div>}
     </div>
   );
 }
