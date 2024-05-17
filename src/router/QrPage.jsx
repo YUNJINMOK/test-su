@@ -1,14 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import "../style/qrpage.css";
 import { IoIosArrowBack } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import jsQR from "jsqr";
 import axios from "axios";
 
-export default function QrPage({ history }) {
+export default function QrPage() {
   const [permissionGranted, setPermissionGranted] = useState(null);
+  const [scannedData, setScannedData] = useState(null);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const requestCameraPermission = async () => {
@@ -34,11 +36,28 @@ export default function QrPage({ history }) {
     if (permissionGranted === null) {
       requestCameraPermission();
     }
+  }, [permissionGranted]);
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const handleQrScan = useCallback(
+    async (data) => {
+      try {
+        console.log("서버로 데이터 전송 중:", data);
+        const response = await axios.post("/users/testQr", { qrData: data });
+        console.log("서버 응답:", response);
 
-  const startQrScanning = () => {
+        // 방문 완료 알림 표시 후 스탬프 페이지로 이동
+        setScannedData(data);
+        setTimeout(() => {
+          navigate("/stamp");
+        }, 1000);
+      } catch (error) {
+        console.error("서버로 데이터 전송 중 오류 발생:", error);
+      }
+    },
+    [navigate]
+  );
+
+  const startQrScanning = useCallback(() => {
     if (!permissionGranted) return;
 
     const video = videoRef.current;
@@ -71,29 +90,13 @@ export default function QrPage({ history }) {
       requestAnimationFrame(scan);
     };
     requestAnimationFrame(scan);
-  };
-
-  const handleQrScan = async (data) => {
-    try {
-      console.log("서버로 데이터 전송 중:", data);
-      const response = await axios.post("/users/testQr", { qrData: data });
-      console.log("서버 응답:", response);
-
-      // 방문 완료 알림 표시 후 스탬프 페이지로 이동
-      alert("방문 완료");
-      history.push("/stamp");
-    } catch (error) {
-      console.error("서버로 데이터 전송 중 오류 발생:", error);
-    }
-  };
+  }, [permissionGranted, handleQrScan]);
 
   useEffect(() => {
     if (permissionGranted === true) {
       startQrScanning();
     }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [permissionGranted]);
+  }, [permissionGranted, startQrScanning]);
 
   return (
     <div className="qrSection">
@@ -112,32 +115,35 @@ export default function QrPage({ history }) {
           width: "300px",
           height: "300px",
           overflow: "hidden",
+          paddingTop: "30px",
         }}
       >
         {permissionGranted !== false && (
-          <video
-            ref={videoRef}
-            autoPlay
-            playsInline
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-            }}
-          ></video>
-        )}
-        {permissionGranted !== false && (
-          <canvas
-            ref={canvasRef}
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-            }}
-          ></canvas>
+          <>
+            <video
+              ref={videoRef}
+              autoPlay
+              playsInline
+              style={{
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            ></video>
+            <canvas
+              ref={canvasRef}
+              style={{
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+              }}
+            ></canvas>
+          </>
         )}
       </div>
+
+      {scannedData && <div className="qrSuccessMessage">방문 완료</div>}
     </div>
   );
 }
