@@ -115,24 +115,14 @@ export default function QrPage() {
               ref={videoRef}
               autoPlay
               playsInline
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-              }}
+              className="video"
             ></video>
           )}
           {permissionGranted !== false && (
-            <canvas
-              ref={canvasRef}
-              style={{
-                width: "100%",
-                height: "100%",
-              }}
-            ></canvas>
+            <canvas ref={canvasRef} className="canvas"></canvas>
           )}
+          {scannedData && <div className="qrSuccessMessage">방문 완료</div>}
         </div>
-        {scannedData && <div className="qrSuccessMessage">방문 완료</div>}
       </div>
     </div>
   );
