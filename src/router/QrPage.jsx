@@ -60,10 +60,11 @@ export default function QrPage() {
   }, [qrData]);
 
   const sendDataToServer = async (data, userId) => {
+    const userid = { userId };
     try {
       const response = await axios.post(
         "https://port-0-sumokwonserver-17xco2nlstnj7hw.sel5.cloudtype.app/users/testQr",
-        { data, userId }
+        { data, userid }
       ); // 서버 엔드포인트와 데이터 전송
       console.log("데이터 전송 완료:", response.data);
     } catch (error) {
