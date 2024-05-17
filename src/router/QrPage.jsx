@@ -97,7 +97,7 @@ export default function QrPage() {
         {permissionGranted && (
           <video
             ref={videoRef}
-            style={{ width: "100%" }}
+            style={{ width: "100%", height: "100%" }}
             playsInline
             autoPlay
           />
