@@ -7,7 +7,7 @@ import axios from "axios";
 
 export default function QrPage() {
   const [permissionGranted, setPermissionGranted] = useState(null);
-  const [scannedData, setScannedData] = useState(null);
+  const [showSuccess, setShowSuccess] = useState(false);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const navigate = useNavigate();
@@ -40,18 +40,22 @@ export default function QrPage() {
 
   const handleQrScan = useCallback(
     async (data) => {
-      try {
-        console.log("서버로 데이터 전송 중:", data);
-        const response = await axios.post("/users/testQr", { qrData: data });
-        console.log("서버 응답:", response);
+      if (data) {
+        console.log("스캔 완료:", data);
 
-        // 방문 완료 알림 표시 후 스탬프 페이지로 이동
-        setScannedData(data);
-        setTimeout(() => {
-          navigate("/stamp");
-        }, 1000);
-      } catch (error) {
-        console.error("서버로 데이터 전송 중 오류 발생:", error);
+        // 서버로 데이터 전송
+        try {
+          await axios.post("/api/qrcode", { qrData: data });
+          console.log("데이터 전송 성공");
+          setShowSuccess(true);
+
+          // 1초 후에 스탬프 페이지로 이동
+          setTimeout(() => {
+            navigate("/stamp");
+          }, 1000);
+        } catch (error) {
+          console.error("데이터 전송 중 오류 발생:", error);
+        }
       }
     },
     [navigate]
@@ -81,7 +85,7 @@ export default function QrPage() {
         );
         const code = jsQR(imageData.data, imageData.width, imageData.height);
         if (code) {
-          <p>스캔에성공했습니다</p>;
+          console.log("QR 코드 스캔 성공:", code.data);
           handleQrScan(code.data);
         } else {
           console.log("QR 코드 스캔 실패");
@@ -121,7 +125,7 @@ export default function QrPage() {
           {permissionGranted !== false && (
             <canvas ref={canvasRef} className="canvas"></canvas>
           )}
-          {scannedData && <div className="qrSuccessMessage">방문 완료</div>}
+          {showSuccess && <div className="qrSuccessMessage">방문 완료</div>}
         </div>
       </div>
     </div>
