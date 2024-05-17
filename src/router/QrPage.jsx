@@ -9,8 +9,6 @@ export default function QrPage() {
   const [permissionGranted, setPermissionGranted] = useState(false);
   const [qrData, setQrData] = useState(null);
 
-  console.log(permissionGranted);
-
   const navigate = useNavigate();
   const videoRef = useRef(null);
   const streamRef = useRef(null);
@@ -69,7 +67,6 @@ export default function QrPage() {
   }, [handleQrScan]);
 
   useEffect(() => {
-    // 컴포넌트가 마운트될 때만 실행
     const requestCameraPermission = async () => {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
@@ -77,25 +74,21 @@ export default function QrPage() {
             facingMode: "environment", // 셀카 모드로 설정
           },
         });
-        // 카메라 액세스 허용됨
         setPermissionGranted(true);
         streamRef.current = stream;
         videoRef.current.srcObject = stream;
         videoRef.current.play();
         startQrScanning();
       } catch (error) {
-        // 권한 거부 또는 오류 발생
         console.error("카메라 액세스 거부:", error);
       }
     };
 
     if (!permissionGranted) {
-      // 권한이 없을 때만 요청
       requestCameraPermission();
     }
 
     return () => {
-      // 컴포넌트가 언마운트될 때 스트림 정리
       const stream = streamRef.current;
       if (stream) {
         const tracks = stream.getTracks();
