@@ -13,7 +13,7 @@ export default function QrPage() {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
           video: {
-            facingMode: "environment", // 셀카 모드로 설정
+            facingMode: "environment",
           },
         });
         // 카메라 액세스 허용됨
@@ -38,7 +38,7 @@ export default function QrPage() {
         canvasElement.height = video.videoHeight;
         canvasElement.width = video.videoWidth;
         canvas.save();
-        canvas.scale(-1, 1); // 좌우 반전
+        canvas.scale(1, -1); // 좌우 반전
         canvas.drawImage(
           video,
           -canvasElement.width,
