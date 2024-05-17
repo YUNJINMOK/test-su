@@ -15,10 +15,9 @@ export default function QrPage() {
     async (data) => {
       try {
         console.log("서버로 데이터 전송 중:", data);
-        const response = await axios.post("/api/visit", { qrData: data });
+        const response = await axios.post("/users/testqr", { qrData: data });
         console.log("서버 응답:", response.data);
 
-        console.log("방문 완료");
         setTimeout(() => {
           navigate("/stamp");
         }, 1000);
