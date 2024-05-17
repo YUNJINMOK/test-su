@@ -7,7 +7,7 @@ import axios from "axios"; // axios 추가
 
 export default function QrPage() {
   const [permissionGranted, setPermissionGranted] = useState(null);
-  const [qrData, setQrData] = useState(null);
+  const [qrData, setQrData] = useState({});
   const [videoStream, setVideoStream] = useState(null);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
